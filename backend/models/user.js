@@ -4,8 +4,17 @@ const UserSchema = Schema({
   name: {type: String, required: [true, 'Name is required']},
   mail: {type: String, required: [true, 'Mail is required'], unique: true},
   password: {type: String, required: [true, 'Password is required']},
-  img: {type: String},
+  // img: {type: String},
   role: {type: String, required: true, default: 'USER_ROLE', enum: ['ADMIN_ROLE', 'USER_ROLE', 'SALES_ROLE']},
+  surname1: {type: String, required: false},
+  surname2: {type: String, required: false},
+  telephone: {type: Number, required: false},
+  // telephone2: {type: Number, required:false},
+  // identityNumber: {type: String, required: false},
+  // bankAccount: {type: String, required: [true, 'Bank account is required']},
+  // address: {type: String, required: false},
+  // zipCode: {type: String, required: false},
+  // region: {type: String, required: false},
   state: {type: Boolean, default: true},
   google: {type: Boolean, default: false}
 })

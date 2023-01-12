@@ -5,6 +5,7 @@ const ProductSchema = Schema({
   price: { type: Number, required: [true, 'Price is required'] },
   description: { type: String },
   category: { type: String, required: [true, 'Category is required'] },
+  stars: { type: Number, required: [true, 'Stars are required'] },
   image: { type: String },
   state: {type: Boolean, default: true}
 });

@@ -51,8 +51,8 @@ const login = async(req, res = response ) => {
 
 const register = async(req, res = response) => {
 
-  const { name, mail, password } = req.body
-  const user = new User({ name, mail, password })
+  const { name, mail, password, role, surname1, surname2, telephone } = req.body
+  const user = new User({ name, mail, password, role, surname1, surname2, telephone })
 
   // Verify if mail exists or not
   const userNotExists = await User.findOne({ mail })
