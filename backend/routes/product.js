@@ -1,0 +1,54 @@
+const { Router } = require('express')
+const { check } = require('express-validator')
+
+//middlewares
+const { validateFields, validateJWT, haveRole, isAdminRole } = require('../middlewares/index')
+
+const { productsGet, productGet, productsPost, productsPut, productsDelete, productExists } = require('../controllers/products')
+const { productExistsById, isRoleValid, userExistsById } = require('../helpers/db-validators')
+
+const router = Router()
+
+router.get('/', productsGet)
+
+router.get('/individual/:id', [
+  check('id', 'This is not a valid ID').isMongoId(),
+  check('id', 'ID is required').not().isEmpty(),
+  validateFields
+], productGet)
+
+router.post('/', [
+  validateJWT,
+  isAdminRole, //check if role of the user is ADMIN_ROLE //send token
+  check('title', 'Title of the product is required').not().isEmpty(),
+  check('price', 'Price is required').not().isEmpty(),
+  check('category', 'Category is required').not().isEmpty(),
+  validateFields
+], productsPost)
+
+router.post('/:id', [
+  check('id', 'This is not a valid ID').isMongoId(),
+  check('id', 'ID is required').not().isEmpty(),
+  validateFields
+], productExists)
+
+
+router.put('/:id',[
+  validateJWT,
+  isAdminRole, //check if role of the user is ADMIN_ROLE //send token
+  check('id', 'This is not a valid Id').isMongoId(),
+  validateFields
+], productsPut)
+
+
+router.delete('/:id', [
+  validateJWT,
+  isAdminRole,
+  //haveRole('ADMIN_ROLE', 'SALES_ROLE'), //required one of these roles
+  check('id', 'This is not a valid ID').isMongoId(),
+  check('id').custom(productExistsById),
+  validateFields
+], productsDelete)
+
+
+module.exports = router
