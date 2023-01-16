@@ -5,9 +5,11 @@ const ProductSchema = Schema({
   price: { type: Number, required: [true, 'Price is required'] },
   description: { type: String },
   category: { type: String, required: [true, 'Category is required'] },
+  stock: { type: Number, required: [true, 'Stock is required'] },
   stars: { type: Number, required: [true, 'Stars are required'] },
   image: { type: String },
-  state: {type: Boolean, default: true}
+  state: {type: Boolean, default: true},
+  user: { type: String, required: [true, 'User of the product is required'] },
 });
 
 ProductSchema.methods.toJSON = function () {

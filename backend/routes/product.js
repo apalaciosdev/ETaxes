@@ -2,7 +2,7 @@ const { Router } = require('express')
 const { check } = require('express-validator')
 
 //middlewares
-const { validateFields, validateJWT, haveRole, isAdminRole } = require('../middlewares/index')
+const { validateFields, validateJWT, haveRole, isAdminRole, isSalesRole } = require('../middlewares/index')
 
 const { productsGet, productGet, productsPost, productsPut, productsDelete, productExists } = require('../controllers/products')
 const { productExistsById, isRoleValid, userExistsById } = require('../helpers/db-validators')
@@ -19,7 +19,7 @@ router.get('/individual/:id', [
 
 router.post('/', [
   validateJWT,
-  isAdminRole, //check if role of the user is ADMIN_ROLE //send token
+  isSalesRole, //check if role of the user is ADMIN_ROLE or SALES_ROLE //send token
   check('title', 'Title of the product is required').not().isEmpty(),
   check('price', 'Price is required').not().isEmpty(),
   check('category', 'Category is required').not().isEmpty(),
@@ -35,7 +35,7 @@ router.post('/:id', [
 
 router.put('/:id',[
   validateJWT,
-  isAdminRole, //check if role of the user is ADMIN_ROLE //send token
+  isSalesRole, //check if role of the user is ADMIN_ROLE //send token
   check('id', 'This is not a valid Id').isMongoId(),
   validateFields
 ], productsPut)
@@ -43,7 +43,7 @@ router.put('/:id',[
 
 router.delete('/:id', [
   validateJWT,
-  isAdminRole,
+  isSalesRole,
   //haveRole('ADMIN_ROLE', 'SALES_ROLE'), //required one of these roles
   check('id', 'This is not a valid ID').isMongoId(),
   check('id').custom(productExistsById),

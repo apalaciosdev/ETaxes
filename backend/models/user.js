@@ -9,12 +9,19 @@ const UserSchema = Schema({
   surname1: {type: String, required: false},
   surname2: {type: String, required: false},
   telephone: {type: Number, required: false},
+  gender: {type: String, required: true, default: 'M', enum: ['M', 'F', 'NB']},
   // telephone2: {type: Number, required:false},
   // identityNumber: {type: String, required: false},
   // bankAccount: {type: String, required: [true, 'Bank account is required']},
-  // address: {type: String, required: false},
-  // zipCode: {type: String, required: false},
-  // region: {type: String, required: false},
+  address: {type: String, required: false},
+  zipCode: {type: String, required: false},
+  region: {type: String, required: false},
+  
+  billingAddress: {type: String, required: false},
+  billingZipCode: {type: String, required: false},
+  billingRegion: {type: String, required: false},
+
+
   state: {type: Boolean, default: true},
   google: {type: Boolean, default: false}
 })
