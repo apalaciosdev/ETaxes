@@ -1,0 +1,94 @@
+<section class="container my-5">
+
+
+
+  <h1>{{'welcomeMessage' | translate}} aaaaaaaaaaaaaa</h1>
+
+
+
+
+  <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
+    <div class="col-md-4">
+      <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Regístrate</span></h1>
+      <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">We will be in touch in 3 days!</p>
+      <ul class="list-unstyled pb-2 pb-lg-4">
+        <li class="mb-3 mb-lg-4">
+          <span class="d-block fs-sm fc-6">Working Time</span>
+          <p class="pb-1 mb-2 fs-115r">Mon ~ Fri 9:00 ~ 18:00<br>Sat 9:00 ~ 12:00</p>
+        </li>
+        <li class="mb-3 mb-lg-4">
+          <span class="d-block fs-sm fc-6">Phone</span>
+          <a href="tel:0282263730" class="fc-2 fs-115r px-0">01-2345-6789</a>
+        </li>
+        <li class="mb-3 mb-lg-4">
+          <span class="d-block fs-sm fc-6">Location</span>
+          <div class="text-nav fs-115r fw-medium mb-1">Kuantan, Pahang, Malaysia</div>
+          <a href="#" class="fs-sm fc-link"><u>Google Map</u></a>
+        </li>
+      </ul>
+    </div>
+    <form class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+      <div class="row">
+        <!-- <div class="col-sm-6 mb-4">
+          <label for="name" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
+          <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)">
+          <div class="invalid-feedback">Obligatiorio</div>
+        </div> -->
+        <div class="col-sm-6 mb-4">
+          <label for="surname1" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>1º Apellido</label>
+          <input type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <div class="invalid-feedback">Obligatiorio</div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="surname2" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>2º Apellido</label>
+          <input type="text" id="surname2" name="surname2" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <div class="invalid-feedback">Obligatiorio</div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Emaill</label>
+          <input type="email" id="email" name="Email" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
+        <div class="col-12 mb-4">
+          <label for="gender" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-gender-ambiguous me-2"></i>Gender</label><br>
+          <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="Gender" id="btnradio1" autocomplete="off" value="先生" checked="">
+            <label class="btn btn-outline-secondary" for="btnradio1"><i class="fa-solid bi bi-gender-male me-2"></i>Male</label>
+            <input type="radio" class="btn-check" name="Gender" id="btnradio3" autocomplete="off" value="小姐">
+            <label class="btn btn-outline-secondary" for="btnradio3"><i class="fa-solid bi bi-gender-female me-2"></i>Female</label>
+          </div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="phone" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
+          <input type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="subject" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-tags-fill me-2"></i>Tags</label>
+          <select id="subject" class="form-select form-select-lg" name="Subject" required="">
+            <option value="" selected="" disabled="">Please Select</option>
+            <option value="Appointment">Appointment</option>
+            <option value="Pricing">Pricing</option>
+            <option value="Suggestion">Suggestion</option>
+            <option value="Other">Other</option>
+          </select>
+          <div class="invalid-feedback">Required!</div>
+        </div>
+        <div class="col-12 mb-4">
+          <label for="message" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-pencil-square me-2"></i>Comment</label>
+          <textarea id="message" name="Message" class="form-control form-control-lg" rows="4" required="" placeholder="Write Comment Here..." maxlength="300"></textarea>
+          <div class="invalid-feedback">Required!</div>
+        </div>
+      </div>
+      <div class="g-recaptcha" data-sitekey="6LcLbMUfAAAAADl3ZYTYPESh3TD_yzth8raTOgo4" data-callback="verifyCaptcha">
+        <div style="width: 304px; height: 78px;">
+          <div><iframe title="reCAPTCHA" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LcLbMUfAAAAADl3ZYTYPESh3TD_yzth8raTOgo4&amp;co=aHR0cHM6Ly9jY2wuY29tLnR3OjQ0Mw..&amp;hl=en&amp;v=jF-AgDWy8ih0GfLx4Semh9UK&amp;size=normal&amp;cb=j8lh0k4kf73" width="304" height="78" role="presentation" name="a-y4fwkamq2mz0" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea>
+        </div><iframe style="display: none;"></iframe>
+      </div>
+      <div id="g-recaptcha-error"></div>
+      <br>
+      <button type="submit" class="btn btn-primary btn-lg me-3"><i class="fa-solid bi bi-send-fill me-2"></i>Send</button>
+      <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
+    </form>
+  </div>
+</section>
