@@ -1,12 +1,5 @@
 <section class="container my-5">
 
-
-
-  <h1>{{'welcomeMessage' | translate}} aaaaaaaaaaaaaa</h1>
-
-
-
-
   <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
     <div class="col-md-4">
       <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Regístrate</span></h1>
@@ -27,13 +20,14 @@
         </li>
       </ul>
     </div>
-    <form class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+    <form [formGroup]="registerForm" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+      <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
       <div class="row">
-        <!-- <div class="col-sm-6 mb-4">
+        <div class="col-sm-6 mb-4">
           <label for="name" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
-          <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)">
+          <input formControlName="name" [(ngModel)]="hola" type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
-        </div> -->
+        </div>
         <div class="col-sm-6 mb-4">
           <label for="surname1" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>1º Apellido</label>
           <input type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">

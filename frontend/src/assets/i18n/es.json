@@ -1,7 +1,26 @@
 {
-  "welcomeMessage": "Thanks for joining, {{ firstName }}! It's great to have you!",
   "login": {
     "username": "Enter your user name",
     "password": "Password here"
-  }
+  },
+  "errors": {
+		"generic": "Sha produït un problema tècnic, torni a intentar-ho més tard",
+		"senseMissatge": "",
+		"versioAnterior": "",
+		"mateixaVersio": "",
+		"campObligatoriBuit": "El camp és obligatori",
+		"campNumericMajor0": "El camp numèric ha de ser major a 0",
+		"campMalFormat": "Format del camp incorrecte",
+		"required": "El camp és obligatori",
+		"email": "Format incorrecte",
+		"pattern": "Format incorrecte",
+		"whiteSpaceLine": "Format incorrecte",
+		"maxlength": "Has excedit el màxim de caràcters",
+		"minlength": "Format incorrecte",
+		"maxlengthPermes": "Has arribat al màxim de caràcters",
+		"valueNoExist": "El valor introduït no existeix a la llista",
+		"introducedValueNoExist": "El requisit no existeix",
+		"errorInexistentTA": "El requisit no existeix ",
+		"number": "El camp ha de ser numèric"
+	}
 }

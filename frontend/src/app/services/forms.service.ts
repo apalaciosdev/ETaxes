@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class FormsService {
+ 
+  constructor(
+    private translate: TranslateService
+  ){}
 
-
-  public gestionarValidarErrors(form, marcarDirty?) {
+  public gestionarValidarErrors(form:any, marcarDirty?:any) {
     Object.keys(form.value).forEach(key => {
       setTimeout(() => {
         if (marcarDirty) {
@@ -19,7 +22,7 @@ export class FormsService {
         this.gestioValidarCamps(key, form);
       })
       if (key && !marcarDirty) {
-        form.get(key)?.valueChanges.subscribe((value, key1) => {
+        form.get(key)?.valueChanges.subscribe((value:any, key1:any) => {
           setTimeout(() => {
             this.gestioValidarCamps(key, form);
           })
@@ -29,7 +32,7 @@ export class FormsService {
   }
 
   
-  public gestioValidarCamps(key1, form) {
+  public gestioValidarCamps(key1:any, form:any) {
     let divTag = document.getElementById(key1)?.parentElement;
     let inputTag = document.getElementById(key1) as HTMLInputElement | null;
     let oldSpan = document.getElementById(`error-campo-mensaje-${key1}`);
@@ -58,7 +61,7 @@ export class FormsService {
     }
   }
 
-  public gestioErrors(spanTag, key1, inputTag, form, divTag) {
+  public gestioErrors(spanTag:any, key1:any, inputTag:any, form:any, divTag:any) {
 
     spanTag.innerHTML = this.ordenarErrors(Object.keys(form.controls[key1].errors));
     if (form.controls[key1]?.dirty) {
@@ -71,7 +74,7 @@ export class FormsService {
     }
   }
 
-  public gestioValid(spanTag, inputTag, warningTag, divTag, key1, form) {
+  public gestioValid(spanTag:any, inputTag:any, warningTag:any, divTag:any, key1:any, form:any) {
     spanTag.innerHTML = this.translate.instant('errors.required');
 
     if (inputTag?.maxLength && inputTag?.maxLength === inputTag?.value?.length && inputTag?.classList.contains('ng-touched')) {
@@ -86,7 +89,7 @@ export class FormsService {
     divTag.append(spanTag);
   }
 
-  public ordenarErrors(errors) {
+  public ordenarErrors(errors:any) {
     if (errors.includes('required')) {
       return this.translate.instant('errors.required');
     }

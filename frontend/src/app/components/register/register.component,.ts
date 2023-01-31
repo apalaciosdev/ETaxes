@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { User } from 'src/assets/models/user';
+import { FormsService } from '../../services/forms.service';
 
 
-import { TranslateService } from '@ngx-translate/core';
+
+
 
 
 @Component({
@@ -13,21 +16,50 @@ import { TranslateService } from '@ngx-translate/core';
 })
 
 
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
   public user: User;
 
-  constructor(translate: TranslateService){
+  public registerForm!: FormGroup;
+
+  public paramsModal: {
+    name: string,
+    surname1: string,
+
+  
+  };
+
+  public hola: string = "";
+
+  constructor(
+    public readonly formBuilder: FormBuilder,
+    public readonly service: FormsService,
+  ){
     this.user = new User("", 0, "", "", "");
 
-    translate.use('es');
-  }
-
-
-  ngOnInit() {
     
   }
 
 
+  ngOnInit() {
+    this.initForm()
+    
+    this.registerForm = this.formBuilder.group({
+      name: ['', [Validators.required]],
+      // surname1: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
+      // surname2: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
+      
+      
+    });
+  
+  
+  
+    this.service.gestionarValidarErrors(this.registerForm);
+  }
+
+
+  private initForm() {
+
+  }
 
 
   // Validation

@@ -24,7 +24,7 @@ import { HomeComponent } from './components/home/home.component,';
 import { NavbarComponent } from './components/navbar/navbar.component,';
 import { MarketplaceComponent } from './components/marketplace/marketplace.component,';
 import { RegisterComponent } from './components/register/register.component,';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -48,6 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppRoutingModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {

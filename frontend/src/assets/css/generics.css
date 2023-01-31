@@ -1,6 +1,4 @@
 
-/*GENERAL STYLES*/
-
 h1{
   font-family: 'Montserrat', sans-serif;
   font-weight: bold !important;
@@ -91,3 +89,119 @@ body {
   color: orange;
 }
 
+
+
+
+.input-error{
+  border: red;
+  color: red;
+}
+
+
+.error-campo-mensaje {
+	color: var(--main-color) !important;
+	width: auto;
+	text-align: right;
+	font-size: 0.875em !important;
+}
+
+.error-campo-mensaje:empty {
+	display: none;
+}
+
+span#error-campo-mensaje-mesos,
+span#error-campo-mensaje-dies,
+span#error-campo-mensaje-hores {
+	text-align: right;
+	width: 40%;
+}
+
+.error-campo {
+	border: solid 1px var(--main-color);
+	border-left: solid 3px var(--main-color);
+	color: var(--main-color);
+}
+
+.error-campo-checked {
+	border: solid 1px var(--main-color);
+	border-left: solid 3px var(--main-color);
+	color: var(--main-color);
+}
+
+.ok-campo {
+	border: solid 1px --succes;
+	border-left: solid 3px --succes;
+	border-radius: 0.2em;
+	/* //color: var(--main-color); */
+}
+
+.ok-campo-div > span {
+	color: transparent;
+	text-shadow: 0 0 0 --activat;
+}
+
+
+
+:root {
+  --main-bg-color: brown;
+  --white: #FFFFFF;
+--black: #000000;
+
+--yellow: #FEBF00;
+
+--grey1: #F5F5F5;
+--grey2: #DDDDDD;
+--grey3: #999999;
+--grey4: #666666;
+--grey5: #333333;
+--grey6: #afb6bd;
+--grey7: #ced4da;
+--grey8: #778899;
+--grey9: #706d6d;
+
+--border-content: #808080;
+--box-shadow-seccio: #15223214;
+--border-button: #dededf;
+--color-cercador: #00000066;
+--color-icon: #9a9a9a;
+--border-bottom-img: #00000029;
+--color-disabled: #f1f1f1;
+
+
+--vermell: #bf0000;
+--vermellClar: #ffcccc;
+--vermellFosc: #9d0000;
+
+--main-color: #C00000;
+--text-color: #333333;
+
+--color-icon-section: #FC4C00;
+
+
+--bg-header: --grey5;
+--text-header: --white;
+
+
+--bg-footer: --grey2;
+
+
+--shadow-box: 0px 0px 2px 0px;
+
+
+--bg-error: #FFCCCC;
+--bg-success: #CCFFCC;
+--bg-warning: lighten(--yellow, 40%);
+
+
+--progress-bar-color: #00BB00;
+
+
+--succes: #68A225; 
+--warning: #FAD40F;
+--error: #DF3133;
+
+
+--publicat: #EF6F25;
+--activat: #71A137;
+--verificat: #FF8000;
+}
