@@ -20,13 +20,8 @@ export class RegisterComponent implements OnInit{
   public user: User;
 
   public registerForm!: FormGroup;
+  public register: User;
 
-  public paramsModal: {
-    name: string,
-    surname1: string,
-
-  
-  };
 
   public hola: string = "";
 
@@ -34,31 +29,50 @@ export class RegisterComponent implements OnInit{
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
   ){
-    this.user = new User("", 0, "", "", "");
-
-    
+    this.register = {
+      name: "",
+      mail: "",
+      password: "",
+      surname1: "",
+      surname2: "",
+      telephone: "",
+      gender: "",
+      address: "",
+      zipCode: "",
+      region: "",
+      billingAddress: "",
+      billingZipCode: "",
+      billingRegion: ""
+    }; 
   }
 
 
   ngOnInit() {
     this.initForm()
     
-    this.registerForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      // surname1: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
-      // surname2: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(6)]],
-      
-      
-    });
-  
-  
-  
-    this.service.gestionarValidarErrors(this.registerForm);
   }
 
 
   private initForm() {
+    if(this.register){
+      this.registerForm = this.formBuilder.group({
+        name: [this.register.name, [Validators.required]],
+        mail: [this.register.mail, [Validators.required]],
+        password: [this.register.password, [Validators.required]],
+        surname1: [this.register.surname1, [Validators.required]],
+        surname2: [this.register.surname2, [Validators.required]],
+        telephone: [this.register.telephone, [Validators.required]],
+        gender: [this.register.gender, [Validators.required]],
+        address: [this.register.address, [Validators.required]],
+        zipCode: [this.register.zipCode, [Validators.required]],
+        region: [this.register.region, [Validators.required]],
+        billingAddress: [this.register.billingAddress, [Validators.required]],
+        billingZipCode: [this.register.billingZipCode, [Validators.required]],
+        billingRegion: [this.register.billingRegion, [Validators.required]]
+      });
+    }
 
+    this.service.gestionarValidarErrors(this.registerForm);
   }
 
 

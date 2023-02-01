@@ -25,22 +25,22 @@
       <div class="row">
         <div class="col-sm-6 mb-4">
           <label for="name" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
-          <input formControlName="name" [(ngModel)]="hola" type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <input formControlName="name" [(ngModel)]="this.register.name" type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="surname1" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>1º Apellido</label>
-          <input type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <input formControlName="surname1" [(ngModel)]="this.register.surname1" type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="surname2" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>2º Apellido</label>
-          <input type="text" id="surname2" name="surname2" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <input formControlName="surname2" [(ngModel)]="this.register.surname2" type="text" id="surname2" name="surname2" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
-          <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Emaill</label>
-          <input type="email" id="email" name="Email" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
+          <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Email</label>
+          <input formControlName="mail" [(ngModel)]="this.register.mail" type="mail" id="mail" name="mail" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
         <div class="col-12 mb-4">
@@ -54,7 +54,7 @@
         </div>
         <div class="col-sm-6 mb-4">
           <label for="phone" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
-          <input type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
+          <input formControlName="telephone" [(ngModel)]="this.register.telephone" type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
         <div class="col-sm-6 mb-4">

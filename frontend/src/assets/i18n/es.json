@@ -11,7 +11,7 @@
 		"campObligatoriBuit": "El camp és obligatori",
 		"campNumericMajor0": "El camp numèric ha de ser major a 0",
 		"campMalFormat": "Format del camp incorrecte",
-		"required": "El camp és obligatori",
+		"required": "El campo es obligatorio",
 		"email": "Format incorrecte",
 		"pattern": "Format incorrecte",
 		"whiteSpaceLine": "Format incorrecte",

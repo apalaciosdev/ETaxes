@@ -8,7 +8,7 @@ const UserSchema = Schema({
   role: {type: String, required: true, default: 'USER_ROLE', enum: ['ADMIN_ROLE', 'USER_ROLE', 'SALES_ROLE']},
   surname1: {type: String, required: false},
   surname2: {type: String, required: false},
-  telephone: {type: Number, required: false},
+  telephone: {type: String, required: false},
   gender: {type: String, required: true, default: 'M', enum: ['M', 'F', 'NB']},
   // telephone2: {type: Number, required:false},
   // identityNumber: {type: String, required: false},
