@@ -54,22 +54,25 @@ export class FormsService {
     if (inputTag?.nodeName !== 'TABLE' && inputTag?.nodeName !== 'DIV') {
       if (form.controls[key1]?.errors) {
         this.gestioErrors(spanTag, key1, inputTag, form, divTag);
+
       } else {
         this.gestioValid(spanTag, inputTag, warningTag, divTag, key1, form)
-
+        
       }
     }
   }
-
+  
   public gestioErrors(spanTag:any, key1:any, inputTag:any, form:any, divTag:any) {
-
     spanTag.innerHTML = this.ordenarErrors(Object.keys(form.controls[key1].errors));
     if (form.controls[key1]?.dirty) {
       divTag?.append(spanTag);
       inputTag?.classList.add('ng-dirty');
       inputTag?.classList.add('ng-touched');
+      inputTag?.classList.add('error-campo');
+      inputTag?.classList.remove('ok-campo');
     } else {
       inputTag?.classList.remove('ng-dirty');
+      inputTag?.classList.remove('ok-campo');
       inputTag?.classList.remove('ng-valid');
     }
   }
@@ -80,7 +83,9 @@ export class FormsService {
     if (inputTag?.maxLength && inputTag?.maxLength === inputTag?.value?.length && inputTag?.classList.contains('ng-touched')) {
       this.checkMaxLength(warningTag, divTag, key1);
     }
+    inputTag?.classList.add('ok-campo');
     inputTag?.classList.add('ng-valid');
+    inputTag?.classList.remove('error-campo');
     inputTag?.classList.add('ng-touched');
   }
 

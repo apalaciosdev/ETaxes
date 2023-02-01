@@ -117,9 +117,9 @@ span#error-campo-mensaje-hores {
 }
 
 .error-campo {
-	border: solid 1px var(--main-color);
-	border-left: solid 3px var(--main-color);
-	color: var(--main-color);
+	border: solid 1px var(--main-color) !important;
+	border-left: solid 3px var(--main-color) !important;
+	color: var(--main-color) !important;
 }
 
 .error-campo-checked {
@@ -129,9 +129,9 @@ span#error-campo-mensaje-hores {
 }
 
 .ok-campo {
-	border: solid 1px --succes;
-	border-left: solid 3px --succes;
-	border-radius: 0.2em;
+	border: solid 1px var(--succes) !important;
+	border-left: solid 3px var(--succes) !important;
+	border-radius: 0.2em !important;
 	/* //color: var(--main-color); */
 }
 
