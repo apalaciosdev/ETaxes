@@ -53,8 +53,9 @@
           </div>
         </div>
         <div class="col-sm-6 mb-4">
-          <label for="phone" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
-          <input formControlName="telephone" [(ngModel)]="this.register.telephone" type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20">
+          <label for="telephone" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-telephone-fill me-2"></i>Phone</label>
+          <input type="tel" formControlName="telephone" id="telephone" name="telephone" [(ngModel)]="this.register.telephone" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}" pattern="[0-9\d\-*+#,;]*" class="form-control form-control-lg"/>
+          <!-- <input formControlName="telephone" [(ngModel)]="this.register.telephone" type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20"> -->
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
         <div class="col-sm-6 mb-4">
@@ -73,6 +74,10 @@
           <textarea id="message" name="Message" class="form-control form-control-lg" rows="4" required="" placeholder="Write Comment Here..." maxlength="300"></textarea>
           <div class="invalid-feedback">Required!</div>
         </div>
+
+        
+  
+  
       </div>
       <div class="g-recaptcha" data-sitekey="6LcLbMUfAAAAADl3ZYTYPESh3TD_yzth8raTOgo4" data-callback="verifyCaptcha">
         <div style="width: 304px; height: 78px;">

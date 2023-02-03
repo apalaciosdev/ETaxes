@@ -12,6 +12,7 @@ import { Observable, of } from 'rxjs';
 //Librerias de terceros
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {Ng2TelInputModule} from 'ng2-tel-input';
 
 
 
@@ -50,6 +51,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    Ng2TelInputModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
