@@ -49,7 +49,7 @@ const usersPut = async(req, res = response) => {
 
   //const id = req.params.id    //ex: http://localhost:2022/api/users/10   ->  id = 10
   const { id } = req.params
-  const { _id, password, google, mail,...rest } = req.body //exclude password, google and mail & modify the ...rest data
+  const { _id, password, google,...rest } = req.body //exclude password, google and mail & modify the ...rest data
 
   if(password){
     // Encrypt password

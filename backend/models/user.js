@@ -16,10 +16,12 @@ const UserSchema = Schema({
   address: {type: String, required: false},
   zipCode: {type: String, required: false},
   region: {type: String, required: false},
+  country: {type: String, required: false},
   
   billingAddress: {type: String, required: false},
   billingZipCode: {type: String, required: false},
   billingRegion: {type: String, required: false},
+  billingCountry: {type: String, required: false},
 
 
   state: {type: Boolean, default: true},
