@@ -15,8 +15,10 @@ export interface User{
   address: string,
   zipCode: string,
   region: string,
+  country: string,
   
   billingAddress: string,
   billingZipCode: string,
   billingRegion: string
+  billingCountry: string
 }

@@ -86,6 +86,12 @@
           <input formControlName="region" [(ngModel)]="this.register.region" type="number" id="region" name="region" class="form-control form-control-lg" required="" maxlength="100">
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
+     
+        <div class="col-sm-6 mb-4">
+          <label for="country" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>País</label>
+          <input formControlName="country" [(ngModel)]="this.register.country" type="number" id="country" name="country" class="form-control form-control-lg" required="" maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
         
         <div class="col-sm-6 mb-4">
           <label for="subject" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-tags-fill me-2"></i>Tags</label>

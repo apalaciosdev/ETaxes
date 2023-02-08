@@ -41,9 +41,11 @@ export class RegisterComponent implements OnInit{
       address: "",
       zipCode: "",
       region: "",
+      country: "",
       billingAddress: "",
       billingZipCode: "",
-      billingRegion: ""
+      billingRegion: "",
+      billingCountry: ""
     }; 
   }
 
@@ -68,9 +70,11 @@ export class RegisterComponent implements OnInit{
         address: [this.register.address, [Validators.required]],
         zipCode: [this.register.zipCode, [Validators.required]],
         region: [this.register.region, [Validators.required]],
+        country: [this.register.country, [Validators.required]],
         billingAddress: [this.register.billingAddress, [Validators.required]],
         billingZipCode: [this.register.billingZipCode, [Validators.required]],
-        billingRegion: [this.register.billingRegion, [Validators.required]]
+        billingRegion: [this.register.billingRegion, [Validators.required]],
+        billingCountry: [this.register.billingCountry, [Validators.required]]
       });
     }
 
