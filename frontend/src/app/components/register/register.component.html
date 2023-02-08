@@ -53,6 +53,11 @@
           <input formControlName="password2" [(ngModel)]="this.register.password2" (ngModelChange)="checkPasswords($event)" type="password" id="password2" name="password2" class="form-control form-control-lg" required=""maxlength="100">
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
+        <div class="col-sm-6 mb-4">
+          <label for="years" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Edad</label>
+          <input formControlName="years" [(ngModel)]="this.register.years" (ngModelChange)="checkPasswords($event)" type="date" id="years" name="password2" class="form-control form-control-lg" required=""maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
         <div class="col-12 mb-4">
           <label for="gender" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-gender-ambiguous me-2"></i>Género</label><br>
           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">

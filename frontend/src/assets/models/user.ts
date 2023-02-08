@@ -9,6 +9,7 @@ export interface User{
   surname2: string,
   telephone: string,
   gender: string,
+  years: number,
   // telephone2: {type: Number, required:false},
   // identityNumber: {type: String, required: false},
   // bankAccount: {type: String, required: [true, 'Bank account is required']},
