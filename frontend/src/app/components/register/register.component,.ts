@@ -33,6 +33,7 @@ export class RegisterComponent implements OnInit{
       name: "",
       mail: "",
       password: "",
+      password2: "",
       surname1: "",
       surname2: "",
       telephone: "",
@@ -59,6 +60,7 @@ export class RegisterComponent implements OnInit{
         name: [this.register.name, [Validators.required]],
         mail: [this.register.mail, [Validators.required]],
         password: [this.register.password, [Validators.required]],
+        password2: [this.register.password2, [Validators.required]],
         surname1: [this.register.surname1, [Validators.required]],
         surname2: [this.register.surname2, [Validators.required]],
         telephone: [this.register.telephone, [Validators.required]],
@@ -94,23 +96,16 @@ export class RegisterComponent implements OnInit{
     });
   }
   
-  public test(event: any){
-    var forms = document.querySelectorAll(".needs-validation");
-    Array.prototype.slice.call(forms).forEach(function (form) {
-      form.addEventListener(
-        "submit",
-        function (event: { preventDefault: () => void; stopPropagation: () => void; }) {
-          console.log(event)
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add("was-validated");
-        },
-        false
-      );
-    });
-    console.log(event)
+  public checkPasswords(event: any){
+    if(this.register.password === this.register.password2){
+      console.log("valido")
+      this.registerForm.controls["password2"].setErrors(null)
+      // this.registerForm.get("password2")?.hasError("notSamePassword")
+    }
+    else{
+      this.registerForm.controls["password2"].setErrors({'notSamePassword': true})
+      console.log("no valido")
+    }
   }
 
   

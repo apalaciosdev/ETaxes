@@ -43,8 +43,18 @@
           <input formControlName="mail" [(ngModel)]="this.register.mail" type="mail" id="mail" name="mail" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
+        <div class="col-sm-6 mb-4">
+          <label for="password" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Contraseña</label>
+          <input formControlName="password" [(ngModel)]="this.register.password" type="password" id="password" name="password" class="form-control form-control-lg" required="" maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Confirmar Contraseña</label>
+          <input formControlName="password2" [(ngModel)]="this.register.password2" (ngModelChange)="checkPasswords($event)" type="password" id="password2" name="password2" class="form-control form-control-lg" required=""maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
         <div class="col-12 mb-4">
-          <label for="gender" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-gender-ambiguous me-2"></i>Gender</label><br>
+          <label for="gender" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-gender-ambiguous me-2"></i>Género</label><br>
           <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="Gender" id="btnradio1" autocomplete="off" value="先生" checked="">
             <label class="btn btn-outline-secondary" for="btnradio1"><i class="fa-solid bi bi-gender-male me-2"></i>Male</label>
@@ -58,6 +68,25 @@
           <!-- <input formControlName="telephone" [(ngModel)]="this.register.telephone" type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20"> -->
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
+
+        <div class="col-sm-6 mb-4">
+          <label for="address" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Dirección</label>
+          <input formControlName="address" [(ngModel)]="this.register.address" type="text" id="address" name="address" class="form-control form-control-lg" required="" maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
+
+        <div class="col-sm-6 mb-4">
+          <label for="zipCode" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>CP</label>
+          <input formControlName="zipCode" [(ngModel)]="this.register.zipCode" type="number" id="zipCode" name="zipCode" class="form-control form-control-lg" required="" maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
+
+        <div class="col-sm-6 mb-4">
+          <label for="region" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Provincia</label>
+          <input formControlName="region" [(ngModel)]="this.register.region" type="number" id="region" name="region" class="form-control form-control-lg" required="" maxlength="100">
+          <div class="invalid-feedback">Required / Error Format!</div>
+        </div>
+        
         <div class="col-sm-6 mb-4">
           <label for="subject" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-tags-fill me-2"></i>Tags</label>
           <select id="subject" class="form-select form-select-lg" name="Subject" required="">

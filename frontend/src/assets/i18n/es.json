@@ -14,6 +14,7 @@
 		"required": "El campo es obligatorio",
 		"email": "Format incorrecte",
 		"pattern": "Format incorrecte",
+		"notSamePassword": "Las contraseñas no coinciden",
 		"whiteSpaceLine": "Format incorrecte",
 		"maxlength": "Has excedit el màxim de caràcters",
 		"minlength": "Format incorrecte",

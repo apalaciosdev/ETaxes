@@ -2,6 +2,7 @@ export interface User{
   name: string
   mail: string,
   password: string,
+  password2: string,
   // img: {type: String},
   // role: {type: String, required: true, default: 'USER_ROLE', enum: ['ADMIN_ROLE', 'USER_ROLE', 'SALES_ROLE']},
   surname1: string,
