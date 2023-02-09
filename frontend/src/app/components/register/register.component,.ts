@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit{
       surname2: "",
       telephone: "",
       gender: "",
-      years: 0,
+      years: new Date(),
       address: "",
       zipCode: "",
       region: "",

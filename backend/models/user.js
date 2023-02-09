@@ -10,7 +10,7 @@ const UserSchema = Schema({
   surname2: {type: String, required: false},
   telephone: {type: String, required: false},
   gender: {type: String, required: true, default: 'M', enum: ['M', 'F', 'NB']},
-  years: {type: Number, required: true},
+  years: {type: Date, required: true},
   // telephone2: {type: Number, required:false},
   // identityNumber: {type: String, required: false},
   // bankAccount: {type: String, required: [true, 'Bank account is required']},
