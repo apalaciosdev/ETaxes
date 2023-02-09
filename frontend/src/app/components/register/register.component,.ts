@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { User } from 'src/assets/models/user';
 import { FormsService } from '../../services/forms.service';
+import { UtilsService } from '../../services/utils.service';
 
 
 
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit{
   constructor(
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
+    public readonly utils: UtilsService,
   ){
     this.register = {
       name: "",
@@ -104,13 +106,20 @@ export class RegisterComponent implements OnInit{
   
   public checkPasswords(event: any){
     if(this.register.password === this.register.password2){
-      console.log("valido")
       this.registerForm.controls["password2"].setErrors(null)
-      // this.registerForm.get("password2")?.hasError("notSamePassword")
     }
     else{
       this.registerForm.controls["password2"].setErrors({'notSamePassword': true})
-      console.log("no valido")
+    }
+  }
+
+  
+  public checkYears(event: any){
+    if(this.utils.calculateAge(event) >= 18 && this.utils.calculateAge(event) <= 100){
+      this.registerForm.controls["years"].setErrors(null)
+    }
+    else{
+      this.registerForm.controls["years"].setErrors({'ageError': true})
     }
   }
 

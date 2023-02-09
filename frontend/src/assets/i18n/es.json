@@ -13,6 +13,7 @@
 		"campMalFormat": "Format del camp incorrecte",
 		"required": "El campo es obligatorio",
 		"email": "Format incorrecte",
+		"ageError": "Edad no permitida",
 		"pattern": "Format incorrecte",
 		"notSamePassword": "Las contraseñas no coinciden",
 		"whiteSpaceLine": "Format incorrecte",
