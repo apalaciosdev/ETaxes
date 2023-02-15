@@ -26,6 +26,7 @@ import { NavbarComponent } from './components/navbar/navbar.component,';
 import { MarketplaceComponent } from './components/marketplace/marketplace.component,';
 import { RegisterComponent } from './components/register/register.component,';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PasswordStrength } from './components/passwordStrength/passwordStrength.component,';
 
 
 
@@ -42,7 +43,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     NavbarComponent,
     MarketplaceComponent,
-    RegisterComponent
+    RegisterComponent,
+    PasswordStrength
   ],
   imports: [
     BrowserModule,

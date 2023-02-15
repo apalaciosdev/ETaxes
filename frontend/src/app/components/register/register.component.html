@@ -47,6 +47,7 @@
           <label for="password" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Contraseña</label>
           <input formControlName="password" [(ngModel)]="this.register.password" type="password" id="password" name="password" class="form-control form-control-lg" required="" maxlength="100">
           <div class="invalid-feedback">Required / Error Format!</div>
+          <passwordStrength [passwordToCheck]="this.register.password" (passwordStrength)="passwordValid($event)"></passwordStrength>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Confirmar Contraseña</label>
@@ -125,7 +126,7 @@
       </div>
       <div id="g-recaptcha-error"></div>
       <br>
-      <button type="submit" class="btn btn-primary btn-lg me-3"><i class="fa-solid bi bi-send-fill me-2"></i>Send</button>
+      <button type="submit" class="btn btn-primary btn-lg me-3" ><i class="fa-solid bi bi-send-fill me-2"></i>Send</button>
       <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
     </form>
   </div>

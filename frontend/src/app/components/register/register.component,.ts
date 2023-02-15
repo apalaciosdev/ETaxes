@@ -22,6 +22,8 @@ export class RegisterComponent implements OnInit{
 
   public registerForm!: FormGroup;
   public register: User;
+  passwordIsValid = false;
+
 
 
   public hola: string = "";
@@ -84,6 +86,12 @@ export class RegisterComponent implements OnInit{
 
     this.service.gestionarValidarErrors(this.registerForm);
   }
+
+  passwordValid(event:any) {
+    this.passwordIsValid = event;
+    console.log("pass: " + event)
+  }
+  
 
 
   // Validation
