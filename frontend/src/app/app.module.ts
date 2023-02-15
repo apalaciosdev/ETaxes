@@ -22,10 +22,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { HomeComponent } from './components/views/home/home.component,';
-import { NavbarComponent } from './components/navbar/navbar.component,';
+import { NavbarComponent } from './components/graphics/navbar/navbar.component,';
 import { MarketplaceComponent } from './components/views/marketplace/marketplace.component,';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PasswordStrength } from './components/passwordStrength/passwordStrength.component,';
+import { PasswordStrength } from './components/graphics/passwordStrength/passwordStrength.component,';
 import { RegisterComponent } from './components/views/register/register.component,';
 
 
