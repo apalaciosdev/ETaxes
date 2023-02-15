@@ -94,23 +94,6 @@ export class RegisterComponent implements OnInit{
   
 
 
-  // Validation
-  public validate() {
-    var forms = document.querySelectorAll(".needs-validation");
-    Array.prototype.slice.call(forms).forEach(function (form) {
-      form.addEventListener(
-        "submit",
-        function (event: { preventDefault: () => void; stopPropagation: () => void; }) {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add("was-validated");
-        },
-        false
-      );
-    });
-  }
   
   public checkPasswords(event: any){
     if(this.register.password === this.register.password2){
