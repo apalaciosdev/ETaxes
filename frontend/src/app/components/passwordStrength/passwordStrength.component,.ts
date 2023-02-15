@@ -68,7 +68,12 @@ export class PasswordStrength implements OnInit{
       this.setBarColors(c.idx, c.col);
 
       const pwdStrength = PasswordStrength.checkStrength(password);
-      pwdStrength === 30 ? this.passwordStrength.emit(true) : this.passwordStrength.emit(false);
+      if( pwdStrength === 30 ||  pwdStrength === 40){
+        this.passwordStrength.emit(true)
+      }
+      else{
+        this.passwordStrength.emit(false)
+      }
 
       switch (c.idx) {
         case 1:

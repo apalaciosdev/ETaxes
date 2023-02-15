@@ -21,12 +21,12 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-import { HomeComponent } from './components/home/home.component,';
+import { HomeComponent } from './components/views/home/home.component,';
 import { NavbarComponent } from './components/navbar/navbar.component,';
-import { MarketplaceComponent } from './components/marketplace/marketplace.component,';
-import { RegisterComponent } from './components/register/register.component,';
+import { MarketplaceComponent } from './components/views/marketplace/marketplace.component,';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordStrength } from './components/passwordStrength/passwordStrength.component,';
+import { RegisterComponent } from './components/views/register/register.component,';
 
 
 

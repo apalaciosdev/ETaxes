@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component,';
-import { MarketplaceComponent } from './components/marketplace/marketplace.component,';
-import { RegisterComponent } from './components/register/register.component,';
+import { HomeComponent } from './components/views/home/home.component,';
+import { MarketplaceComponent } from './components/views/marketplace/marketplace.component,';
+import { RegisterComponent } from './components/views/register/register.component,';
 
 
 
