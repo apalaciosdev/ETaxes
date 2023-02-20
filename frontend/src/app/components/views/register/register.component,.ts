@@ -68,12 +68,12 @@ export class RegisterComponent implements OnInit{
         telephone: [this.register.telephone, [Validators.required]],
         gender: [this.register.gender, [Validators.required]],
         address: [this.register.address, [Validators.required]],
-        zipCode: [this.register.zipCode, [Validators.required]],
+        zipCode: [this.register.zipCode, [Validators.required, Validators.pattern("[0-9]{5}")]],
         region: [this.register.region, [Validators.required]],
         country: [this.register.country, [Validators.required]],
         years: [this.register.country, [Validators.required]],
         billingAddress: [this.register.billingAddress, [Validators.required]],
-        billingZipCode: [this.register.billingZipCode, [Validators.required]],
+        billingZipCode: [this.register.billingZipCode, [Validators.required, Validators.pattern("[0-9]{5}")]],
         billingRegion: [this.register.billingRegion, [Validators.required]],
         billingCountry: [this.register.billingCountry, [Validators.required]]
       });
@@ -135,5 +135,10 @@ export class RegisterComponent implements OnInit{
       this.registerForm.controls["billingRegion"].setValue("");
       this.registerForm.controls["billingCountry"].setValue("");
     }
+  }
+
+
+  public si(){
+    console.log(this.register)
   }
 }

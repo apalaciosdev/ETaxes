@@ -81,7 +81,7 @@ export class FormsService {
     spanTag.innerHTML = this.translate.instant('errors.required');
 
     if (inputTag?.maxLength && inputTag?.maxLength === inputTag?.value?.length && inputTag?.classList.contains('ng-touched')) {
-      this.checkMaxLength(warningTag, divTag, key1);
+      // this.checkMaxLength(warningTag, divTag, key1);
     }
     inputTag?.classList.add('ok-campo');
     inputTag?.classList.add('ng-valid');
