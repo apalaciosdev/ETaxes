@@ -22,11 +22,8 @@ export class RegisterComponent implements OnInit{
 
   public registerForm!: FormGroup;
   public register: User;
-  passwordIsValid = false;
-
-
-
-  public hola: string = "";
+  public passwordIsValid :boolean = false;
+  public sameBillingVal :boolean = false;
 
   constructor(
     public readonly formBuilder: FormBuilder,
@@ -54,12 +51,10 @@ export class RegisterComponent implements OnInit{
     }; 
   }
 
-
   ngOnInit() {
     this.initForm()
     
   }
-
 
   private initForm() {
     if(this.register){
@@ -83,7 +78,6 @@ export class RegisterComponent implements OnInit{
         billingCountry: [this.register.billingCountry, [Validators.required]]
       });
     }
-
     this.service.gestionarValidarErrors(this.registerForm);
   }
 
@@ -92,30 +86,54 @@ export class RegisterComponent implements OnInit{
     console.log("pass: " + event)
   }
   
-
-
   
   public checkPasswords(event: any){
     if(this.register.password === this.register.password2){
-      this.registerForm.controls["password2"].setErrors(null)
+      this.registerForm.controls["password2"].setErrors(null);
     }
     else{
-      this.registerForm.controls["password2"].setErrors({'notSamePassword': true})
+      this.registerForm.controls["password2"].setErrors({'notSamePassword': true});
     }
   }
 
   
   public checkYears(event: any){
     if(this.utils.calculateAge(event) >= 18 && this.utils.calculateAge(event) <= 100){
-      this.registerForm.controls["years"].setErrors(null)
+      this.registerForm.controls["years"].setErrors(null);
     }
     else{
-      this.registerForm.controls["years"].setErrors({'ageError': true})
+      this.registerForm.controls["years"].setErrors({'ageError': true});
     }
   }
 
-  
 
-  
+  public sameBilling(){
+    this.sameBillingVal = !this.sameBillingVal;
 
+    if(this.sameBillingVal){
+      this.register.billingAddress = this.register.address;
+      this.register.billingZipCode = this.register.zipCode;
+      this.register.billingRegion = this.register.region;
+      this.register.billingCountry = this.register.country;
+    }
+
+    else{
+      this.register.billingAddress = '';
+      this.register.billingZipCode = '';
+      this.register.billingRegion = '';
+      this.register.billingCountry = '';
+      this.registerForm.controls["billingAddress"].markAsTouched();
+      this.registerForm.controls["billingZipCode"].markAsTouched();
+      this.registerForm.controls["billingRegion"].markAsTouched();
+      this.registerForm.controls["billingCountry"].markAsTouched();
+      this.registerForm.controls["billingAddress"].markAsDirty();
+      this.registerForm.controls["billingZipCode"].markAsDirty();
+      this.registerForm.controls["billingRegion"].markAsDirty();
+      this.registerForm.controls["billingCountry"].markAsDirty();
+      this.registerForm.controls["billingAddress"].setValue("");
+      this.registerForm.controls["billingZipCode"].setValue("");
+      this.registerForm.controls["billingRegion"].setValue("");
+      this.registerForm.controls["billingCountry"].setValue("");
+    }
+  }
 }
