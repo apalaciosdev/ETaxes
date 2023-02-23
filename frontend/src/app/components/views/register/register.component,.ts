@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserHttpService } from 'src/app/services/httpServices/user.service';
 import { User } from 'src/assets/models/user';
 import { FormsService } from '../../../services/forms.service';
 import { UtilsService } from '../../../services/utils.service';
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit{
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
     public readonly utils: UtilsService,
+    private userHttpService: UserHttpService
   ){
     this.register = {
       name: "",
@@ -137,8 +139,20 @@ export class RegisterComponent implements OnInit{
     }
   }
 
-
-  public si(){
+  async onSubmit(){
     console.log(this.register)
+    await this.addProduct()
+    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
+    
+    setTimeout(() => {
+      // this.router.navigate(['/products']);
+    }, 500);
+  }
+  
+  async addProduct(){
+    this.userHttpService.register(this.register).subscribe(
+      (response) => { console.log(response); },
+      (error) => { console.log(error); }
+    ); 
   }
 }
