@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserHttpService } from 'src/app/services/httpServices/user.service';
+import { SharedService } from 'src/app/shared.service';
 import { Login } from 'src/assets/models/user';
 import { FormsService } from '../../../services/forms.service';
 import { UtilsService } from '../../../services/utils.service';
@@ -28,7 +29,8 @@ export class LoginComponent implements OnInit{
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
     public readonly utils: UtilsService,
-    private userHttpService: UserHttpService
+    private userHttpService: UserHttpService,
+    private sharedService: SharedService
   ){
     this.login = {
       mail: "",
@@ -58,12 +60,13 @@ export class LoginComponent implements OnInit{
     
     setTimeout(() => {
       // this.router.navigate(['/products']);
+      console.log(this.sharedService.userToken)
     }, 500);
   }
   
   async loginRequest(){
     this.userHttpService.login(this.login).subscribe(
-      (response) => { console.log(response); },
+      (response) => { this.sharedService.userToken = response; },
       (error) => { console.log(error); }
     ); 
   }
