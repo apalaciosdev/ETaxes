@@ -145,7 +145,7 @@ export class RegisterComponent implements OnInit{
 
   async onSubmit(){
     console.log(this.register)
-    await this.addProduct()
+    await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     
     setTimeout(() => {
@@ -153,7 +153,7 @@ export class RegisterComponent implements OnInit{
     }, 500);
   }
   
-  async addProduct(){
+  async registerRequest(){
     this.userHttpService.register(this.register).subscribe(
       (response) => { console.log(response); },
       (error) => { console.log(error); }

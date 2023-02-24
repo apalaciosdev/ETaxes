@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit{
 
   async onSubmit(){
     console.log(this.login)
-    await this.addProduct()
+    await this.loginRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     
     setTimeout(() => {
@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit{
     }, 500);
   }
   
-  async addProduct(){
+  async loginRequest(){
     this.userHttpService.login(this.login).subscribe(
       (response) => { console.log(response); },
       (error) => { console.log(error); }
