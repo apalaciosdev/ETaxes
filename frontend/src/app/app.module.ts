@@ -20,13 +20,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-
+//Componentes
 import { HomeComponent } from './components/views/home/home.component,';
 import { NavbarComponent } from './components/graphics/navbar/navbar.component,';
 import { MarketplaceComponent } from './components/views/marketplace/marketplace.component,';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordStrength } from './components/graphics/passwordStrength/passwordStrength.component,';
 import { RegisterComponent } from './components/views/register/register.component,';
+import { LoginComponent } from './components/views/login/login.component,';
 
 
 
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     MarketplaceComponent,
     RegisterComponent,
+    LoginComponent,
     PasswordStrength
   ],
   imports: [

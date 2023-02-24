@@ -23,3 +23,9 @@ export interface User{
   billingRegion: string
   billingCountry: string
 }
+
+
+export interface Login{
+  mail: string,
+  password: string,
+}
