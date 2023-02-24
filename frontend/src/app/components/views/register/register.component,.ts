@@ -62,7 +62,7 @@ export class RegisterComponent implements OnInit{
     if(this.register){
       this.registerForm = this.formBuilder.group({
         name: [this.register.name, [Validators.required]],
-        mail: [this.register.mail, [Validators.required]],
+        mail: [this.register.mail, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
         password: [this.register.password, [Validators.required]],
         password2: [this.register.password2, [Validators.required]],
         surname1: [this.register.surname1, [Validators.required]],
@@ -106,6 +106,10 @@ export class RegisterComponent implements OnInit{
     else{
       this.registerForm.controls["years"].setErrors({'ageError': true});
     }
+  }
+
+  public firstUpperCase(form:any, control:any){
+    this.service.firstUpperCase(form, control)
   }
 
 

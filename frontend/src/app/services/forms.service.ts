@@ -104,6 +104,11 @@ export class FormsService {
     return this.translate.instant(`errors.${errors[0]}`)
   }
 
+  public firstUpperCase(form:any, control:any){
+    const valueToUpperCase = form.get(control).value;
+    form.get(control).setValue(valueToUpperCase.charAt(0).toUpperCase() + valueToUpperCase.slice(1));
+  }
+
 
 }
 

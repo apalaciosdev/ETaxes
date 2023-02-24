@@ -25,17 +25,17 @@
       <div class="row">
         <div class="col-sm-6 mb-4">
           <label for="name" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
-          <input formControlName="name" [(ngModel)]="this.register.name" type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <input formControlName="name" [(ngModel)]="this.register.name" (input)="firstUpperCase(registerForm,'name')" type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="surname1" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>1º Apellido</label>
-          <input formControlName="surname1" [(ngModel)]="this.register.surname1" type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <input formControlName="surname1" [(ngModel)]="this.register.surname1" (input)="firstUpperCase(registerForm,'surname1')"type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="surname2" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>2º Apellido</label>
-          <input formControlName="surname2" [(ngModel)]="this.register.surname2" type="text" id="surname2" name="surname2" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <input formControlName="surname2" [(ngModel)]="this.register.surname2" (input)="firstUpperCase(registerForm,'surname2')" type="text" id="surname2" name="surname2" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
           <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
@@ -111,7 +111,7 @@
 
         <div class="col-sm-6 mb-4">
           <label for="billingZipCode" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>CP</label>
-          <input formControlName="billingZipCode" [(ngModel)]="this.register.billingZipCode" maxLength="5" type="number" id="billingZipCode" name="billingZipCode" class="form-control form-control-lg" required>
+          <input formControlName="billingZipCode" [(ngModel)]="this.register.billingZipCode" maxlength="5" type="number" id="billingZipCode" name="billingZipCode" class="form-control form-control-lg" required>
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
