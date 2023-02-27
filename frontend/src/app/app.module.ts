@@ -28,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PasswordStrength } from './components/graphics/passwordStrength/passwordStrength.component,';
 import { RegisterComponent } from './components/views/public/register/register.component,';
 import { LoginComponent } from './components/views/public/login/login.component,';
+import { UserProductsComponent } from './components/views/private/userProducts/userProducts.component,';
 
 
 
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     NavbarComponent,
     MarketplaceComponent,
+    UserProductsComponent,
     RegisterComponent,
     LoginComponent,
     PasswordStrength

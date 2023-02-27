@@ -46,8 +46,8 @@ export class LoginComponent implements OnInit{
   private initForm() {
     if(this.login){
       this.loginForm = this.formBuilder.group({
-        mail: [this.login.mail, [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
-        password: [this.login.password, [Validators.required]]
+        mail: [this.login.mail],
+        password: [this.login.password]
       });
     }
     this.service.gestionarValidarErrors(this.loginForm);

@@ -11,7 +11,7 @@ const router = Router()
 
 router.get('/', productsGet)
 
-router.post('/myProducts', userProducts)
+router.post('/userProducts', userProducts)
 
 router.get('/individual/:id', [
   check('id', 'This is not a valid ID').isMongoId(),
