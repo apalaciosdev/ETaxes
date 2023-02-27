@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserHttpService } from 'src/app/services/httpServices/user.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { SharedService } from 'src/app/shared.service';
 import { Login } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
@@ -30,7 +31,8 @@ export class LoginComponent implements OnInit{
     public readonly service: FormsService,
     public readonly utils: UtilsService,
     private userHttpService: UserHttpService,
-    private sharedService: SharedService
+    private sharedService: SharedService,
+    private localStorageService: LocalStorageService
   ){
     this.login = {
       mail: "",
@@ -63,10 +65,16 @@ export class LoginComponent implements OnInit{
       // console.log(this.sharedService.userToken)
     }, 500);
   }
+
+  public saveData(res:any){
+    this.sharedService.setUserToken(res);
+    let user = { mail: res.user.mail, name: res.user.name, token: res.token}
+    this.localStorageService.setItem('userToken', user);
+  }
   
   async loginRequest(){
     this.userHttpService.login(this.login).subscribe(
-      (response) => { this.sharedService.setUserToken(response) },
+      (response) => { this.saveData(response) },
       (error) => { console.log(error); }
     ); 
   }

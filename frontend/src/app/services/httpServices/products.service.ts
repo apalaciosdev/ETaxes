@@ -19,9 +19,7 @@ export class ProductsHttpService {
   }
   
   getUserProducts(user:any) {
-    console.log('aaaa', user)
-    let userMail = {user: user.mail}
-    return this.http.post(`${this.url}/userProducts`, userMail);
+    return this.http.post(`${this.url}/userProducts`, {"user": user});
   }
 
   // deleteProduct(uid: string){
