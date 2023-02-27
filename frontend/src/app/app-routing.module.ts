@@ -5,6 +5,7 @@ import { HomeComponent } from './components/views/public/home/home.component,';
 import { MarketplaceComponent } from './components/views/public/marketplace/marketplace.component,';
 import { RegisterComponent } from './components/views/public/register/register.component,';
 import { LoginComponent } from './components/views/public/login/login.component,';
+import { UserProductsComponent } from './components/views/private/userProducts/userProducts.component,';
 
 
 
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path: 'marketplace', component: MarketplaceComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'my-products', component: UserProductsComponent},
 
   // {path: 'products', component: ProductsGridComponent},
   // {path: 'addproduct', component: InputProductsComponent},

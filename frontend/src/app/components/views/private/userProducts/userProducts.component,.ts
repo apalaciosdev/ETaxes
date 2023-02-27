@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
+import { SharedService } from 'src/app/shared.service';
 
 
 
@@ -16,19 +17,24 @@ export class UserProductsComponent implements OnInit{
 
   products: any;
 
+  userToken: any;
   
   constructor(
     private productsHttpService: ProductsHttpService,
+    private sharedService: SharedService
   ) { }
 
   ngOnInit() {
-    this.getProducts()
+    this.sharedService.userToken$.subscribe(userToken => {
+      this.userToken = userToken;
+      this.getProducts(userToken.user);
+    });
   }
   
 
 
-  async getProducts(){
-    this.productsHttpService.getProducts().subscribe(
+  async getProducts(user:any){
+    this.productsHttpService.getUserProducts(user).subscribe(
       (response) => { this.products = response; },
       (error) => { console.log(error); }
     ); 

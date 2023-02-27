@@ -60,13 +60,13 @@ export class LoginComponent implements OnInit{
     
     setTimeout(() => {
       // this.router.navigate(['/products']);
-      console.log(this.sharedService.userToken)
+      // console.log(this.sharedService.userToken)
     }, 500);
   }
   
   async loginRequest(){
     this.userHttpService.login(this.login).subscribe(
-      (response) => { this.sharedService.userToken = response; },
+      (response) => { this.sharedService.setUserToken(response) },
       (error) => { console.log(error); }
     ); 
   }
