@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './components/views/home/home.component,';
-import { MarketplaceComponent } from './components/views/marketplace/marketplace.component,';
-import { RegisterComponent } from './components/views/register/register.component,';
-import { LoginComponent } from './components/views/login/login.component,';
+import { HomeComponent } from './components/views/public/home/home.component,';
+import { MarketplaceComponent } from './components/views/public/marketplace/marketplace.component,';
+import { RegisterComponent } from './components/views/public/register/register.component,';
+import { LoginComponent } from './components/views/public/login/login.component,';
 
 
 

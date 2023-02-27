@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveF
 import { UserHttpService } from 'src/app/services/httpServices/user.service';
 import { SharedService } from 'src/app/shared.service';
 import { Login } from 'src/assets/models/user';
-import { FormsService } from '../../../services/forms.service';
-import { UtilsService } from '../../../services/utils.service';
+import { FormsService } from '../../../../services/forms.service';
+import { UtilsService } from '../../../../services/utils.service';
 
 
 
