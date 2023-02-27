@@ -17,6 +17,16 @@ const productsGet = async(req, res = response) => {
   )
 }
 
+const userProducts = async(req, res = response) => { 
+  const { user } = req.body
+
+  const products = await Product.find({user})
+  
+  res.json(
+    products
+  )
+}
+
 const productGet = async(req, res = response) => { //get only 1 product
 
   const { id } = req.params
@@ -89,5 +99,6 @@ module.exports = {
   productsPost,
   productsPut,
   productsDelete,
-  productExists
+  productExists,
+  userProducts
 }

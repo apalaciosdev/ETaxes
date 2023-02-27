@@ -4,12 +4,14 @@ const { check } = require('express-validator')
 //middlewares
 const { validateFields, validateJWT, haveRole, isAdminRole, isSalesRole } = require('../middlewares/index')
 
-const { productsGet, productGet, productsPost, productsPut, productsDelete, productExists } = require('../controllers/products')
+const { productsGet, productGet, productsPost, productsPut, productsDelete, productExists, userProducts } = require('../controllers/products')
 const { productExistsById, isRoleValid, userExistsById } = require('../helpers/db-validators')
 
 const router = Router()
 
 router.get('/', productsGet)
+
+router.post('/myProducts', userProducts)
 
 router.get('/individual/:id', [
   check('id', 'This is not a valid ID').isMongoId(),
