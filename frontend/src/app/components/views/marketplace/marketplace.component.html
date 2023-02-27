@@ -1,7 +1,28 @@
 <div>
-  <h1>Market Place</h1>
-  <h1>Market Place</h1>
-  <h1>Market Place</h1>
-  <h1>Market Place</h1>
-  <h1>Market Place</h1>
+  <h1>Products</h1>
+
+  <!-- <button class="addButton" [routerLink]="['/addproduct']">+</button> -->
+ 
+  <div class="generalDiv">
+    <div class="divContentBox">
+      
+      <div class="boxProduct" *ngFor="let product of products">
+        <h3 style="font-size: 20px;text-align: center;">{{product.title}}</h3>
+        <img src="{{product.image}}" alt="" class="imgProduct">
+        <p>{{product.price}}</p>
+        <!-- <button (click)="deleteProduct(post.uid)">Delete Product</button> -->
+      </div>
+    
+    </div>
+  </div>
+
+<!-- 
+  <li *ngFor="let post of posts">
+    <a href="{{post.path}}">
+      <p style="font-size: 20px;text-align: center;">{{post.price}}</p>
+      <p style="font-size: 20px;text-align: center;">{{post.description}}</p>
+      <p style="font-size: 20px;text-align: center;">{{post.category}}</p>
+      <p style="font-size: 20px;text-align: center;">{{post.image}}</p>
+    </a>
+  </li> -->
 </div>
