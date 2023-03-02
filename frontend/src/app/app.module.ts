@@ -29,6 +29,7 @@ import { PasswordStrength } from './components/graphics/passwordStrength/passwor
 import { RegisterComponent } from './components/views/public/register/register.component,';
 import { LoginComponent } from './components/views/public/login/login.component,';
 import { UserProductsComponent } from './components/views/private/userProducts/userProducts.component,';
+import { ProductSupport } from './components/views/public/productSupport/productSupport.component,';
 
 
 
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserProductsComponent,
     RegisterComponent,
     LoginComponent,
-    PasswordStrength
+    PasswordStrength,
+    ProductSupport
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,29 @@
+<section class="container my-5">
+
+  <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
+    <form [formGroup]="supportSearchForm" (ngSubmit)="onSubmit(); supportSearchForm.reset();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+      <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
+      <div class="row">
+        <div *ngIf="!isLogged" class="col-sm-6 mb-4">
+          <label for="nameAndSurnames" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre y Apellidos</label>
+          <input formControlName="nameAndSurnames" [(ngModel)]="this.supportSearch.nameAndSurnames" type="text" id="nameAndSurnames" name="nameAndSurnames" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+        </div>
+        <div *ngIf="!isLogged" class="col-sm-6 mb-4">
+          <label for="mail" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Email</label>
+          <input formControlName="mail" [(ngModel)]="this.supportSearch.mail" type="text" id="mail" name="mail" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="refProduct" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre o referéncia del producto</label>
+          <input formControlName="refProduct" [(ngModel)]="this.supportSearch.refProduct" type="text" id="refProduct" name="refProduct" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+        </div>
+        <div class="col-sm-6 mb-4">
+          <label for="content" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Consulta</label>
+          <textarea formControlName="content" [(ngModel)]="this.supportSearch.content" type="date" id="content" name="content" class="form-control form-control-lg" required=""maxlength="150"></textarea>
+        </div>
+      </div>  
+     
+      <button type="submit" class="btn btn-primary btn-lg me-3"><i class="fa-solid bi bi-send-fill me-2"></i>Send</button>
+      <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
+    </form>
+  </div>
+</section>

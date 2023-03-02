@@ -1,12 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/authguard.guard';
 
 import { HomeComponent } from './components/views/public/home/home.component,';
 import { MarketplaceComponent } from './components/views/public/marketplace/marketplace.component,';
 import { RegisterComponent } from './components/views/public/register/register.component,';
 import { LoginComponent } from './components/views/public/login/login.component,';
 import { UserProductsComponent } from './components/views/private/userProducts/userProducts.component,';
-import { AuthGuard } from './shared/authguard.guard';
+import { ProductSupport } from './components/views/public/productSupport/productSupport.component,';
 
 
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'marketplace', component: MarketplaceComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'product-support', component: ProductSupport},
   {path: 'my-products', component: UserProductsComponent, canActivate: [AuthGuard]},
 
   // {path: 'products', component: ProductsGridComponent},
