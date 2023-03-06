@@ -30,6 +30,7 @@ import { RegisterComponent } from './components/views/public/register/register.c
 import { LoginComponent } from './components/views/public/login/login.component,';
 import { UserProductsComponent } from './components/views/private/userProducts/userProducts.component,';
 import { ProductSupport } from './components/views/public/productSupport/productSupport.component,';
+import { CarrouselComponent } from './components/graphics/carrousel/carrousel.component,';
 
 
 
@@ -50,7 +51,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterComponent,
     LoginComponent,
     PasswordStrength,
-    ProductSupport
+    ProductSupport,
+    CarrouselComponent
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,8 @@ import { ProductsHttpService } from 'src/app/services/httpServices/products.serv
 @Component({
   selector: 'marketplaceComponent',
   templateUrl: './marketplace.component.html',
-  providers: [] //Utilizamos el servicio aqui
-  // styleUrls: ['./app.component.css']
+  providers: [], //Utilizamos el servicio aqui
+  styleUrls: ['./marketplace.component.css']
 })
 
 
