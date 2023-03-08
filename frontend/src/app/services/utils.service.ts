@@ -24,6 +24,11 @@ export class UtilsService {
     }
     return age;
   }
+
+  public driveImages(url:string) {
+    const arr = url.split('/');
+    return `https://drive.google.com/uc?export=view&id=${arr[5]}`;
+  }
 }
 
 

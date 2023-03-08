@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
+import { UtilsService } from '../../../../services/utils.service';
 
 
 
@@ -19,6 +20,8 @@ export class MarketplaceComponent implements OnInit{
   
   constructor(
     private productsHttpService: ProductsHttpService,
+    public utilsService: UtilsService,
+
   ) { }
 
   ngOnInit() {
