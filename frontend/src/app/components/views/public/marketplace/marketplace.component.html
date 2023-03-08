@@ -1,182 +1,37 @@
 <div>
   <carrouselComponent></carrouselComponent>
 
+  <p>Filtra por categorias: TODO</p>
   <h1>Products</h1>
 
   <!-- <button class="addButton" [routerLink]="['/addproduct']">+</button> -->
  
   <div class="generalDiv">
     <div class="divContentBox">
-      
-      <div class="boxProduct" *ngFor="let product of products">
-        <h3 style="font-size: 20px;text-align: center;">{{product.title}}</h3>
-        <img src="{{product.image}}" alt="" class="imgProduct">
-        <p>{{product.price}}</p>
-        <!-- <button (click)="deleteProduct(post.uid)">Delete Product</button> -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" *ngFor="let product of products">
+            <div class="thumb-wrapper">
+              <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+              <div class="img-box">
+                <img src="{{product.image}}" class="img-fluid" alt="Speaker">
+              </div>
+              <div class="thumb-content">
+                <h4>{{product.title}}</h4>
+                <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
+                <starRatingComponent [stars]="product.stars"></starRatingComponent>
+                <a href="#" class="btn btn-primary">Add to Cart</a>
+              </div>						
+            </div>
+          </div>
+        </div>
       </div>
-    
     </div>
   </div>
-
-  
-<!-- 
-  <li *ngFor="let post of posts">
-    <a href="{{post.path}}">
-      <p style="font-size: 20px;text-align: center;">{{post.price}}</p>
-      <p style="font-size: 20px;text-align: center;">{{post.description}}</p>
-      <p style="font-size: 20px;text-align: center;">{{post.category}}</p>
-      <p style="font-size: 20px;text-align: center;">{{post.image}}</p>
-    </a>
-  </li> -->
 </div>
 
 
 
 
 
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="thumb-wrapper">
-        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-        <div class="img-box">
-          <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="Speaker">
-        </div>
-        <div class="thumb-content">
-          <h4>Bose Speaker</h4>
-          <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>						
-      </div>
-    </div>
-    
-    <div class="col-md-4">
-      <div class="thumb-wrapper">
-        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-        <div class="img-box">
-          <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="Speaker">
-        </div>
-        <div class="thumb-content">
-          <h4>Bose Speaker</h4>
-          <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>						
-      </div>
-    </div>
-    
-    <div class="col-md-4">
-      <div class="thumb-wrapper">
-        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-        <div class="img-box">
-          <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="Speaker">
-        </div>
-        <div class="thumb-content">
-          <h4>Bose Speaker</h4>
-          <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>						
-      </div>
-    </div>
-    
-    <div class="col-md-4">
-      <div class="thumb-wrapper">
-        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-        <div class="img-box">
-          <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="Speaker">
-        </div>
-        <div class="thumb-content">
-          <h4>Bose Speaker</h4>
-          <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>						
-      </div>
-    </div>
-    
-    <div class="col-md-4">
-      <div class="thumb-wrapper">
-        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-        <div class="img-box">
-          <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="Speaker">
-        </div>
-        <div class="thumb-content">
-          <h4>Bose Speaker</h4>
-          <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>						
-      </div>
-    </div>
-    
-    <div class="col-md-4">
-      <div class="thumb-wrapper">
-        <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-        <div class="img-box">
-          <img src="/examples/images/products/speaker.jpg" class="img-fluid" alt="Speaker">
-        </div>
-        <div class="thumb-content">
-          <h4>Bose Speaker</h4>
-          <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
-          <div class="star-rating">
-            <ul class="list-inline">
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star"></i></li>
-              <li class="list-inline-item"><i class="fa fa-star-o"></i></li>
-            </ul>
-          </div>
-          <a href="#" class="btn btn-primary">Add to Cart</a>
-        </div>						
-      </div>
-    </div>
-
-
-
-  </div>
-</div>
     

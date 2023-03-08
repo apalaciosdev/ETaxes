@@ -31,6 +31,7 @@ import { LoginComponent } from './components/views/public/login/login.component,
 import { UserProductsComponent } from './components/views/private/userProducts/userProducts.component,';
 import { ProductSupport } from './components/views/public/productSupport/productSupport.component,';
 import { CarrouselComponent } from './components/graphics/carrousel/carrousel.component,';
+import { StarRating } from './components/graphics/starRating/starRating.component,';
 
 
 
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterComponent,
     LoginComponent,
     PasswordStrength,
+    StarRating,
     ProductSupport,
     CarrouselComponent
   ],
