@@ -32,6 +32,7 @@ import { UserProductsComponent } from './components/views/private/userProducts/u
 import { ProductSupport } from './components/views/public/productSupport/productSupport.component,';
 import { CarrouselComponent } from './components/graphics/carrousel/carrousel.component,';
 import { StarRating } from './components/graphics/starRating/starRating.component,';
+import { UploadFilesComponent } from './components/graphics/uploadFIles/uploadFiles.component,';
 
 
 
@@ -53,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     PasswordStrength,
     StarRating,
+    UploadFilesComponent,
     ProductSupport,
     CarrouselComponent
   ],
