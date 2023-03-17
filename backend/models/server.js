@@ -1,7 +1,6 @@
 const express = require('express')
 const cors = require('cors')
 const { dbConnection } = require('../db/config')
-const { uploadFile } = require('../controllers/images')
 
 class Server {
 
@@ -13,6 +12,7 @@ class Server {
     this.usersPath = '/api/users'
     this.authPath = '/api/auth'
     this.productsPath = '/api/products'
+    this.imagesPath = '/api/images'
 
     //DB Connection
     this.dbConnect()
@@ -26,10 +26,6 @@ class Server {
 
   async dbConnect(){
     await dbConnection()
-    
-    uploadFile().then(data => {
-      console.log(data)
-    })
   }
 
 
@@ -48,6 +44,7 @@ class Server {
     this.app.use(this.authPath, require('../routes/auth'))
     this.app.use(this.usersPath, require('../routes/user'))
     this.app.use(this.productsPath, require('../routes/product'))
+    this.app.use(this.imagesPath, require('../routes/images'))
   }
 
   listen() {
