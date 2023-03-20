@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
 
 
@@ -8,8 +9,8 @@ import { SharedService } from 'src/app/shared.service';
 @Component({
   selector: 'userProductsComponent',
   templateUrl: './userProducts.component.html',
-  providers: [] //Utilizamos el servicio aqui
-  // styleUrls: ['./app.component.css']
+  providers: [], //Utilizamos el servicio aqui
+  styleUrls: ['./userProducts.component.css']
 })
 
 
@@ -23,7 +24,8 @@ export class UserProductsComponent implements OnInit{
   constructor(
     private productsHttpService: ProductsHttpService,
     private sharedService: SharedService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    public utilsService: UtilsService,
   ) { }
 
   ngOnInit() {
