@@ -14,12 +14,12 @@
             <div class="thumb-wrapper">
               <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
               <div class="img-box">
-                <img src={{utilsService.driveImages(product.image)}} class="img-fluid" alt="Speaker">
+                <img src={{utilsService.driveImages(product.image)}} class="img-fluid" >
               </div>
               <div class="thumb-content">
                 <h4>{{product.title}}</h4>
-                <p class="item-price"><a>$109.00</a> <span>$99.00</span></p>
                 <starRatingComponent [stars]="product.stars"></starRatingComponent>
+                <p class="item-price"><a>{{product.price}}€</a></p>
                 <a href="#" class="btn btn-primary">Add to Cart</a>
               </div>						
             </div>
@@ -28,9 +28,6 @@
       </div>
     </div>
   </div>
-
-
-  <uploadFilesComponent></uploadFilesComponent>
 </div>
 
 

@@ -34,7 +34,6 @@ export class StarRating implements OnInit{
 
 
   ngOnInit() {
-    console.log('aaa', this.stars)
     this.intStars = Number(this.stars);
     
   }
