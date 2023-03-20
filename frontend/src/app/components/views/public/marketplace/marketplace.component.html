@@ -13,8 +13,8 @@
           <div class="col-md-4" *ngFor="let product of products">
             <div class="thumb-wrapper">
               <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-              <div class="img-box">
-                <img src={{utilsService.driveImages(product.image)}} class="img-fluid" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
+              <div class="img-box"> 
+                <img src={{utilsService.driveImages(product.image)}} height="172" width="306" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
               </div>
               <div class="thumb-content">
                 <h4>{{product.title}}</h4>
