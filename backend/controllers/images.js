@@ -14,13 +14,18 @@ async function saveFile(req, res){
   // Para ello, puedes utilizar el módulo `fs` de Node.js:
   const fs = require('fs');
   const filePath = `${__dirname}/${file.originalname}`;
-  fs.rename(file.path, filePath, (error) => {
+  fs.rename(file.path, filePath, async (error) => {
     if (error) {
       console.error(error);
       res.sendStatus(500);
     } else {
-      uploadFile(file.originalname, filePath);
-      res.sendStatus(200);
+      try {
+        const response = await uploadFile(file.originalname, filePath);
+        res.send(response);
+      } catch (error) {
+        console.error(error);
+        res.sendStatus(500);
+      }
     }
   });
 }
@@ -49,7 +54,7 @@ async function uploadFile(fileName, filePath){
     const response = await driveService.files.create({
       resource: fileMetaData,
       media: media,
-      field: 'id'
+      fields: 'id, webContentLink' // agregamos el campo webContentLink para obtener el enlace de la imagen
     })
 
     fs.unlink(filePath, (error) => {
@@ -59,8 +64,9 @@ async function uploadFile(fileName, filePath){
         console.log(`Archivo eliminado: ${filePath}`);
       }
     });
-    
-    return response.data.id;
+
+    const urlImage = response.data.webContentLink.replace("&export=download", "");
+    return urlImage;
 
   } catch (error) {
     console.log('Upload file error', error)
