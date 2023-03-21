@@ -6,3 +6,13 @@ export interface SupportSearch{
 }
 
 
+export interface Product{
+  title: String,
+  price: Number,
+  description: String,
+  category: String,
+  stock: Number,
+  stars: Number,
+  image: String,
+  user: String
+}
