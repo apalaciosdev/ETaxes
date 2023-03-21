@@ -34,6 +34,7 @@ import { CarrouselComponent } from './components/graphics/carrousel/carrousel.co
 import { StarRating } from './components/graphics/starRating/starRating.component,';
 import { UploadFilesComponent } from './components/graphics/uploadFIles/uploadFiles.component,';
 import { EditProductComponent } from './components/views/private/editProduct/editProduct.component,';
+import { CreateProductComponent } from './components/views/private/createProduct/createProduct.component,';
 
 
 
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     MarketplaceComponent,
     UserProductsComponent,
+    CreateProductComponent,
     EditProductComponent,
     RegisterComponent,
     LoginComponent,

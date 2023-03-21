@@ -12,15 +12,15 @@ import { Product } from 'src/assets/models/product';
 
 
 @Component({
-  selector: 'editProductComponent',
-  templateUrl: './editProduct.component.html',
+  selector: 'createProductComponent',
+  templateUrl: './createProduct.component.html',
   providers: [], //Utilizamos el servicio aqui
   // styleUrls: ['./editProduct.component.css']
 })
 
 
 
-export class EditProductComponent implements OnInit{
+export class CreateProductComponent implements OnInit{
   id: string;
   imgTemporal: any;
   public editProductForm!: FormGroup;
