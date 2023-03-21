@@ -1,7 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { UploadFilesService } from '../../../services/httpServices/uploadFiles.service';
+import { TemporalService } from 'src/app/services/temporal.service';
 
 
 @Component({
@@ -13,8 +14,14 @@ import { UploadFilesService } from '../../../services/httpServices/uploadFiles.s
 
 
 export class UploadFilesComponent implements OnInit{
-  
-  constructor(private uploadFilesService: UploadFilesService) { }
+
+  private variableTemporalSubject = new BehaviorSubject<any>(null);
+
+ 
+  constructor(
+    private uploadFilesService: UploadFilesService,
+    private temporalService: TemporalService
+  ) { }
 
 
   selectedFiles?: FileList;
@@ -40,11 +47,15 @@ export class UploadFilesComponent implements OnInit{
   
         this.uploadFilesService.upload(this.currentFile).subscribe(
           (event: any) => {
+            if(event.body){
+              this.temporalService.actualizarVariableTemporal(event.body);
+              this.variableTemporalSubject.next(event.body);
+            }
             if (event.type === HttpEventType.UploadProgress) {
               this.progress = Math.round(100 * event.loaded / event.total);
             } else if (event instanceof HttpResponse) {
               this.message = event.body.message;
-              this.fileInfos = this.uploadFilesService.getFiles();
+              // this.fileInfos = this.uploadFilesService.getFiles();
             }
           },
           (err: any) => {
@@ -71,6 +82,6 @@ export class UploadFilesComponent implements OnInit{
 
 
   ngOnInit() {
-    this.fileInfos = this.uploadFilesService.getFiles();
+    // this.fileInfos = this.uploadFilesService.getFiles();
   }
 }

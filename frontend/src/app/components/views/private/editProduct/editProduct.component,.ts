@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
 import { Product } from 'src/assets/models/product';
@@ -21,6 +22,7 @@ import { Product } from 'src/assets/models/product';
 
 export class EditProductComponent implements OnInit{
   id: string;
+  imgTemporal: any;
   public editProductForm!: FormGroup;
   public product: Product;
 
@@ -31,7 +33,8 @@ export class EditProductComponent implements OnInit{
     public utilsService: UtilsService,
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private temporalService: TemporalService
   ) { 
     this.product = {
       title: "",
@@ -49,7 +52,9 @@ export class EditProductComponent implements OnInit{
   ngOnInit() {
     this.route.params.subscribe(paramsId => {
       this.id = paramsId['id'];
-      console.log(this.id);
+    });
+    this.temporalService.obtenerVariableTemporal().subscribe(valor => {
+      this.imgTemporal = valor;
     });
     this.initForm();
   }

@@ -21,7 +21,9 @@ async function saveFile(req, res){
     } else {
       try {
         const response = await uploadFile(file.originalname, filePath);
-        res.send(response);
+        res.json(
+          response
+        )
       } catch (error) {
         console.error(error);
         res.sendStatus(500);
