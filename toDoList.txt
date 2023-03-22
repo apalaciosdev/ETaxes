@@ -1,0 +1,1 @@
+cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
