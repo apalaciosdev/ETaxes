@@ -2,7 +2,7 @@
 
   <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
 
-    <form [formGroup]="editProductForm" (ngSubmit)="onSubmit(); editProductForm.reset();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+    <form *ngIf="editProductForm" [formGroup]="editProductForm" (ngSubmit)="onSubmit(); editProductForm.reset();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
       <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
       <div class="row">
         <div class="col-sm-6 mb-4">

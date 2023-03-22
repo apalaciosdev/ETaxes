@@ -26,9 +26,13 @@ export class ProductsHttpService {
   getUserProducts(user:any) {
     return this.http.post(`${this.url}/userProducts`, {"user": user});
   }
-
+  
   putProduct(product: Product, id:any){
     return this.http.put(`${this.url}/${id}`, product);
+  }
+  
+  checkUserHaveProduct(user:any, productId:any){
+    return this.http.post(`${this.url}/checkUserHaveProduct`, {"user": user, "productId": productId});
   }
 
 

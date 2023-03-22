@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
@@ -26,6 +26,7 @@ export class EditProductComponent implements OnInit{
   public editProductForm!: FormGroup;
   public product: Product;
   public productImg: String;
+  userToken: any;
 
   constructor(
     private productsHttpService: ProductsHttpService,
@@ -35,6 +36,7 @@ export class EditProductComponent implements OnInit{
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
     private route: ActivatedRoute,
+    private router: Router,
     private temporalService: TemporalService
   ) { 
     this.product = {
@@ -51,6 +53,7 @@ export class EditProductComponent implements OnInit{
 
 
   async ngOnInit() {
+    this.userToken = this.localStorageService.getItem('userToken');;
     this.route.params.subscribe(paramsId => {
       this.id = paramsId['id'];
     });
@@ -60,6 +63,7 @@ export class EditProductComponent implements OnInit{
       // this.temporalService.actualizarVariableTemporal(null);
     });
     await this.getProduct(this.id);
+    await this.checkUserHaveProduct(this.userToken.mail, this.id)
     this.initForm();
   }
 
@@ -89,8 +93,20 @@ export class EditProductComponent implements OnInit{
     }, 500);
   }
   
-  // TODO: crear funcion que compruebe que el producto es del usuario, sinó redirigir a sus productos
 
+
+  // TODO: crear funcion que compruebe que el producto es del usuario, sinó redirigir a sus productos
+  async checkUserHaveProduct(user:string, productId:any){
+    this.productsHttpService.checkUserHaveProduct(user, productId).subscribe(
+      (response:any) => { 
+          if(response.exists == false){
+            console.log(response)
+            this.router.navigate(['/my-products']);
+          }
+       },
+      (error) => { console.log(error); }
+    ); 
+  }
 
 
   
@@ -98,16 +114,6 @@ export class EditProductComponent implements OnInit{
   async getProduct(id:any){
     this.productsHttpService.getProduct(id).subscribe(
       (response:any) => { 
-        // this.product = {
-        //   "title": response.title,
-        //   "price": response.price,
-        //   "description": response.description,
-        //   "category": response.category,
-        //   "stock": response.stock,
-        //   "stars": response.stars,
-        //   "image": response.image,
-        //   "user": response.user
-        // }
         this.product = response;
         this.productImg = response.image;
         if( this.imgTemporal){
@@ -116,10 +122,6 @@ export class EditProductComponent implements OnInit{
       },
       (error) => { console.log(error); }
     ); 
-
-    // setTimeout(() => {
-    //   console.log(this.products)
-    // }, 500);
   }
   
   async putProduct(uid: string){
@@ -129,10 +131,6 @@ export class EditProductComponent implements OnInit{
       (error) => { console.log(error); }
     ); 
       
-    // await this.getProducts()
-    // this.httpService.reloadComponent(this.router)
-    
-    // this.ngOnInit();
   }
   
 

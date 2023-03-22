@@ -27,6 +27,27 @@ const userProducts = async(req, res = response) => {
   ) 
 }
 
+
+const checkUserHaveProduct = async(req, res = response) => {
+  const { user, productId } = req.body
+
+  Product.findOne({ _id: productId, user: user }) // Consulta para buscar el producto por ID y correo electrónico
+    .then(product => {
+      if (!product) { // Si no se encuentra el producto
+        return res.status(200).json({
+          exists: false,
+        });
+      }
+      res.status(200).json({exists: true, product}); // Si se encuentra el producto, devolverlo
+    })
+    .catch(error => {
+      res.status(500).json({
+        message: 'Error en el servidor',
+        error: error
+      });
+    });
+}
+
 const productGet = async(req, res = response) => { //get only 1 product
   const { id } = req.params
   console.log('id', id)
@@ -100,5 +121,6 @@ module.exports = {
   productsPut,
   productsDelete,
   productExists,
-  userProducts
+  userProducts,
+  checkUserHaveProduct
 }
