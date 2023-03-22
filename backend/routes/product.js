@@ -13,10 +13,10 @@ router.get('/', productsGet)
 
 router.post('/userProducts', userProducts)
 
-router.get('/individual/:id', [
-  check('id', 'This is not a valid ID').isMongoId(),
-  check('id', 'ID is required').not().isEmpty(),
-  validateFields
+router.get('/product/:id', [
+  // check('id', 'This is not a valid ID').isMongoId(),
+  // check('id', 'ID is required').not().isEmpty(),
+  // validateFields
 ], productGet)
 
 router.post('/', [
@@ -36,10 +36,10 @@ router.post('/:id', [
 
 
 router.put('/:id',[
-  validateJWT,
-  isSalesRole, //check if role of the user is ADMIN_ROLE //send token
-  check('id', 'This is not a valid Id').isMongoId(),
-  validateFields
+  // validateJWT,
+  // isSalesRole, //check if role of the user is ADMIN_ROLE //send token
+  // check('id', 'This is not a valid Id').isMongoId(),
+  // validateFields
 ], productsPut)
 
 

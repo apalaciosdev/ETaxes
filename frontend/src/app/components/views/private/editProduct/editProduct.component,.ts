@@ -25,6 +25,7 @@ export class EditProductComponent implements OnInit{
   imgTemporal: any;
   public editProductForm!: FormGroup;
   public product: Product;
+  public productImg: String;
 
   constructor(
     private productsHttpService: ProductsHttpService,
@@ -49,14 +50,16 @@ export class EditProductComponent implements OnInit{
   }
 
 
-  ngOnInit() {
+  async ngOnInit() {
     this.route.params.subscribe(paramsId => {
       this.id = paramsId['id'];
     });
-    this.temporalService.obtenerVariableTemporal().subscribe(valor => {
+    await this.temporalService.obtenerVariableTemporal().subscribe(async valor => {
+      await this.getProduct(this.id);
       this.imgTemporal = valor;
-      this.product.image = valor;
+      // this.temporalService.actualizarVariableTemporal(null);
     });
+    await this.getProduct(this.id);
     this.initForm();
   }
 
@@ -80,7 +83,7 @@ export class EditProductComponent implements OnInit{
     // console.log(this.register)
     // await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
-    
+    await this.putProduct(this.id);
     setTimeout(() => {
       // this.router.navigate(['/products']);
     }, 500);
@@ -92,29 +95,45 @@ export class EditProductComponent implements OnInit{
 
   
 
-  // async getProducts(user:any){
-  //   this.productsHttpService.getUserProducts(user).subscribe(
-  //     (response) => { this.products = response },
-  //     (error) => { console.log(error); }
-  //   ); 
+  async getProduct(id:any){
+    this.productsHttpService.getProduct(id).subscribe(
+      (response:any) => { 
+        // this.product = {
+        //   "title": response.title,
+        //   "price": response.price,
+        //   "description": response.description,
+        //   "category": response.category,
+        //   "stock": response.stock,
+        //   "stars": response.stars,
+        //   "image": response.image,
+        //   "user": response.user
+        // }
+        this.product = response;
+        this.productImg = response.image;
+        if( this.imgTemporal){
+          this.product.image = this.imgTemporal;
+        }
+      },
+      (error) => { console.log(error); }
+    ); 
 
-  //   // setTimeout(() => {
-  //   //   console.log(this.products)
-  //   // }, 500);
-  // }
+    // setTimeout(() => {
+    //   console.log(this.products)
+    // }, 500);
+  }
   
-  // async deleteProduct(uid: string){
-  //   console.log("dale")
-  //   this.httpService.deleteProduct(uid).subscribe(
-  //     (response) => { console.log("Product dropped"); },
-  //     (error) => { console.log(error); }
-  //   ); 
+  async putProduct(uid: string){
+    console.log("dale")
+    this.productsHttpService.putProduct(this.product, uid).subscribe(
+      (response) => { console.log("Product edited"); },
+      (error) => { console.log(error); }
+    ); 
       
-  //   await this.getProducts()
-  //   this.httpService.reloadComponent(this.router)
+    // await this.getProducts()
+    // this.httpService.reloadComponent(this.router)
     
-  //   // this.ngOnInit();
-  // }
+    // this.ngOnInit();
+  }
   
 
 }

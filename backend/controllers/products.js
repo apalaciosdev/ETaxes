@@ -24,12 +24,12 @@ const userProducts = async(req, res = response) => {
   
   res.json(
     products
-  )
+  ) 
 }
 
 const productGet = async(req, res = response) => { //get only 1 product
-
   const { id } = req.params
+  console.log('id', id)
 
   const product = await Product.findById(id)
   

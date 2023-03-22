@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { Injectable } from  '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from '../../../assets/models/product';
 
 
 @Injectable({
@@ -18,9 +19,18 @@ export class ProductsHttpService {
     return this.http.get(this.url);
   }
   
+  getProduct(id:any) {
+    return this.http.get(`${this.url}/product/${id}`);
+  }
+  
   getUserProducts(user:any) {
     return this.http.post(`${this.url}/userProducts`, {"user": user});
   }
+
+  putProduct(product: Product, id:any){
+    return this.http.put(`${this.url}/${id}`, product);
+  }
+
 
   // deleteProduct(uid: string){
   //   return this.http.delete(`http://localhost:2022/api/products/${uid}`, {

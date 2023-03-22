@@ -16,7 +16,7 @@
         </div>
         <div class="col-sm-6 mb-4">
           <label for="description" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Descripción</label>
-          <input formControlName="description" [(ngModel)]="this.product.description" type="text" id="description" name="description" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          <textarea formControlName="description" [(ngModel)]="this.product.description" type="text" id="description" name="description" class="form-control form-control-lg" required="" placeholder=""></textarea>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="category" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Categoria</label>
@@ -34,11 +34,11 @@
           <label for="image" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Image</label>
           <input formControlName="image" [(ngModel)]="this.product.image" type="text" id="image" name="image" class="form-control form-control-lg" required="">
         </div> -->
-        <uploadFilesComponent></uploadFilesComponent>
-        <img src={{this.product.image}} onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
       </div>  
       <button type="submit" class="btn btn-primary btn-lg me-3"><i class="fa-solid bi bi-send-fill me-2"></i>Send</button>
       <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
     </form>
+    <uploadFilesComponent></uploadFilesComponent>
+    <img src={{this.product.image}} onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
   </div>
 </section>
