@@ -28,7 +28,7 @@
         </div>
         <div class="col-sm-6 mb-4">
           <label for="stars" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Stars</label>
-          <input formControlName="stars" [(ngModel)]="this.product.stars" type="number" id="stars" name="stars" class="form-control form-control-lg" required="" maxlength="100">
+          <input formControlName="stars" [(ngModel)]="this.product.stars" type="number" id="stars" name="stars" class="form-control form-control-lg" required="" min="0" max="5">
         </div>
         <!-- <div class="col-sm-6 mb-4">
           <label for="image" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Image</label>
