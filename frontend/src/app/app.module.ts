@@ -35,6 +35,7 @@ import { StarRating } from './components/graphics/starRating/starRating.componen
 import { UploadFilesComponent } from './components/graphics/uploadFIles/uploadFiles.component,';
 import { EditProductComponent } from './components/views/private/editProduct/editProduct.component,';
 import { CreateProductComponent } from './components/views/private/createProduct/createProduct.component,';
+import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
 
 
 
@@ -51,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomeComponent,
     NavbarComponent,
     MarketplaceComponent,
+    ProductInfoComponent,
     UserProductsComponent,
     CreateProductComponent,
     EditProductComponent,

@@ -1,1 +1,8 @@
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
+hacer pagina de detales del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
+cuando usuario compre, q el stock se reste
+hacer carrito de compra
+añadir productos al carrito de compra
+al icono del carrito, añadir un circulo rojo donde se vea el numero de productos q tiene
+no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
+
