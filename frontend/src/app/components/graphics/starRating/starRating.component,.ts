@@ -15,7 +15,7 @@ import { User } from 'src/assets/models/user';
 
 
 export class StarRating implements OnInit{
-  @Input() public stars: string;
+  @Input() public stars: any;
   intStars = 0;
   // @Output() passwordStrength = new EventEmitter<boolean>();
   // bar0: string;

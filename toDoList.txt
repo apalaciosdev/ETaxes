@@ -1,8 +1,32 @@
+
+--------------- POR HACER (FUMADAS) ---------------
+meterle reviews a cada producto
+añadir cantidad de reviews en cada producto para verlo en product-details
+
+--------------- POR HACER (A FUTURO) ---------------
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
-hacer pagina de detales del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 cuando usuario compre, q el stock se reste
 hacer carrito de compra
 añadir productos al carrito de compra
 al icono del carrito, añadir un circulo rojo donde se vea el numero de productos q tiene
-no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
+opacidad en las imágenes
+hacer estadísticas de compras
+hacer página para carrito
+hacer pagina para editar la info del usuario
+quitar errores de consola en el componente product-details
+
+
+--------------- POR HACER (IMPORTANTE) ---------------
+hacer pagina de detales del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 hacer tabla de ventas para hacer las estadisticas
+hacer navbar funcional
+
+
+
+
+--------------- CORREGIDO ---------------
+no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
+
+
+
+--------------- DONE ---------------

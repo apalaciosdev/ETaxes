@@ -10,6 +10,7 @@ import { UserProductsComponent } from './components/views/private/userProducts/u
 import { ProductSupport } from './components/views/public/productSupport/productSupport.component,';
 import { EditProductComponent } from './components/views/private/editProduct/editProduct.component,';
 import { CreateProductComponent } from './components/views/private/createProduct/createProduct.component,';
+import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
 
 
 
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'marketplace', component: MarketplaceComponent},
+  {path: 'product-details/:id', component: ProductInfoComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'product-support', component: ProductSupport},
