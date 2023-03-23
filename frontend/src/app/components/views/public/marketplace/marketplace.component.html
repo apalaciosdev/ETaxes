@@ -14,12 +14,12 @@
             <div class="thumb-wrapper">
               <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
               <div class="img-box"> 
-                <img src={{(product.image)}} height="172" width="306" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
+                <img src={{(product.image)}} class="imgZoom" routerLink="/product-details/{{product.uid}}" height="172" width="306" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
               </div>
               <div class="thumb-content">
-                <h4>{{product.title}}</h4>
-                <starRatingComponent [stars]="product.stars"></starRatingComponent>
-                <p class="item-price"><a>{{product.price}}€</a></p>
+                <h4 routerLink="/product-details/{{product.uid}}">{{product.title}}</h4>
+                <starRatingComponent [stars]="product.stars" routerLink="/product-details/{{product.uid}}"></starRatingComponent>
+                <p class="item-price" routerLink="/product-details/{{product.uid}}"><a>{{product.price}}€</a></p>
                 <a href="#" class="btn btn-primary">Add to Cart</a>
               </div>						
             </div>
