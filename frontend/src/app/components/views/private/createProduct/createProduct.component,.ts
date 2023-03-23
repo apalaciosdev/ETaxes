@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
@@ -25,6 +25,8 @@ export class CreateProductComponent implements OnInit{
   imgTemporal: any;
   public editProductForm!: FormGroup;
   public product: Product;
+  public productImg: String;
+  userToken: any;
 
   constructor(
     private productsHttpService: ProductsHttpService,
@@ -34,6 +36,7 @@ export class CreateProductComponent implements OnInit{
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
     private route: ActivatedRoute,
+    private router: Router,
     private temporalService: TemporalService
   ) { 
     this.product = {
@@ -49,14 +52,16 @@ export class CreateProductComponent implements OnInit{
   }
 
 
-  ngOnInit() {
-    this.route.params.subscribe(paramsId => {
-      this.id = paramsId['id'];
+  async ngOnInit() {
+    this.product.user = this.localStorageService.getItem('userToken').mail;
+
+    await this.temporalService.obtenerVariableTemporal().subscribe(async valor => {
+      // await this.getProduct(this.id);
+      this.product.image = valor
+      // this.temporalService.actualizarVariableTemporal(null);
     });
-    this.temporalService.obtenerVariableTemporal().subscribe(valor => {
-      this.imgTemporal = valor;
-      this.product.image = valor;
-    });
+    // await this.getProduct(this.id);
+    // await this.checkUserHaveProduct(this.userToken.mail, this.id)
     this.initForm();
   }
 
@@ -80,41 +85,38 @@ export class CreateProductComponent implements OnInit{
     // console.log(this.register)
     // await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
-    
+    await this.postProduct();
     setTimeout(() => {
       // this.router.navigate(['/products']);
     }, 500);
   }
   
+
+
   // TODO: crear funcion que compruebe que el producto es del usuario, sinó redirigir a sus productos
-
+  async checkUserHaveProduct(user:string, productId:any){
+    this.productsHttpService.checkUserHaveProduct(user, productId).subscribe(
+      (response:any) => { 
+          if(response.exists == false){
+            console.log(response)
+            this.router.navigate(['/my-products']);
+          }
+       },
+      (error) => { console.log(error); }
+    ); 
+  }
 
 
   
-
-  // async getProducts(user:any){
-  //   this.productsHttpService.getUserProducts(user).subscribe(
-  //     (response) => { this.products = response },
-  //     (error) => { console.log(error); }
-  //   ); 
-
-  //   // setTimeout(() => {
-  //   //   console.log(this.products)
-  //   // }, 500);
-  // }
   
-  // async deleteProduct(uid: string){
-  //   console.log("dale")
-  //   this.httpService.deleteProduct(uid).subscribe(
-  //     (response) => { console.log("Product dropped"); },
-  //     (error) => { console.log(error); }
-  //   ); 
+  async postProduct(){
+    console.log("dale")
+    this.productsHttpService.postProduct(this.product).subscribe(
+      (response) => { console.log("Product saved"); },
+      (error) => { console.log(error); }
+    ); 
       
-  //   await this.getProducts()
-  //   this.httpService.reloadComponent(this.router)
-    
-  //   // this.ngOnInit();
-  // }
+  }
   
 
 }

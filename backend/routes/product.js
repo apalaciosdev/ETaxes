@@ -24,12 +24,12 @@ router.get('/product/:id', [
 ], productGet)
 
 router.post('/', [
-  validateJWT,
-  isSalesRole, //check if role of the user is ADMIN_ROLE or SALES_ROLE //send token
+  // validateJWT,
+  // isSalesRole, //check if role of the user is ADMIN_ROLE or SALES_ROLE //send token
   check('title', 'Title of the product is required').not().isEmpty(),
   check('price', 'Price is required').not().isEmpty(),
   check('category', 'Category is required').not().isEmpty(),
-  validateFields
+  // validateFields
 ], productsPost)
 
 router.post('/:id', [
