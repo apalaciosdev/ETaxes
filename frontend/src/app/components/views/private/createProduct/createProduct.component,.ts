@@ -86,6 +86,7 @@ export class CreateProductComponent implements OnInit{
     // await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     await this.postProduct();
+    this.temporalService.actualizarVariableTemporal(null);
     setTimeout(() => {
       // this.router.navigate(['/products']);
     }, 500);
@@ -111,6 +112,7 @@ export class CreateProductComponent implements OnInit{
   
   async postProduct(){
     console.log("dale")
+    this.temporalService.actualizarVariableTemporal(null);
     this.productsHttpService.postProduct(this.product).subscribe(
       (response) => { console.log("Product saved"); },
       (error) => { console.log(error); }

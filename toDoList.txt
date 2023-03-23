@@ -5,4 +5,4 @@ hacer carrito de compra
 añadir productos al carrito de compra
 al icono del carrito, añadir un circulo rojo donde se vea el numero de productos q tiene
 no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
-
+hacer tabla de ventas para hacer las estadisticas

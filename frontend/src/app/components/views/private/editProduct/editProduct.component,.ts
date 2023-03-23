@@ -58,8 +58,10 @@ export class EditProductComponent implements OnInit{
       this.id = paramsId['id'];
     });
     await this.temporalService.obtenerVariableTemporal().subscribe(async valor => {
-      await this.getProduct(this.id);
-      this.imgTemporal = valor;
+      if(valor !== null){
+        await this.getProduct(this.id);
+        this.imgTemporal = valor;
+      }
       // this.temporalService.actualizarVariableTemporal(null);
     });
     await this.getProduct(this.id);
@@ -88,6 +90,7 @@ export class EditProductComponent implements OnInit{
     // await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     await this.putProduct(this.id);
+    this.temporalService.actualizarVariableTemporal(null);
     setTimeout(() => {
       // this.router.navigate(['/products']);
     }, 500);
