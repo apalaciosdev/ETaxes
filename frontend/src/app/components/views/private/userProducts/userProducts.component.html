@@ -20,6 +20,7 @@
                 <p class="item-price"><a>{{product.price}}€</a></p>
                 <a href="#" class="btn btn-primary">+ Carrito</a>
                 <a routerLink="/edit-product/{{ product.uid }}" class="btn btn-primary">Editar</a>
+                <a (click)="deleteProduct(product.uid)" class="btn btn-primary">Eliminar</a>
               </div>						
             </div>
           </div>

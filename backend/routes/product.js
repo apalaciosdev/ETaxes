@@ -48,12 +48,12 @@ router.put('/:id',[
 
 
 router.delete('/:id', [
-  validateJWT,
-  isSalesRole,
-  //haveRole('ADMIN_ROLE', 'SALES_ROLE'), //required one of these roles
+  // validateJWT,
+  // isSalesRole,
+  // //haveRole('ADMIN_ROLE', 'SALES_ROLE'), //required one of these roles
   check('id', 'This is not a valid ID').isMongoId(),
   check('id').custom(productExistsById),
-  validateFields
+  // validateFields
 ], productsDelete)
 
 

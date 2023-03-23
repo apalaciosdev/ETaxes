@@ -38,6 +38,10 @@ export class ProductsHttpService {
   checkUserHaveProduct(user:any, productId:any){
     return this.http.post(`${this.url}/checkUserHaveProduct`, {"user": user, "productId": productId});
   }
+  
+  deleteProduct(productId:any){
+    return this.http.delete(`${this.url}/${productId}`);
+  }
 
 
   // deleteProduct(uid: string){

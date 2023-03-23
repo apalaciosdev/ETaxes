@@ -90,7 +90,7 @@ const productsDelete = async(req, res = response) => {
 
   const { id } = req.params
 
-  const product = await Product.findByIdAndUpdate(id, { state: false })
+  const product = await Product.findByIdAndDelete(id)
 
   res.json({
     product

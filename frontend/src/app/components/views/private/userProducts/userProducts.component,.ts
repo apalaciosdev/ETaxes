@@ -54,12 +54,18 @@ export class UserProductsComponent implements OnInit{
   //     (response) => { console.log("Product dropped"); },
   //     (error) => { console.log(error); }
   //   ); 
-      
+  
   //   await this.getProducts()
   //   this.httpService.reloadComponent(this.router)
-    
+  
   //   // this.ngOnInit();
   // }
   
-
+  async deleteProduct(productId: string){
+    this.productsHttpService.deleteProduct(productId).subscribe(
+      (response) => { console.log("Product dropped"); },
+      (error) => { console.log(error); }
+    ); 
+    console.log(productId)
+  }
 }
