@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from '../../../../services/utils.service';
 
@@ -22,7 +24,8 @@ export class MarketplaceComponent implements OnInit{
   constructor(
     private productsHttpService: ProductsHttpService,
     public utilsService: UtilsService,
-    private temporalService: TemporalService
+    private localStorageService: LocalStorageService,
+    private cartService: CartService
   ) { }
 
   ngOnInit() {
@@ -43,8 +46,11 @@ export class MarketplaceComponent implements OnInit{
   }
 
 
-  addCarrito(productId:string){
-    this.temporalService.sumVariableCarrito();
+  addCarrito(product:string){
+
+    this.cartService.addToCart(product);
+    
+
     
   }
   

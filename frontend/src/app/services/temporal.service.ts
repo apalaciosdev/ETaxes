@@ -21,9 +21,10 @@ export class TemporalService {
 
   //Carrito
   variableCarrito: Number = 0;
-  public variableCarritoSubject = new BehaviorSubject<any>(0);
+  public variableCarritoSubject = new BehaviorSubject<any>(null);
 
   actualizarVariableCarrito(valor: any) {
+    console.log(valor)
     this.variableCarrito = valor;
     this.variableCarritoSubject.next(valor);
   }
