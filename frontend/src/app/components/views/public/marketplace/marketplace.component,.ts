@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
+import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from '../../../../services/utils.service';
 
 
@@ -21,7 +22,7 @@ export class MarketplaceComponent implements OnInit{
   constructor(
     private productsHttpService: ProductsHttpService,
     public utilsService: UtilsService,
-
+    private temporalService: TemporalService
   ) { }
 
   ngOnInit() {
@@ -39,6 +40,12 @@ export class MarketplaceComponent implements OnInit{
     setTimeout(() => {
       console.log(this.products)
     }, 500);
+  }
+
+
+  addCarrito(productId:string){
+    this.temporalService.sumVariableCarrito();
+    
   }
   
   // async deleteProduct(uid: string){
