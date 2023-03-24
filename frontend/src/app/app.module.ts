@@ -36,6 +36,7 @@ import { UploadFilesComponent } from './components/graphics/uploadFIles/uploadFi
 import { EditProductComponent } from './components/views/private/editProduct/editProduct.component,';
 import { CreateProductComponent } from './components/views/private/createProduct/createProduct.component,';
 import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
+import { CartComponent } from './components/views/public/cart/cart.component,';
 
 
 
@@ -58,6 +59,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EditProductComponent,
     RegisterComponent,
     LoginComponent,
+    CartComponent,
     PasswordStrength,
     StarRating,
     UploadFilesComponent,
