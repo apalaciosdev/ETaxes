@@ -28,12 +28,7 @@ export class NavbarComponent implements OnInit{
 
   async ngOnInit() {
     await this.temporalService.obtenerVariableCarrito().subscribe(async (valor) => {
-      if(valor===null){
-        this.cantidadProductos = this.cartService.initVariableCarrito();
-      }
-      else{
-        this.cantidadProductos = valor;
-      }
+      this.cantidadProductos = !valor ? this.cartService.initVariableCarrito() : valor;
     });
   }
 

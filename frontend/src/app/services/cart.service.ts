@@ -33,6 +33,13 @@ export class CartService {
     console.log(this.getItems())
     this.updateVariableCarrito()
   }
+  
+  removeToCart(productId: any): void {
+    const items = this.getItems();
+    this.localStorageService.setItem('cart', JSON.stringify(items.filter(objeto => objeto.uid !== productId)));
+    console.log(this.getItems())
+    this.updateVariableCarrito()
+  }
 }
 
 

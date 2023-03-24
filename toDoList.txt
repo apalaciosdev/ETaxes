@@ -6,14 +6,14 @@ añadir cantidad de reviews en cada producto para verlo en product-details
 --------------- POR HACER (A FUTURO) ---------------
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
 cuando usuario compre, q el stock se reste
-añadir productos al carrito de compra
 opacidad en las imágenes
 hacer estadísticas de compras
 hacer pagina para editar la info del usuario
 quitar errores de consola en el componente product-details
 hacer logout
 meter footer
-
+cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
+poder coger varias cantidades de un producto, agruparlas y enviarlas al carrito
 
 --------------- POR HACER (IMPORTANTE) ---------------
 hacer tabla de ventas para hacer las estadisticas
@@ -34,4 +34,5 @@ no va del todo fino las imagenes al modificar y crear un producto (variable temp
 
 
 --------------- DONE ---------------
+añadir productos al carrito de compra
 al icono del carrito, añadir un circulo rojo donde se vea el numero de productos q tiene

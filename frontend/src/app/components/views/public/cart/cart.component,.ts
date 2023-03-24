@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from '../../../../services/utils.service';
-
+import { CartService } from 'src/app/services/cart.service';
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -15,20 +16,24 @@ import { UtilsService } from '../../../../services/utils.service';
 
 
 export class CartComponent implements OnInit{
-
+  products:any;
   
   constructor(
-  
-
+    public cartService: CartService,
+    public location: Location
   ) {
   
   }
 
   async ngOnInit() {
-  
-
+    this.products = this.cartService.getItems()
+    console.log(this.products)
   }
-  
+
+  removeProductCart(productId:string){
+    this.cartService.removeToCart(productId)
+    this.products = this.cartService.getItems()
+  }
 
   // async deleteProduct(uid: string){
   //   console.log("dale")
