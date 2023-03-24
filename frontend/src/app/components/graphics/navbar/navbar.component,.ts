@@ -5,8 +5,8 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'navbarComponent',
   templateUrl: './navbar.component.html',
-  providers: [] //Utilizamos el servicio aqui
-  // styleUrls: ['./app.component.css']
+  providers: [], //Utilizamos el servicio aqui
+  styleUrls: ['./navbar.component.css']
 })
 
 
