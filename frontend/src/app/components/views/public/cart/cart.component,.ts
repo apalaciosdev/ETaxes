@@ -36,6 +36,7 @@ export class CartComponent implements OnInit{
   removeProductCart(productId:string){
     this.cartService.removeToCart(productId)
     this.products = this.cartService.getItems()
+
     this.updateTotalPrice();
   }
 
@@ -69,6 +70,7 @@ export class CartComponent implements OnInit{
   }
 
   updateTotalPrice(){
+    this.totalPrice = 0;
     this.products.forEach((product:any) => {
       this.totalPrice += Number(product.price) * Number(product.units);
     });
