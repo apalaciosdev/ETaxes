@@ -18,6 +18,7 @@ import { Product } from '../../../../../assets/models/product';
 
 export class CartComponent implements OnInit{
   products:any;
+  totalPrice:number = 0;
   
   constructor(
     public cartService: CartService,
@@ -28,41 +29,53 @@ export class CartComponent implements OnInit{
 
   async ngOnInit() {
     this.products = this.cartService.getItems()
+    this.updateTotalPrice();
   }
 
   removeProductCart(productId:string){
     this.cartService.removeToCart(productId)
     this.products = this.cartService.getItems()
+    this.updateTotalPrice();
   }
 
 
-  sumUnits(productId:string){
+  sumUnits(productId:string, price:any){
     this.cartService.sumUnits(productId);
     let p = document.getElementById(`product${productId}`);
-    if(p){
+    let pPriceUnits = document.getElementById(`productPriceUnit${productId}`);
+    if(p && pPriceUnits){
       p.innerText = (Number(p.textContent) + 1).toString();
+      pPriceUnits.innerText = (Number(pPriceUnits.textContent) + price).toString();
     }
+    this.totalPrice += price;
   }
 
-  resUnits(productId:string){
+  resUnits(productId:string, price:any){
     this.cartService.resUnits(productId);
     let p = document.getElementById(`product${productId}`);
-    if(p){
+    let pPriceUnits = document.getElementById(`productPriceUnit${productId}`);
+    if(p && pPriceUnits){
       if(Number(p.textContent) > 1){
         p.innerText = (Number(p.textContent) - 1).toString();
+        pPriceUnits.innerText = (Number(pPriceUnits.textContent) - price).toString();
       }
 
       else{
         this.removeProductCart(productId);
       }
     }
+    this.totalPrice -= price;
+  }
+
+  updateTotalPrice(){
+    this.products.forEach((product:any) => {
+      this.totalPrice += Number(product.price) * Number(product.units);
+    });
   }
 
   pagar(){
     // let total = 0
-    // this.products.forEach((product:Product) => {
-    //   total += Number(product.price);
-    // });
+   
 
   }
 

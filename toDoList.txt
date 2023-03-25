@@ -22,6 +22,7 @@ hacer página 404
 
 --------------- POR HACER (IMPORTANTE) ---------------
 hacer carrito de compra
+añadir en summary (carrito), lista con todos los productos
 
 
 --------------- HACIENDO ---------------
