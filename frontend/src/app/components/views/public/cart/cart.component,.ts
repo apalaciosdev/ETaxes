@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from '../../../../services/utils.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Location } from '@angular/common';
+import { Product } from '../../../../../assets/models/product';
 
 
 @Component({
@@ -33,6 +34,31 @@ export class CartComponent implements OnInit{
   removeProductCart(productId:string){
     this.cartService.removeToCart(productId)
     this.products = this.cartService.getItems()
+  }
+
+
+  sumUnits(productId:string){
+    this.cartService.sumUnits(productId);
+    let p = document.getElementById(`product${productId}`);
+    if(p){
+      p.innerText = (Number(p.textContent) + 1).toString();
+    }
+  }
+
+  resUnits(productId:string){
+    this.cartService.resUnits(productId);
+    let p = document.getElementById(`product${productId}`);
+    if(p){
+      p.innerText = (Number(p.textContent) - 1).toString();
+    }
+  }
+
+  pagar(){
+    // let total = 0
+    // this.products.forEach((product:Product) => {
+    //   total += Number(product.price);
+    // });
+
   }
 
   // async deleteProduct(uid: string){

@@ -26,9 +26,44 @@ export class CartService {
     return JSON.parse(this.localStorageService.getItem('cart')) || [];
   }
 
+  sumUnits(productId: string){
+    const items = this.getItems();
+    const product = items.find(item => item.uid === productId);
+
+    if (product) {
+      product.units += 1;
+      this.localStorageService.setItem('cart', JSON.stringify(items));
+      this.updateVariableCarrito()
+    }
+  }
+
+  resUnits(productId: string){
+    const items = this.getItems();
+    const product = items.find(item => item.uid === productId);
+
+    if (product) {
+      product.units -= 1;
+      this.localStorageService.setItem('cart', JSON.stringify(items));
+      this.updateVariableCarrito()
+    }
+  }
+
   addToCart(item: any): void {
     const items = this.getItems();
-    items.push(item);
+
+    // Buscar el objeto en el array de objetos que tenga el mismo uid
+    const existingObjectIndex = items.findIndex(objeto => objeto.uid === item.uid);
+
+    if (existingObjectIndex !== -1) {
+      // Si se encuentra el objeto, actualizar la cantidad del objeto
+      items[existingObjectIndex].units ++;
+    } else {
+      // Si no se encuentra el objeto, agregar el nuevo objeto al array de objetos
+      item.units = 1;
+      items.push(item);
+    }
+    
+
     this.localStorageService.setItem('cart', JSON.stringify(items));
     console.log(this.getItems())
     this.updateVariableCarrito()

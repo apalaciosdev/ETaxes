@@ -5,6 +5,7 @@
 --------------- POR HACER (FUMADAS) ---------------
 meterle reviews a cada producto
 añadir cantidad de reviews en cada producto para verlo en product-details
+meter libreria de efectos (portfolio)
 
 --------------- POR HACER (A FUTURO) ---------------
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
@@ -17,6 +18,7 @@ hacer logout
 meter footer
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 poder coger varias cantidades de un producto, agruparlas y enviarlas al carrito
+hacer página 404
 
 --------------- POR HACER (IMPORTANTE) ---------------
 crear categorias y ordenar los productos por estas
@@ -24,7 +26,6 @@ hacer carrito de compra
 
 
 --------------- HACIENDO ---------------
-hacer tabla de ventas para hacer las estadisticas
 hacer página para carrito
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
@@ -37,6 +38,7 @@ no va del todo fino las imagenes al modificar y crear un producto (variable temp
 
 
 --------------- DONE ---------------
+hacer tabla de ventas para hacer las estadisticas
 en el carrito, si le das a la imagen o titulo del producto, te tiene que redirigir a product-detail
 añadir productos al carrito de compra
 al icono del carrito, añadir un circulo rojo donde se vea el numero de productos q tiene
