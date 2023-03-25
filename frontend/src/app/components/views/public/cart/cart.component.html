@@ -14,11 +14,11 @@
                   <hr class="my-4">
                   <div class="row mb-4 d-flex justify-content-between align-items-center" *ngFor="let product of products">
                     <div class="col-md-2 col-lg-2 col-xl-2">
-                      <img src={{(product.image)}} class="img-fluid rounded-3" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'">
+                      <img src={{(product.image)}} routerLink="/product-details/{{product.uid}}" class="img-fluid rounded-3" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'">
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-3">
                       <h6 class="text-muted">Shirt</h6>
-                      <h6 class="text-black mb-0">{{product.title}}</h6>
+                      <h6 class="text-black mb-0" routerLink="/product-details/{{product.uid}}">{{product.title}}</h6>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                       <button class="btn btn-link px-2"
@@ -38,7 +38,7 @@
                       <h6 class="mb-0">{{product.price}}€</h6>
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a (click)="removeProductCart(product.uid)" class="text-muted"><i class="fas fa-times"></i></a>
+                      <a style="cursor: pointer;" (click)="removeProductCart(product.uid)" class="text-muted"><i class="fas fa-times"></i></a>
                     </div>
                     <hr class="my-4">
                   </div>

@@ -13,6 +13,7 @@ class Server {
     this.authPath = '/api/auth'
     this.productsPath = '/api/products'
     this.imagesPath = '/api/images'
+    this.salesPath = '/api/sales'
 
     //DB Connection
     this.dbConnect()
@@ -45,6 +46,7 @@ class Server {
     this.app.use(this.usersPath, require('../routes/user'))
     this.app.use(this.productsPath, require('../routes/product'))
     this.app.use(this.imagesPath, require('../routes/images'))
+    this.app.use(this.salesPath, require('../routes/sales'))
   }
 
   listen() {
