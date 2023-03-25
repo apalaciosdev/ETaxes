@@ -19,6 +19,7 @@ meter footer
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 poder coger varias cantidades de un producto, agruparlas y enviarlas al carrito
 hacer página 404
+fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
 
 --------------- POR HACER (IMPORTANTE) ---------------
 crear categorias y ordenar los productos por estas

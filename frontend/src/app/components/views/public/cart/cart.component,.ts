@@ -28,7 +28,6 @@ export class CartComponent implements OnInit{
 
   async ngOnInit() {
     this.products = this.cartService.getItems()
-    console.log(this.products)
   }
 
   removeProductCart(productId:string){
@@ -49,7 +48,13 @@ export class CartComponent implements OnInit{
     this.cartService.resUnits(productId);
     let p = document.getElementById(`product${productId}`);
     if(p){
-      p.innerText = (Number(p.textContent) - 1).toString();
+      if(Number(p.textContent) > 1){
+        p.innerText = (Number(p.textContent) - 1).toString();
+      }
+
+      else{
+        this.removeProductCart(productId);
+      }
     }
   }
 
