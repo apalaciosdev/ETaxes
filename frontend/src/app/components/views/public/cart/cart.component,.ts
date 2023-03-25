@@ -21,6 +21,7 @@ export class CartComponent implements OnInit{
   totalPrice:number = 0;
   
   constructor(
+    public utilsService: UtilsService,
     public cartService: CartService,
     public location: Location
   ) {

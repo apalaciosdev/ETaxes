@@ -29,6 +29,13 @@ export class UtilsService {
     const arr = url.split('/');
     return `https://drive.google.com/uc?export=view&id=${arr[5]}`;
   }
+
+  public maxShowText(text:string, index:number){
+    if (text.length > index) {
+      return text.slice(0, 15) + '...';
+    }
+    return text;
+  }
 }
 
 
