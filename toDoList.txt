@@ -6,6 +6,7 @@
 meterle reviews a cada producto
 añadir cantidad de reviews en cada producto para verlo en product-details
 meter libreria de efectos (portfolio)
+crear categorias y ordenar los productos por estas
 
 --------------- POR HACER (A FUTURO) ---------------
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
@@ -17,12 +18,9 @@ quitar errores de consola en el componente product-details
 hacer logout
 meter footer
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
-poder coger varias cantidades de un producto, agruparlas y enviarlas al carrito
 hacer página 404
-fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
 
 --------------- POR HACER (IMPORTANTE) ---------------
-crear categorias y ordenar los productos por estas
 hacer carrito de compra
 
 
@@ -34,11 +32,13 @@ hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvq
 
 
 --------------- CORREGIDO ---------------
+fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
 no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
 
 
 
 --------------- DONE ---------------
+poder coger varias cantidades de un producto, agruparlas y enviarlas al carrito
 hacer tabla de ventas para hacer las estadisticas
 en el carrito, si le das a la imagen o titulo del producto, te tiene que redirigir a product-detail
 añadir productos al carrito de compra
