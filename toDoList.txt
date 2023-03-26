@@ -19,6 +19,7 @@ hacer logout
 meter footer
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 hacer página 404
+checkear q los numeros de la targeta de check-out sean numeros y no letras
 
 --------------- POR HACER (IMPORTANTE) ---------------
 hacer carrito de compra

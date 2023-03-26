@@ -12,6 +12,7 @@ import { EditProductComponent } from './components/views/private/editProduct/edi
 import { CreateProductComponent } from './components/views/private/createProduct/createProduct.component,';
 import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
 import { CartComponent } from './components/views/public/cart/cart.component,';
+import { CheckOutComponent } from './components/views/public/checkOut/checkOut.component,';
 
 
 
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'cart', component: CartComponent},
+  {path: 'check-out', component: CheckOutComponent},
   {path: 'product-support', component: ProductSupport},
   {path: 'my-products', component: UserProductsComponent, canActivate: [AuthGuard]},
   {path: 'edit-product/:id', component: EditProductComponent, canActivate: [AuthGuard]},
