@@ -1,4 +1,5 @@
 const Sale = require('../models/sales')
+const Product = require('../models/product')
 
 
 const salesGet = async(req, res = response) => {
@@ -50,12 +51,35 @@ const salesGet = async(req, res = response) => {
 //   )
 // }
 
+const updateSaleStock = async (id, stock) => {
+
+  console.log(id)
+    // Find sale by ID
+    const sale = await Product.findById(id);
+
+    if (!sale) {
+      console.log("not found")
+    }
+    else{
+      // Update stock and save changes
+      sale.stock -= stock;
+      await sale.save();
+  
+      console.log("UPDATED!!!!")
+    }
+
+  
+};
+
 const salesPost = async(req, res = response) => {
   const sale = req.body
+  console.log(sale)
   const newSale = new Sale(sale)
 
   // Save in DB
   await newSale.save()
+  await updateSaleStock(sale.productId, sale.units);
+  
 
   res.json({
     msg: "Sale saved",

@@ -76,9 +76,11 @@ export class CartComponent implements OnInit{
     });
   }
 
-  pagar(){
+  payProducts(){
     // let total = 0
-   
+    this.products.forEach((product:any) => {
+      this.totalPrice += Number(product.price) * Number(product.units);
+    });
 
   }
 

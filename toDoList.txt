@@ -10,7 +10,6 @@ crear categorias y ordenar los productos por estas
 
 --------------- POR HACER (A FUTURO) ---------------
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
-cuando usuario compre, q el stock se reste
 opacidad en las imágenes
 hacer estadísticas de compras
 hacer pagina para editar la info del usuario
@@ -20,10 +19,9 @@ meter footer
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 hacer página 404
 checkear q los numeros de la targeta de check-out sean numeros y no letras
+acabar checkout
 
 --------------- POR HACER (IMPORTANTE) ---------------
-hacer carrito de compra
-añadir en summary (carrito), lista con todos los productos
 
 
 --------------- HACIENDO ---------------
@@ -40,6 +38,9 @@ no va del todo fino las imagenes al modificar y crear un producto (variable temp
 
 
 --------------- DONE ---------------
+cuando usuario compre, q el stock se reste
+hacer carrito de compra
+añadir en summary (carrito), lista con todos los productos
 poder coger varias cantidades de un producto, agruparlas y enviarlas al carrito
 hacer tabla de ventas para hacer las estadisticas
 en el carrito, si le das a la imagen o titulo del producto, te tiene que redirigir a product-detail
