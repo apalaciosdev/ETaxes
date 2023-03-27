@@ -5,6 +5,7 @@ import { UtilsService } from '../../../../services/utils.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Location } from '@angular/common';
 import { Product } from '../../../../../assets/models/product';
+import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class CartComponent implements OnInit{
   
   constructor(
     public utilsService: UtilsService,
+    public salesService: SalesHttpService,
     public cartService: CartService,
     public location: Location
   ) {
@@ -79,17 +81,22 @@ export class CartComponent implements OnInit{
   payProducts(){
     // let total = 0
     this.products.forEach((product:any) => {
-      this.totalPrice += Number(product.price) * Number(product.units);
+      let sale = {
+        "productId": product.uid,
+        "units": product.units,
+        "price":  product.price
+      }
+      console.log('elpepe', sale)
+      this.salesService.postSale(sale).subscribe(
+        (response) => { console.log("Venta subida"); },
+        (error) => { console.log(error); }
+      ); 
     });
 
   }
 
   // async deleteProduct(uid: string){
   //   console.log("dale")
-  //   this.httpService.deleteProduct(uid).subscribe(
-  //     (response) => { console.log("Product dropped"); },
-  //     (error) => { console.log(error); }
-  //   ); 
       
   //   await this.getProducts()
   //   this.httpService.reloadComponent(this.router)

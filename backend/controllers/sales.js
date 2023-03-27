@@ -57,18 +57,13 @@ const updateSaleStock = async (id, stock) => {
     // Find sale by ID
     const sale = await Product.findById(id);
 
-    if (!sale) {
-      console.log("not found")
-    }
-    else{
+    if (sale) {
       // Update stock and save changes
       sale.stock -= stock;
       await sale.save();
   
       console.log("UPDATED!!!!")
     }
-
-  
 };
 
 const salesPost = async(req, res = response) => {

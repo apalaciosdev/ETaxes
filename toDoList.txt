@@ -22,6 +22,9 @@ checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
 
 --------------- POR HACER (IMPORTANTE) ---------------
+añadir purchaseDate en front y back!!!!!!!
+al restar stock de un producto en back, si el producto va a llegar a 0 stock parar
+al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
 
 
 --------------- HACIENDO ---------------

@@ -19,8 +19,8 @@ export class SalesHttpService {
     return this.http.get(this.url);
   }
   
-  postSale(product: Product){
-    return this.http.post(`${this.url}`, product);
+  postSale(sale: any){
+    return this.http.post(`${this.url}`, sale);
   }
   
   // deleteProduct(uid: string){
