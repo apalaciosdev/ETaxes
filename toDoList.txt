@@ -34,8 +34,8 @@ hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 
 
-
 --------------- CORREGIDO ---------------
+corregir stars component
 fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
 no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
 

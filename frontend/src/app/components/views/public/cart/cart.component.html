@@ -21,9 +21,9 @@
                       <h6 class="text-black mb-0" routerLink="/product-details/{{product.uid}}">{{product.title}}</h6>
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                      <button class="btn btn-link px-2"
+                      <button class="btn px-2"
                         (click)="this.resUnits(product.uid, product.price)">
-                        <i class="fas fa-minus"></i>
+                        <b class=""><</b>
                       </button>
 
                       <p id="product{{product.uid}}">{{product.units}}</p>
@@ -31,9 +31,9 @@
                       <!-- <input id="form1" min="0" name="quantity" value="1" type="number"
                         class="form-control form-control-sm" /> -->
 
-                      <button class="btn btn-link px-2"
+                      <button class="btn px-2"
                         (click)="this.sumUnits(product.uid, product.price)">
-                        <i class="fas fa-plus"></i>
+                        <b>></b>
                       </button>
                     </div>
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
@@ -41,7 +41,7 @@
                       <!-- <h6 id="productPriceUnit{{product.uid}}" class="mb-0">{{product.price * product.units}}</h6> -->
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a style="cursor: pointer;" (click)="removeProductCart(product.uid)" class="text-muted"><i class="fas fa-times"></i></a>
+                      <a style="cursor: pointer;" (click)="removeProductCart(product.uid)" class="text-muted"><b class="">X</b></a>
                     </div>
                     <hr class="my-4">
                   </div>
