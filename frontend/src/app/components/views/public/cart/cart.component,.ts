@@ -84,9 +84,9 @@ export class CartComponent implements OnInit{
       let sale = {
         "productId": product.uid,
         "units": product.units,
-        "price":  product.price
+        "price":  product.price,
+        "purchaseDate": new Date() 
       }
-      console.log('elpepe', sale)
       this.salesService.postSale(sale).subscribe(
         (response) => { console.log("Venta subida"); },
         (error) => { console.log(error); }

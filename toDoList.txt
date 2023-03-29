@@ -20,9 +20,9 @@ cada producto que se añada al carrito, mostrar un alert diciendo que el product
 hacer página 404
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
+descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 --------------- POR HACER (IMPORTANTE) ---------------
-añadir purchaseDate en front y back!!!!!!!
 al restar stock de un producto en back, si el producto va a llegar a 0 stock parar
 al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
 
@@ -41,6 +41,7 @@ no va del todo fino las imagenes al modificar y crear un producto (variable temp
 
 
 --------------- DONE ---------------
+añadir purchaseDate en front y back
 cuando usuario compre, q el stock se reste
 hacer carrito de compra
 añadir en summary (carrito), lista con todos los productos
