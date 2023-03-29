@@ -25,7 +25,8 @@ export class CartComponent implements OnInit{
     public utilsService: UtilsService,
     public salesService: SalesHttpService,
     public cartService: CartService,
-    public location: Location
+    public location: Location,
+    private router: Router
   ) {
   
   }
@@ -88,11 +89,15 @@ export class CartComponent implements OnInit{
         "purchaseDate": new Date() 
       }
       this.salesService.postSale(sale).subscribe(
-        (response) => { console.log("Venta subida"); },
+        (response) => { console.log("Venta subida"); this.vaciarCarrito()},
         (error) => { console.log(error); }
       ); 
     });
+  }
 
+  vaciarCarrito(){
+    this.cartService.deleteCart();
+    this.router.navigate(['/']);
   }
 
   // async deleteProduct(uid: string){

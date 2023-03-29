@@ -73,6 +73,11 @@ export class CartService {
     this.localStorageService.setItem('cart', JSON.stringify(items.filter(objeto => objeto.uid !== productId)));
     this.updateVariableCarrito()
   }
+
+  deleteCart(){
+    this.localStorageService.setItem('cart', JSON.stringify([]));
+    this.updateVariableCarrito()
+  }
 }
 
 
