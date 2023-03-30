@@ -63,13 +63,13 @@ export class CartComponent implements OnInit{
       if(Number(p.textContent) > 1){
         p.innerText = (Number(p.textContent) - 1).toString();
         pPriceUnits.innerText = (Number(pPriceUnits.textContent) - price).toString();
+        this.totalPrice -= price;
       }
 
       else{
         this.removeProductCart(productId);
       }
     }
-    this.totalPrice -= price;
   }
 
   updateTotalPrice(){
