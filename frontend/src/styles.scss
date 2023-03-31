@@ -21,7 +21,7 @@
 @import url('./contacte.css');
 @import url('./faqs.css');
 @import url('./blog.css'); */
-
+@import 'node_modules/ngx-toastr/toastr.css';
 
 /* COLORS */
 :root {
@@ -29,3 +29,9 @@
   --grey: #555555;
   --greenBlue: #ADD2E2;
 }
+
+#toast-container {
+  position: fixed;
+
+}
+
