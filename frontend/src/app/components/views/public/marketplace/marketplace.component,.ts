@@ -33,7 +33,6 @@ export class MarketplaceComponent implements OnInit{
 
   ngOnInit() {
     this.getProducts()
-    this.notifyToastService.showSuccess("Data shown successfully !!", "ItSolutionStuff.com")
   }
   
 
@@ -51,11 +50,8 @@ export class MarketplaceComponent implements OnInit{
 
 
   addCarrito(product:string){
-
     this.cartService.addToCart(product);
-    
-
-    
+    this.notifyToastService.showSuccess("al carrito", "Producto añadido")
   }
   
   // async deleteProduct(uid: string){
