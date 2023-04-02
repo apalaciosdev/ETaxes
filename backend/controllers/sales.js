@@ -9,56 +9,59 @@ const salesGet = async(req, res = response) => {
 }
 
 const infoSalesGet = async(req, res = response) => {
+  const { mail } = req.body
+  let salesArray = [];
 
-  const salesCount = await Sale.countDocuments({});
+  const salesCount = await Sale.countDocuments({ sellerMail: mail });
+  const countUserProducts = await Product.countDocuments({ user: mail });
+
+  // const bestSelling = await Product.countDocuments({ user: mail });
+  await Sale.find({sellerMail: mail})
+  .then(sales => {
+    salesArray = sales;
+    console.log(salesArray);
+  })
 
 
-  res.json(
-    salesCount
-  );
+
+
+  //BEST SELLING
+  const productUnits = salesArray.reduce((acc, sale) => {
+    if (acc[sale.productId]) {
+      acc[sale.productId] += sale.units;
+    } else {
+      acc[sale.productId] = sale.units;
+    }
+    return acc;
+  }, {});
+  
+  const maxUnits = Object.entries(productUnits).reduce((acc, [productId, units]) => {
+    if (units > acc.units) {
+      acc.productId = productId;
+      acc.units = units;
+    }
+    return acc;
+  }, { productId: '', units: 0 });
+  
+
+
+
+
+  console.log('Product with most units:', maxUnits.productId);
+
+
+  res.json({
+    "salesCount": salesCount,
+    "countUserProducts": countUserProducts,
+    "bestSeller": await getProductData(await maxUnits.productId),
+  });
 }
 
-// const userProducts = async(req, res = response) => { 
-//   const { user } = req.body
 
-//   const products = await Product.find({user})
-  
-//   res.json(
-//     products
-//   ) 
-// }
+const getProductData = async (productId) => {
+  return await Product.findById(productId);
+}
 
-
-// const checkUserHaveProduct = async(req, res = response) => {
-//   const { user, productId } = req.body
-
-//   Product.findOne({ _id: productId, user: user }) // Consulta para buscar el producto por ID y correo electrónico
-//     .then(product => {
-//       if (!product) { // Si no se encuentra el producto
-//         return res.status(200).json({
-//           exists: false,
-//         });
-//       }
-//       res.status(200).json({exists: true, product}); // Si se encuentra el producto, devolverlo
-//     })
-//     .catch(error => {
-//       res.status(500).json({
-//         message: 'Error en el servidor',
-//         error: error
-//       });
-//     });
-// }
-
-// const productGet = async(req, res = response) => { //get only 1 product
-//   const { id } = req.params
-//   console.log('id', id)
-
-//   const product = await Product.findById(id)
-  
-//   res.json(
-//     product
-//   )
-// }
 
 const updateSaleStock = async (id, stock) => {
 
@@ -87,13 +90,12 @@ const getSeller = async (id) => {
 
 const salesPost = async(req, res = response) => {
   const sale = req.body
-  console.log(sale)
-  const newSale = new Sale(sale)
-
-  // Save in DB
-  await newSale.save()
-  await updateSaleStock(sale.productId, sale.units);
   sale.sellerMail = await getSeller(sale.productId);
+  await updateSaleStock(sale.productId, sale.units);
+  
+  // Save in DB
+  const newSale = new Sale(sale)
+  await newSale.save()
 
   res.json({
     msg: "Sale saved",

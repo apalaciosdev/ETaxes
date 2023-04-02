@@ -8,6 +8,7 @@ import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
 import { Product } from 'src/assets/models/product';
+import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 
 
 
@@ -22,6 +23,7 @@ import { Product } from 'src/assets/models/product';
 
 export class UserProfileComponent implements OnInit{
   user: any;
+  data: any;
 
   constructor(
     private productsHttpService: ProductsHttpService,
@@ -32,6 +34,7 @@ export class UserProfileComponent implements OnInit{
     public readonly service: FormsService,
     private route: ActivatedRoute,
     private router: Router,
+    private salesHttpService: SalesHttpService,
     private temporalService: TemporalService
   ) { 
   }
@@ -39,8 +42,18 @@ export class UserProfileComponent implements OnInit{
 
   async ngOnInit() {
     this.user = this.localStorageService.getItem('userToken');
-    console.log(this.user)
-    
+    this.getSalesData(this.user.mail)
+  }
+
+  async getSalesData(mail:any){
+    this.salesHttpService.salesData(mail).subscribe(
+      (response) => { this.data = response; },
+      (error) => { console.log(error); }
+    ); 
+
+    setTimeout(() => {
+      console.log(this.data)
+    }, 500);
   }
 
   private initForm() {

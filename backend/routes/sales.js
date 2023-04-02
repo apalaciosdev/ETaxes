@@ -10,7 +10,7 @@ const { productExistsById, isRoleValid, userExistsById } = require('../helpers/d
 const router = Router()
 
 router.get('/', salesGet)
-router.get('/salesData', infoSalesGet)
+router.post('/salesData', infoSalesGet)
 
 router.post('/', salesPost)
 

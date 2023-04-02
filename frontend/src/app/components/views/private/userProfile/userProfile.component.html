@@ -21,9 +21,9 @@
   <section class="panel">
     <h2>Productos</h2>
     <ul>
-      <li><b>[numero productos] </b>Productos publicados</li>
-      <li><b>[numero ventas totales]</b> Ventas.</li>
-      <li>Producto más vendido: <b>[producto con link]</b>.</li>
+      <li><b>{{data.countUserProducts}} </b>Productos publicados</li>
+      <li><b>{{data.salesCount}}</b> Ventas.</li>
+      <li>Producto más vendido: <b routerLink="/product-details/{{data.bestSeller.uid}}">{{data.bestSeller.title}}</b>.</li>
     </ul>
   </section>
 

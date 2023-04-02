@@ -23,6 +23,10 @@ export class SalesHttpService {
     return this.http.post(`${this.url}`, sale);
   }
   
+  salesData(mail: string){
+    return this.http.post(`${this.url}/salesData`, {"mail": mail});
+  }
+  
   // deleteProduct(uid: string){
   //   return this.http.delete(`http://localhost:2022/api/products/${uid}`, {
   //     headers: new HttpHeaders({
