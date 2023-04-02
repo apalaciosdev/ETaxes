@@ -6,7 +6,16 @@ const salesGet = async(req, res = response) => {
 
   const sales = await Sale.find();
   res.json(sales);
-  
+}
+
+const infoSalesGet = async(req, res = response) => {
+
+  const salesCount = await Sale.countDocuments({});
+
+
+  res.json(
+    salesCount
+  );
 }
 
 // const userProducts = async(req, res = response) => { 
@@ -66,6 +75,16 @@ const updateSaleStock = async (id, stock) => {
     }
 };
 
+const getSeller = async (id) => {
+  // Find sale by ID
+  const sale = await Product.findById(id);
+
+  if (sale) {
+    return sale.user;
+  }
+  return null;
+};
+
 const salesPost = async(req, res = response) => {
   const sale = req.body
   console.log(sale)
@@ -74,7 +93,7 @@ const salesPost = async(req, res = response) => {
   // Save in DB
   await newSale.save()
   await updateSaleStock(sale.productId, sale.units);
-  
+  sale.sellerMail = await getSeller(sale.productId);
 
   res.json({
     msg: "Sale saved",
@@ -126,5 +145,6 @@ const salesPost = async(req, res = response) => {
 
 module.exports = {
   salesGet,
-  salesPost
+  salesPost,
+  infoSalesGet
 }

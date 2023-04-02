@@ -18,7 +18,6 @@
               </div>
               <div class="thumb-content">
                 <h4 routerLink="/product-details/{{product.uid}}">{{product.title}}</h4>
-                stars: {{product.stars}}
                 <starRatingComponent [stars]="product.stars" routerLink="/product-details/{{product.uid}}"></starRatingComponent>
                 <p class="item-price" routerLink="/product-details/{{product.uid}}"><a>{{product.price}}€</a></p>
                 <a (click)="addCarrito(product)" class="btn btn-primary">Add to Cart</a>

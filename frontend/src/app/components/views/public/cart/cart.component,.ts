@@ -6,6 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { Location } from '@angular/common';
 import { Product } from '../../../../../assets/models/product';
 import { SalesHttpService } from '../../../../services/httpServices/sales.service';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class CartComponent implements OnInit{
     public salesService: SalesHttpService,
     public cartService: CartService,
     public location: Location,
-    private router: Router
+    private router: Router,
+    private localStorageService: LocalStorageService
   ) {
   
   }
@@ -86,7 +88,8 @@ export class CartComponent implements OnInit{
         "productId": product.uid,
         "units": product.units,
         "price":  product.price,
-        "purchaseDate": new Date() 
+        "purchaseDate": new Date() ,
+        "purchaserMail":  this.localStorageService.getItem('userToken').mail
       }
       this.salesService.postSale(sale).subscribe(
         (response) => { console.log("Venta subida"); this.vaciarCarrito()},

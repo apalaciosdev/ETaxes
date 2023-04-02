@@ -7,13 +7,15 @@ const SalesSchema = Schema({
   totalPrice: { type: Number, default: function() {
     return this.units * this.price;
   }},
-  purchaseDate: {type: Date, required: false}
+  purchaseDate: {type: Date, required: false},
+  purchaserMail: {type: String, required: [true, 'Purchaser mail is required']},
+  sellerMail: {type: String, required: false}
 });
 
 SalesSchema.methods.toJSON = function () {
-  const { _id, __v, ...product } = this.toObject()
-  product.uid = _id //change the name of _id to uid
-  return product
+  const { _id, __v, ...sale } = this.toObject()
+  sale.uid = _id //change the name of _id to uid
+  return sale
 }
 
 module.exports = model('Sale', SalesSchema);

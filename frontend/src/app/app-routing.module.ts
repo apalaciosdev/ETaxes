@@ -13,6 +13,7 @@ import { CreateProductComponent } from './components/views/private/createProduct
 import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
 import { CartComponent } from './components/views/public/cart/cart.component,';
 import { CheckOutComponent } from './components/views/public/checkOut/checkOut.component,';
+import { UserProfileComponent } from './components/views/private/userProfile/userProfile.component,';
 
 
 
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'cart', component: CartComponent},
   {path: 'check-out', component: CheckOutComponent},
   {path: 'product-support', component: ProductSupport},
+  {path: 'dashboard', component: UserProfileComponent, canActivate: [AuthGuard]},
   {path: 'my-products', component: UserProductsComponent, canActivate: [AuthGuard]},
   {path: 'edit-product/:id', component: EditProductComponent, canActivate: [AuthGuard]},
   {path: 'create-product', component: CreateProductComponent, canActivate: [AuthGuard]},
