@@ -1,14 +1,14 @@
 <nav role="navigation">
   <ul class="main">
     <li class="dashboard"><a href="#">Dashboard</a></li>
-    <li class="write"><a href="#">Write Post</a></li>
-    <li class="edit"><a href="#">Edit Posts</a></li>
+    <li class="edit"><a href="#">Mis Productos</a></li>
+    <li class="write"><a href="#">Añadir Producto</a></li>
     <li class="comments"><a href="#">Comments</a></li>
-    <li class="users"><a href="#">Manage Users</a></li>
+    <li class="users"><a href="#">Editar Perfil</a></li>
   </ul>
 </nav>
 
-<main role="main">
+<main role="main" *ngIf="data">
   <section class="panel important">
     <h2>Bienvenido {{this.user.name}}</h2>
     <ul>
@@ -19,7 +19,7 @@
   </section>
   
   <section class="panel">
-    <h2>Productos</h2>
+    <h2>Resumen</h2>
     <ul>
       <li><b>{{data.countUserProducts}} </b>Productos publicados</li>
       <li><b>{{data.salesCount}}</b> Ventas.</li>
@@ -35,7 +35,13 @@
       <li>Vestibulum auctor dapibus neque.</li>
     </ul>
   </section>
+
+
   <section class="panel important">
+    <h2>Stock</h2>
+    
+  </section>
+  <!-- <section class="panel important">
     <h2>Write a post</h2>
     <form action="#">
       <div class="twothirds">
@@ -77,7 +83,7 @@
         </div>
       </div>
     </form>
-  </section>
+  </section> -->
   <section class="panel">
     <h2>feedback</h2>
     <div class="feedback">This is neutral feedback Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, praesentium. Libero perspiciatis quis aliquid iste quam dignissimos, accusamus temporibus ullam voluptatum, tempora pariatur, similique molestias blanditiis at sunt earum neque.</div>

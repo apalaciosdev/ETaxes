@@ -12,6 +12,12 @@ const infoSalesGet = async(req, res = response) => {
   const { mail } = req.body
   let salesArray = [];
 
+
+
+  const productsArray = await Product.find({ user: mail })
+ 
+
+
   const salesCount = await Sale.countDocuments({ sellerMail: mail });
   const countUserProducts = await Product.countDocuments({ user: mail });
 
@@ -19,8 +25,8 @@ const infoSalesGet = async(req, res = response) => {
   await Sale.find({sellerMail: mail})
   .then(sales => {
     salesArray = sales;
-    console.log(salesArray);
   })
+
 
 
 
@@ -47,15 +53,19 @@ const infoSalesGet = async(req, res = response) => {
 
 
 
-  console.log('Product with most units:', maxUnits.productId);
+  
 
 
   res.json({
     "salesCount": salesCount,
     "countUserProducts": countUserProducts,
     "bestSeller": await getProductData(await maxUnits.productId),
+    "stockGraphData": productsArray
   });
 }
+
+
+
 
 
 const getProductData = async (productId) => {

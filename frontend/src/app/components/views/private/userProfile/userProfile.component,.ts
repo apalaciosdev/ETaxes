@@ -56,8 +56,8 @@ export class UserProfileComponent implements OnInit{
     }, 500);
   }
 
-  private initForm() {
-    
+  private initGraph() {
+   
   }
 
   async onSubmit(){
