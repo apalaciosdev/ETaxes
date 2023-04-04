@@ -12,13 +12,13 @@
 						  <div class="tab-pane" id="pic-4"><img src="http://placekitten.com/400/252" /></div>
 						  <div class="tab-pane" id="pic-5"><img src="http://placekitten.com/400/252" /></div>
 						</div>
-						<ul class="preview-thumbnail nav nav-tabs">
+						<!-- <ul class="preview-thumbnail nav nav-tabs">
 						  <li class="active"><a data-target="#pic-1" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						  <li><a data-target="#pic-2" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						  <li><a data-target="#pic-3" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						  <li><a data-target="#pic-4" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
 						  <li><a data-target="#pic-5" data-toggle="tab"><img src="http://placekitten.com/200/126" /></a></li>
-						</ul>
+						</ul> -->
 						
 					</div>
 					<div class="details col-md-6">
@@ -32,11 +32,13 @@
 								<span class="fa fa-star"></span>
 								<span class="fa fa-star"></span> -->
 							</div>
-							<span class="review-no">41 reviews</span>
+							<!-- <span *ngIf="product.stock > 0" class="review-no">{{product.stock}} unidades disponibles</span> -->
+							<span *ngIf="product.stock > 0" class="badge badge-warning" style="background-color: #94CE32 !important;">{{product.stock}} unidades disponibles</span>
+							<span *ngIf="product.stock <= 0" class="badge badge-warning" style="background-color: #FFC107 !important;">No hay unidades disponibles</span>
 						</div>
 						<p class="product-description">{{product.description}}</p>
 						<h4 class="price">Precio: <span>{{product.price}}€</span></h4>
-						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
+						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<h5 class="sizes">sizes:
 							<span class="size" data-toggle="tooltip" title="small">s</span>
 							<span class="size" data-toggle="tooltip" title="medium">m</span>
@@ -47,10 +49,11 @@
 							<span class="color orange not-available" data-toggle="tooltip" title="Not In store"></span>
 							<span class="color green"></span>
 							<span class="color blue"></span>
-						</h5>
+						</h5> -->
 						<div class="action">
-							<button class="add-to-cart btn btn-default" type="button">add to cart</button>
-							<button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button>
+							<!-- <button class="add-to-cart btn btn-default" type="button">add to cart</button> -->
+							<a class="btn btn-primary">+ Carrito</a>
+							<!-- <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button> -->
 						</div>
 					</div>
 				</div>

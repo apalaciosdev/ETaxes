@@ -22,7 +22,7 @@ descuento a productos (meter un atributo mas en DB q sea descuento) y si esta va
 --------------- POR HACER (IMPORTANTE) ---------------
 al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
 cuando pagues, en vez de reedirigir a "/" q redirija a una pagina de gracias por comprar con una ilustracion guapa
-cuando te registrar q te redirija y que ya estes logueado
+cuando te registras q te redirija y que ya estes logueado
 cuando inicias sesion, q te redirija
 si no queda stock, mostrarlo al comprar el producto
 

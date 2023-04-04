@@ -1,4 +1,25 @@
-
+.btn {
+	color: #7ac400;
+	font-size: 11px;
+	text-transform: uppercase;
+	font-weight: bold;
+	background: none;
+	border: 1px solid #7ac400;
+	padding: 6px 14px;
+	margin-top: 5px;
+	line-height: 16px;
+	border-radius: 20px;
+}
+btn:hover, .btn:focus {
+	color: #fff;
+	background: #7ac400;
+	box-shadow: none;
+}
+.btn i {
+	font-size: 14px;
+	font-weight: bold;
+	margin-left: 5px;
+}
 /*****************globals*************/
 body {
   font-family: 'open sans';
