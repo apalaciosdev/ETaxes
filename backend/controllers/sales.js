@@ -15,7 +15,12 @@ const infoSalesGet = async(req, res = response) => {
 
 
   const productsArray = await Product.find({ user: mail })
- 
+  
+  
+  // const productsArray = products.map(product => ({
+  //   ...product.toObject(),
+  //   sales: product.productId
+  // }));
 
 
   const salesCount = await Sale.countDocuments({ sellerMail: mail });
@@ -60,9 +65,11 @@ const infoSalesGet = async(req, res = response) => {
     "salesCount": salesCount,
     "countUserProducts": countUserProducts,
     "bestSeller": await getProductData(await maxUnits.productId),
-    "stockGraphData": productsArray
+    "stockGraphData": productsArray,
+    "totalSalesPerProduct": await getTotalSalesProducts(salesArray)
   });
 }
+
 
 
 
@@ -71,6 +78,22 @@ const infoSalesGet = async(req, res = response) => {
 const getProductData = async (productId) => {
   return await Product.findById(productId);
 }
+
+const getTotalSalesProducts = async (salesArray, productId) => {
+
+  const productUnits = salesArray.reduce((acc, sale) => {
+    if (acc[sale.productId]) {
+      acc[sale.productId] += sale.units;
+    } else {
+      acc[sale.productId] = sale.units;
+    }
+    return acc;
+  }, {});
+  
+  return productUnits;
+}
+
+
 
 
 const updateSaleStock = async (id, stock) => {
