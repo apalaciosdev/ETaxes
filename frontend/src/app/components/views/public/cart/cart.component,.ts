@@ -43,6 +43,7 @@ export class CartComponent implements OnInit{
     this.products = this.cartService.getItems()
 
     this.updateTotalPrice();
+    this.products = this.cartService.getItems()
   }
 
 
@@ -55,6 +56,7 @@ export class CartComponent implements OnInit{
       pPriceUnits.innerText = (Number(pPriceUnits.textContent) + price).toString();
     }
     this.totalPrice += price;
+    this.products = this.cartService.getItems()
   }
 
   resUnits(productId:string, price:any){
@@ -72,6 +74,7 @@ export class CartComponent implements OnInit{
         this.removeProductCart(productId);
       }
     }
+    this.products = this.cartService.getItems()
   }
 
   updateTotalPrice(){
@@ -79,10 +82,10 @@ export class CartComponent implements OnInit{
     this.products.forEach((product:any) => {
       this.totalPrice += Number(product.price) * Number(product.units);
     });
+    this.products = this.cartService.getItems()
   }
 
   payProducts(){
-    // let total = 0
     this.products.forEach((product:any) => {
       let sale = {
         "productId": product.uid,
