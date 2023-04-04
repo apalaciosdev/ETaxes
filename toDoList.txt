@@ -11,12 +11,9 @@ crear categorias y ordenar los productos por estas
 --------------- POR HACER (A FUTURO) ---------------
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
 opacidad en las imágenes
-hacer estadísticas de compras
 hacer pagina para editar la info del usuario
-quitar errores de consola en el componente product-details
 hacer logout
 meter footer
-cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 hacer página 404
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
@@ -34,16 +31,18 @@ cuando inicias sesion, q te redirija
 hacer página para carrito
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
+hacer estadísticas de compras
 
 
 --------------- CORREGIDO ---------------
 corregir stars component
 fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
 no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
-
+quitar errores de consola en el componente product-details
 
 
 --------------- DONE ---------------
+cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 añadir purchaseDate en front y back
 cuando usuario compre, q el stock se reste
 hacer carrito de compra
