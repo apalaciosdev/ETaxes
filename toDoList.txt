@@ -20,11 +20,13 @@ acabar checkout
 descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 --------------- POR HACER (IMPORTANTE) ---------------
-al restar stock de un producto en back, si el producto va a llegar a 0 stock parar
+
 al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
-cuando pagues, en vez de reedirigir a "/" q redirizca a una pagina de gracias por comprar con una ilustracion guapa
+cuando pagues, en vez de reedirigir a "/" q redirija a una pagina de gracias por comprar con una ilustracion guapa
 cuando te registrar q te redirija y que ya estes logueado
 cuando inicias sesion, q te redirija
+al subir cantidad en el carrito, solo cuenta 1 unidad
+si no queda stock, mostrarlo al comprar el producto
 
 
 --------------- HACIENDO ---------------
@@ -39,6 +41,7 @@ corregir stars component
 fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
 no va del todo fino las imagenes al modificar y crear un producto (variable temporal bug)
 quitar errores de consola en el componente product-details
+al restar stock de un producto en back, si el producto va a llegar a 0 stock parar
 
 
 --------------- DONE ---------------

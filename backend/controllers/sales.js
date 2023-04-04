@@ -124,16 +124,28 @@ const getSeller = async (id) => {
 const salesPost = async(req, res = response) => {
   const sale = req.body
   sale.sellerMail = await getSeller(sale.productId);
-  await updateSaleStock(sale.productId, sale.units);
-  
-  // Save in DB
-  const newSale = new Sale(sale)
-  await newSale.save()
 
-  res.json({
-    msg: "Sale saved",
-    sale
-  })
+  const check = await Product.findById(sale.productId);
+  if(check.stock - sale.units >= 0){
+    await updateSaleStock(sale.productId, sale.units);
+    
+    // Save in DB
+    const newSale = new Sale(sale)
+    await newSale.save()
+  
+    res.json({
+      msg: "Sale saved",
+      sale
+    })
+  }
+  else{
+    res.json({
+      msg: "Stock negativo",
+      sale
+    })
+
+  }
+
 }
 
 // const productsPut = async(req, res = response) => {
