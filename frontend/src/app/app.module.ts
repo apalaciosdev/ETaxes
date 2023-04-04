@@ -39,6 +39,8 @@ import { ProductInfoComponent } from './components/views/public/productInfo/prod
 import { CartComponent } from './components/views/public/cart/cart.component,';
 import { CheckOutComponent } from './components/views/public/checkOut/checkOut.component,';
 import { UserProfileComponent } from './components/views/private/userProfile/userProfile.component,';
+import { BarChartComponent } from './components/graphics/barChart/barChart.component,';
+import { NgChartsModule } from 'ng2-charts';
 
 
 
@@ -68,7 +70,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UploadFilesComponent,
     UserProfileComponent,
     ProductSupport,
-    CarrouselComponent
+    CarrouselComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +82,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ReactiveFormsModule,
     HttpClientModule,
     Ng2TelInputModule,
+    NgChartsModule,
     ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
