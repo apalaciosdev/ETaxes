@@ -16,7 +16,7 @@ opacidad en las imágenes
 hacer pagina para editar la info del usuario
 hacer logout
 meter footer
-hacer página 404
+
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
 descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
@@ -46,6 +46,7 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+hacer página 404
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta
 añadir purchaseDate en front y back
 cuando usuario compre, q el stock se reste
