@@ -114,6 +114,18 @@ const productExists = async(req, res = response) => {
   })
 }
 
+
+const createOffer = async(req, res = response) => {
+  
+  const { offerPrice } = req.body
+  
+  await Product.updateMany({}, { offerPrice: offerPrice });
+
+  res.json({
+    msg: 'All products offerPrice updated!'
+  })
+}
+
 module.exports = {
   productsGet,
   productGet,
@@ -122,5 +134,6 @@ module.exports = {
   productsDelete,
   productExists,
   userProducts,
-  checkUserHaveProduct
+  checkUserHaveProduct,
+  createOffer
 }
