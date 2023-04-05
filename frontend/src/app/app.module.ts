@@ -41,6 +41,7 @@ import { CheckOutComponent } from './components/views/public/checkOut/checkOut.c
 import { UserProfileComponent } from './components/views/private/userProfile/userProfile.component,';
 import { BarChartComponent } from './components/graphics/barChart/barChart.component,';
 import { NgChartsModule } from 'ng2-charts';
+import { DashboardNavbarComponent } from './components/graphics/dashboardNavbar/dashboardNavbar.component,';
 
 
 
@@ -71,7 +72,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     UserProfileComponent,
     ProductSupport,
     CarrouselComponent,
-    BarChartComponent
+    BarChartComponent,
+    DashboardNavbarComponent
   ],
   imports: [
     BrowserModule,

@@ -10,7 +10,7 @@ import { SharedService } from 'src/app/shared.service';
   selector: 'userProductsComponent',
   templateUrl: './userProducts.component.html',
   providers: [], //Utilizamos el servicio aqui
-  styleUrls: ['./userProducts.component.css']
+  styleUrls: ['./userProducts.component.scss', '../../../../../assets/css/userProfile.component.scss']
 })
 
 
