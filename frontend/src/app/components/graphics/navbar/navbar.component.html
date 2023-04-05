@@ -22,7 +22,7 @@
             <span class="cart-count">{{this.cantidadProductos}}</span>
           </a>
         </li>        
-        <li class="nav-item dropdown rounded">
+        <li *ngIf="isLogged"  class="nav-item dropdown rounded">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false"><i style="font-size: 20px;" class="fa fa-user-circle-o"></i></a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -33,6 +33,14 @@
               <hr class="dropdown-divider">
             </li>
             <li (click)="logout()"><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+        <li *ngIf="!isLogged"  class="nav-item dropdown rounded">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false"><i style="font-size: 20px;" class="fa fa-user-circle-o"></i></a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" routerLink="/login">Iniciar Sesión</a></li>
+            <li><a class="dropdown-item" routerLink="/register">Registrarse</a></li>
           </ul>
         </li>
       </ul>

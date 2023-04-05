@@ -17,7 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
 
 export class NavbarComponent implements OnInit{
   cantidadProductos:Number = this.cartService.initVariableCarrito();
-
+  isLogged:Boolean = false;
   
   
   constructor(
@@ -32,6 +32,7 @@ export class NavbarComponent implements OnInit{
     await this.temporalService.obtenerVariableCarrito().subscribe(async (valor) => {
       this.cantidadProductos = !valor ? this.cartService.initVariableCarrito() : valor;
     });
+    this.isLogged = await this.authService.isLogged();
   }
 
   logout(){
