@@ -43,6 +43,7 @@ import { BarChartComponent } from './components/graphics/barChart/barChart.compo
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardNavbarComponent } from './components/graphics/dashboardNavbar/dashboardNavbar.component,';
 import { PageNotFoundComponent } from './components/views/public/404Page/pageNotFound.component,';
+import { FooterComponent } from './components/graphics/footer/footer.component,';
 
 
 
@@ -75,7 +76,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     CarrouselComponent,
     BarChartComponent,
     DashboardNavbarComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
