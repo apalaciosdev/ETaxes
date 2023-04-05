@@ -37,7 +37,7 @@ export class BarChartComponent implements OnInit{
           {
             label: "Stock",
             data: this.data.map((producto: { stock: any; }) => producto.stock),
-            backgroundColor: '#1EB6A7'
+            backgroundColor: '#41BC91'
           }  
         ]
       },

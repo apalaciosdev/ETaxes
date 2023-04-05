@@ -5,7 +5,6 @@
 --------------- POR HACER (FUMADAS) ---------------
 meterle reviews a cada producto
 añadir cantidad de reviews en cada producto para verlo en product-details
-meter libreria de efectos (portfolio)
 crear categorias y ordenar los productos por estas
 
 --------------- POR HACER (A FUTURO) ---------------
@@ -14,10 +13,9 @@ Eslogan: "Compra y vende lo que quieras, cuando quieras con Sellit"
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
 opacidad en las imágenes
 hacer pagina para editar la info del usuario
-hacer logout
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
-pagina de ayua (/product-support)
+pagina de ayuda (/product-support)
 descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 --------------- POR HACER (IMPORTANTE) ---------------
@@ -44,6 +42,8 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+hacer logout
+meter libreria de efectos (portfolio)
 hacer página para carrito
 meter footer
 hacer página 404
