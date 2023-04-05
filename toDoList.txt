@@ -9,6 +9,8 @@ meter libreria de efectos (portfolio)
 crear categorias y ordenar los productos por estas
 
 --------------- POR HACER (A FUTURO) ---------------
+Nombre: "Sellit"
+Eslogan: "Compra y vende lo que quieras, cuando quieras con Sellit"
 cuando hagas hover sobre una tarjeta, q su borde se ponga en verde
 opacidad en las imágenes
 hacer pagina para editar la info del usuario
