@@ -15,7 +15,7 @@ import { Product } from 'src/assets/models/product';
   selector: 'createProductComponent',
   templateUrl: './createProduct.component.html',
   providers: [], //Utilizamos el servicio aqui
-  // styleUrls: ['./editProduct.component.css']
+  styleUrls: ['../../../../../assets/css/userProfile.component.scss']
 })
 
 

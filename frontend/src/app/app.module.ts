@@ -33,7 +33,7 @@ import { ProductSupport } from './components/views/public/productSupport/product
 import { CarrouselComponent } from './components/graphics/carrousel/carrousel.component,';
 import { StarRating } from './components/graphics/starRating/starRating.component,';
 import { UploadFilesComponent } from './components/graphics/uploadFIles/uploadFiles.component,';
-import { EditProductComponent } from './components/views/private/editProduct/editProduct.component,';
+import { EditProductComponent } from './components/views/private/editProduct/editProduct.component';
 import { CreateProductComponent } from './components/views/private/createProduct/createProduct.component,';
 import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
 import { CartComponent } from './components/views/public/cart/cart.component,';
