@@ -31,7 +31,8 @@
             ],
             "styles": [
               "src/styles.scss", 
-              "node_modules/intl-tel-input/build/css/intlTelInput.css"
+              "node_modules/intl-tel-input/build/css/intlTelInput.css",
+              "node_modules/animate.css/animate.min.css"
             ],
             "scripts": [
               "node_modules/popper.js/dist/umd/popper.min.js",
