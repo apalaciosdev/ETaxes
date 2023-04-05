@@ -12,6 +12,10 @@ export class AuthService {
   isLogged(){
     return !!localStorage.getItem('userToken');
   }
+
+  logout() {
+    localStorage.removeItem('userToken');
+  }
 }
 
 

@@ -17,6 +17,7 @@ hacer pagina para editar la info del usuario
 hacer logout
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
+pagina de ayua (/product-support)
 descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 --------------- POR HACER (IMPORTANTE) ---------------
@@ -28,7 +29,6 @@ si no queda stock, mostrarlo al comprar el producto
 
 
 --------------- HACIENDO ---------------
-hacer página para carrito
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 hacer estadísticas de compras
@@ -44,6 +44,7 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+hacer página para carrito
 meter footer
 hacer página 404
 cada producto que se añada al carrito, mostrar un alert diciendo que el producto se ha añadido a la cesta

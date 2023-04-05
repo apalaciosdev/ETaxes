@@ -1,4 +1,38 @@
+<img class="wave" src="../../../../../assets/img/wave.png">
 <div class="container">
+  <div class="img">
+    <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
+  </div>
+  <div class="login-content">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(); loginForm.reset();" method="post">
+      <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
+      <h2 class="title">Inicia sesión</h2>
+             <div class="input-div one">
+                <div class="i">
+                   
+                </div>
+                <div class="div">
+                   
+                    <input type="text" class="input" formControlName="mail" [(ngModel)]="this.login.mail" type="text" placeholder="Correo electrónico">
+                </div>
+             </div>
+             <div class="input-div pass">
+                <div class="i"> 
+                 
+                </div>
+                <div class="div">
+                  
+                   <input formControlName="password" [(ngModel)]="this.login.password" type="password" class="input" placeholder="Password">
+               </div>
+            </div>
+            <a href="#">Forgot Password?</a>
+            <input type="submit" class="btn" value="Login">
+          </form>
+      </div>
+  </div>
+  
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-lg-3 col-md-2"></div>
     <div class="col-lg-6 col-md-8 login-box">
@@ -32,4 +66,4 @@
       <div class="col-lg-3 col-md-2"></div>
     </div>
     <a routerLink="/my-products">Products</a>
-  </div>
+  </div> -->

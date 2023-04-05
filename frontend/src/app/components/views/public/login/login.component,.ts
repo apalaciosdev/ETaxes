@@ -16,7 +16,7 @@ import { UtilsService } from '../../../../services/utils.service';
   selector: 'loginComponent',
   templateUrl: './login.component.html',
   providers: [], //Utilizamos el servicio aqui
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.scss']
 })
 
 

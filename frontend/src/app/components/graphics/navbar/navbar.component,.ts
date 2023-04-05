@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { CartService } from 'src/app/services/cart.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 
@@ -22,7 +23,8 @@ export class NavbarComponent implements OnInit{
   constructor(
     private localStorageService: LocalStorageService,
     private temporalService: TemporalService,
-    private cartService: CartService
+    private cartService: CartService,
+    private authService: AuthService
   ){}
   
 
@@ -30,6 +32,10 @@ export class NavbarComponent implements OnInit{
     await this.temporalService.obtenerVariableCarrito().subscribe(async (valor) => {
       this.cantidadProductos = !valor ? this.cartService.initVariableCarrito() : valor;
     });
+  }
+
+  logout(){
+    this.authService.logout()
   }
 
 }
