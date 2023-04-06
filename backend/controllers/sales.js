@@ -1,5 +1,6 @@
 const Sale = require('../models/sales')
 const Product = require('../models/product')
+const Offer = require('../models/offers')
 
 
 const salesGet = async(req, res = response) => {
@@ -56,7 +57,7 @@ const infoSalesGet = async(req, res = response) => {
   
 
 
-
+  const offers = await Offer.find();
 
   
 
@@ -66,7 +67,8 @@ const infoSalesGet = async(req, res = response) => {
     "countUserProducts": countUserProducts,
     "bestSeller": await getProductData(await maxUnits.productId),
     "stockGraphData": productsArray,
-    "totalSalesPerProduct": await getTotalSalesProducts(salesArray)
+    "totalSalesPerProduct": await getTotalSalesProducts(salesArray),
+    "offers": offers
   });
 }
 

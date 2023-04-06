@@ -16,20 +16,19 @@ hacer pagina para editar la info del usuario
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
 pagina de ayuda (/product-support)
-descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 --------------- POR HACER (IMPORTANTE) ---------------
 al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
 cuando pagues, en vez de reedirigir a "/" q redirija a una pagina de gracias por comprar con una ilustracion guapa
 cuando te registras q te redirija y que ya estes logueado
 cuando inicias sesion, q te redirija
-si no queda stock, mostrarlo al comprar el producto
 
 
 --------------- HACIENDO ---------------
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 hacer estadísticas de compras
+descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 
 --------------- CORREGIDO ---------------
@@ -42,6 +41,7 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+si no queda stock, mostrarlo al comprar el producto
 hacer logout
 meter libreria de efectos (portfolio)
 hacer página para carrito
