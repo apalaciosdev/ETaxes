@@ -77,7 +77,29 @@
     </form>
   </section> -->
   <section class="panel">
-    <h2>feedback</h2>
+    <h2>Ofertas</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th>Ventas</th>
+      </tr>
+      <tr *ngFor="let producto of data.stockGraphData" routerLink="/product-details/{{data.bestSeller.uid}}">
+        <td>{{ producto.title }}</td>
+        <td>{{ producto.stock }}</td>
+        <td>{{ producto.price }}</td>
+        <td>{{ data.totalSalesPerProduct[producto.uid] || 0}}</td>
+      </tr>
+    </table>
+    <form action="" style="display: flex; align-items: center;">
+      <input type="number" style="width: 30%; height: 30px;">
+      <input type="submit" value="Crear Oferta">
+    </form>
+
+  </section>
+  <!-- <section class="panel">
+    <h2>Ofertas</h2>
     <div class="feedback">This is neutral feedback Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, praesentium. Libero perspiciatis quis aliquid iste quam dignissimos, accusamus temporibus ullam voluptatum, tempora pariatur, similique molestias blanditiis at sunt earum neque.</div>
     <div class="feedback error">This is warning feedback
       <ul>
@@ -88,7 +110,7 @@
     </div>
     <div class="feedback success">This is positive feedback</div>
 
-  </section>
+  </section> -->
 
 
 
