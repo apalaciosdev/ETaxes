@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Sale = require("../models/sales")
 const Product = require("../models/product")
 const Offer = require("../models/offers")
@@ -37,6 +38,16 @@ const deleteOffer = async (req, res = response) => {
   const { id } = req.params
   const offer = await Offer.findByIdAndDelete(id)
 
+
+  if(offer.active){
+    // Actualizar el precio de oferta para cada producto
+    const products = await Product.find({})
+    products.forEach(async (product) => {
+      const offerPrice = 0
+      await Product.updateOne({ _id: product._id }, { offerPrice })
+    })
+  }
+
   res.json({
     msg: "Offer deleted",
     offer,
@@ -69,6 +80,7 @@ const activateOffer = async (req, res = response) => {
     offerActivated,
   })
 }
+
 
 module.exports = {
   offersGet,

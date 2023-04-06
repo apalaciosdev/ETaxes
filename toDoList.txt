@@ -23,6 +23,7 @@ cuando pagues, en vez de reedirigir a "/" q redirija a una pagina de gracias por
 cuando te registras q te redirija y que ya estes logueado
 cuando inicias sesion, q te redirija
 quitar errores consola dashboard
+oferta max 99%
 
 
 --------------- HACIENDO ---------------
