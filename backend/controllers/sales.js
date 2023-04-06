@@ -101,16 +101,16 @@ const getTotalSalesProducts = async (salesArray, productId) => {
 const updateSaleStock = async (id, stock) => {
 
   console.log(id)
-    // Find sale by ID
-    const sale = await Product.findById(id);
+  // Find sale by ID
+  const sale = await Product.findById(id);
 
-    if (sale) {
-      // Update stock and save changes
-      sale.stock -= stock;
-      await sale.save();
-  
-      console.log("UPDATED!!!!")
-    }
+  if (sale) {
+    // Update stock and save changes
+    sale.stock -= stock;
+    await sale.save();
+
+    console.log("UPDATED!!!!")
+  }
 };
 
 const getSeller = async (id) => {

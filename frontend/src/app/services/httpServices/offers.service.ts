@@ -22,6 +22,14 @@ export class OffersHttpService {
   postOffer(offer: any){
     return this.http.post(`${this.url}`, offer);
   }
+
+  deleteOffer(offerId: any){
+    return this.http.delete(`${this.url}/${offerId}`);
+  }
+
+  activateOffer(offerId: any){
+    return this.http.get(`${this.url}/activate/${offerId}`);
+  }
   
   salesData(mail: string){
     return this.http.post(`${this.url}/salesData`, {"mail": mail});

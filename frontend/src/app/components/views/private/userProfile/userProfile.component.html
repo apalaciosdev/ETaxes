@@ -83,15 +83,20 @@
         <th>Nombre</th>
         <th>Porcentaje</th>
         <th>Estado</th>
+        <th></th>
         <!-- <th>Ventas</th> -->
       </tr>
-      <tr *ngFor="let oferta of data.offers" routerLink="/product-details/{{data.bestSeller.uid}}">
+      <tr *ngFor="let oferta of data.offers">
         <td>{{ oferta.offerName }}</td>
         <td>{{ oferta.offerPercentage }}%</td>
-
+        
         <td *ngIf="oferta.active">Activo &nbsp;&nbsp;<i style="font-size: 20px; color: green" class="fa fa-check-circle"></i></td>
         <td *ngIf="!oferta.active">Inactivo <i style="font-size: 20px; color: red" class="fa fa-times-circle"></i></td>
-        <!-- <td>{{ data.totalSalesPerProduct[oferta.uid] || 0}}</td> -->
+
+        <td>
+          <i (click)="activeOffer(oferta.uid)" style="font-size: 20px;" class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;
+          <i (click)="deleteOffer(oferta.uid)" style="font-size: 20px;" class="fa fa-minus-square" aria-hidden="true"></i>
+        </td>
       </tr>
     </table>
     <form [formGroup]="offerForm" (ngSubmit)="onSubmit(); offerForm.reset();" method="post" style="display: flex; align-items: center;">

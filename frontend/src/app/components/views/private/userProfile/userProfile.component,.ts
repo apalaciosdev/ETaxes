@@ -86,6 +86,26 @@ export class UserProfileComponent implements OnInit{
       (error) => { console.log(error); }
     ); 
   }
+
+  async activeOffer(offerId:string){
+    console.log("activar", offerId)
+    this.offersHttpService.activateOffer(offerId).subscribe(
+      (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
+      (error) => { console.log(error); }
+    ); 
+
+  }
+  
+  async deleteOffer(offerId:string){
+    console.log("eliminar", offerId)
+    this.offersHttpService.deleteOffer(offerId).subscribe(
+      (response) => { console.log(response); this.utilsService.reloadComponent(this.router)},
+      (error) => { console.log(error); }
+    ); 
+    
+  }
+ 
+
   
 
 
