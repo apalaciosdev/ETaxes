@@ -16,3 +16,10 @@ export interface Product{
   image: String,
   user: String
 }
+
+export interface Offer{
+  offerPercentage: Number,
+  offerName: String,
+  sellerMail: String,
+  purchaseDate: Date
+}

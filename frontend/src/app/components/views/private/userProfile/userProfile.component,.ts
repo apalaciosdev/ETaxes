@@ -75,14 +75,14 @@ export class UserProfileComponent implements OnInit{
         offerName: [this.offer.offerName],
       });
     }
-    this.service.gestionarValidarErrors(this.offerForm);
+    // this.service.gestionarValidarErrors(this.offerForm);
   }
 
   async onSubmit(){
     this.offer.sellerMail = this.user.mail;
     console.log(this.offer)
     this.offersHttpService.postOffer(this.offer).subscribe(
-      (response) => { console.log(response) },
+      (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 
   }

@@ -36,6 +36,13 @@ export class UtilsService {
     }
     return text;
   }
+
+  public reloadComponent(router: Router) {
+    let currentUrl = router.url;
+      router.routeReuseStrategy.shouldReuseRoute = () => false;
+      router.onSameUrlNavigation = 'reload';
+      router.navigate([currentUrl]);
+  }
 }
 
 
