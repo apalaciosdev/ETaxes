@@ -24,6 +24,7 @@ cuando te registras q te redirija y que ya estes logueado
 cuando inicias sesion, q te redirija
 quitar errores consola dashboard
 oferta max 99%
+hacer pipe para numeros con decimales (que no se quede en 10.7)
 
 
 --------------- HACIENDO ---------------

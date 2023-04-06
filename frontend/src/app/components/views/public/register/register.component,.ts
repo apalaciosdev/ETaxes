@@ -4,6 +4,7 @@ import { UserHttpService } from 'src/app/services/httpServices/user.service';
 import { User } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
 import { UtilsService } from '../../../../services/utils.service';
+import { Router } from '@angular/router';
 
 
 
@@ -28,6 +29,7 @@ export class RegisterComponent implements OnInit{
 
   constructor(
     public readonly formBuilder: FormBuilder,
+    public readonly router: Router,
     public readonly service: FormsService,
     public readonly utils: UtilsService,
     private userHttpService: UserHttpService
@@ -148,14 +150,18 @@ export class RegisterComponent implements OnInit{
     await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     
-    setTimeout(() => {
-      // this.router.navigate(['/products']);
-    }, 500);
+
   }
   
   async registerRequest(){
     this.userHttpService.register(this.register).subscribe(
-      (response) => { console.log(response); },
+      (response) => { 
+        console.log(response); 
+        
+        window.history.back(); // Obtener la URL de la última página visitada
+        // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
+        this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
+      },
       (error) => { console.log(error); }
     ); 
   }

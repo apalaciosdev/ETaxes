@@ -6,6 +6,7 @@ import { SharedService } from 'src/app/shared.service';
 import { Login } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
 import { UtilsService } from '../../../../services/utils.service';
+import { Router } from '@angular/router';
 
 
 
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit{
   constructor(
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
+    public readonly router: Router,
     public readonly utils: UtilsService,
     private userHttpService: UserHttpService,
     private sharedService: SharedService,
@@ -70,6 +72,10 @@ export class LoginComponent implements OnInit{
     this.sharedService.setUserToken(res);
     let user = { mail: res.user.mail, name: res.user.name, token: res.token}
     this.localStorageService.setItem('userToken', user);
+
+    window.history.back(); // Obtener la URL de la última página visitada
+    // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
+    this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
   }
   
   async loginRequest(){

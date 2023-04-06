@@ -7,6 +7,7 @@ import { Location } from '@angular/common';
 import { Product } from '../../../../../assets/models/product';
 import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class CartComponent implements OnInit{
     public cartService: CartService,
     public location: Location,
     private router: Router,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    private authService: AuthService
   ) {
   
   }
@@ -86,19 +88,24 @@ export class CartComponent implements OnInit{
   }
 
   payProducts(){
-    this.products.forEach((product:any) => {
-      let sale = {
-        "productId": product.uid,
-        "units": product.units,
-        "price":  product.price,
-        "purchaseDate": new Date() ,
-        "purchaserMail":  this.localStorageService.getItem('userToken').mail
-      }
-      this.salesService.postSale(sale).subscribe(
-        (response) => { console.log("Venta subida"); this.vaciarCarrito()},
-        (error) => { console.log(error); }
-      ); 
-    });
+    if(this.authService.isLogged()){
+      this.products.forEach((product:any) => {
+        let sale = {
+          "productId": product.uid,
+          "units": product.units,
+          "price":  product.price,
+          "purchaseDate": new Date() ,
+          "purchaserMail":  this.localStorageService.getItem('userToken').mail
+        }
+        this.salesService.postSale(sale).subscribe(
+          (response) => { console.log("Venta subida"); this.vaciarCarrito()},
+          (error) => { console.log(error); }
+        ); 
+      });
+    }
+    else{
+      this.router.navigate(['/login']);
+    }
   }
 
   vaciarCarrito(){

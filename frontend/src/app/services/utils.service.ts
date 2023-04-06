@@ -45,9 +45,9 @@ export class UtilsService {
   }
 
   public calcularPorcentaje(totalPrice:number, offerPrice:number){
-    return ((totalPrice - offerPrice) / totalPrice) * 100;
+    return Math.ceil(((totalPrice - offerPrice) / totalPrice) * 100);
   }
-  
+
 }
 
 
