@@ -81,15 +81,17 @@
     <table>
       <tr>
         <th>Nombre</th>
-        <th>Stock</th>
-        <th>Precio</th>
-        <th>Ventas</th>
+        <th>Porcentaje</th>
+        <th>Estado</th>
+        <!-- <th>Ventas</th> -->
       </tr>
       <tr *ngFor="let oferta of data.offers" routerLink="/product-details/{{data.bestSeller.uid}}">
-        <!-- <td>{{ oferta.title }}</td>
-        <td>{{ oferta.stock }}</td>
-        <td>{{ oferta.price }}</td>
-        <td>{{ data.totalSalesPerProduct[oferta.uid] || 0}}</td> -->
+        <td>{{ oferta.offerName }}</td>
+        <td>{{ oferta.offerPercentage }}%</td>
+
+        <td *ngIf="oferta.active">Activo &nbsp;&nbsp;<i style="font-size: 20px; color: green" class="fa fa-check-circle"></i></td>
+        <td *ngIf="!oferta.active">Inactivo <i style="font-size: 20px; color: red" class="fa fa-times-circle"></i></td>
+        <!-- <td>{{ data.totalSalesPerProduct[oferta.uid] || 0}}</td> -->
       </tr>
     </table>
     <form [formGroup]="offerForm" (ngSubmit)="onSubmit(); offerForm.reset();" method="post" style="display: flex; align-items: center;">
