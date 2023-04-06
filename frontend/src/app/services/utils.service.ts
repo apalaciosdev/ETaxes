@@ -43,6 +43,11 @@ export class UtilsService {
       router.onSameUrlNavigation = 'reload';
       router.navigate([currentUrl]);
   }
+
+  public calcularPorcentaje(totalPrice:number, offerPrice:number){
+    return ((totalPrice - offerPrice) / totalPrice) * 100;
+  }
+  
 }
 
 

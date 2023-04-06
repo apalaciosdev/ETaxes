@@ -25,7 +25,7 @@ export class ProductInfoComponent implements OnInit{
   products: any;
   userToken: any;
   id: any;
-  public product: Product;
+  public product: any;
 
   
   constructor(
@@ -60,6 +60,7 @@ export class ProductInfoComponent implements OnInit{
       (error) => { console.log(error) }
     ); 
   }
+
   
   // async deleteProduct(uid: string){
   //   console.log("dale")

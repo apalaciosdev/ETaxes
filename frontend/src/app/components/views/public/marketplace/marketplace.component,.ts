@@ -39,7 +39,7 @@ export class MarketplaceComponent implements OnInit{
 
   async getProducts(){
     this.productsHttpService.getProducts().subscribe(
-      (response) => { this.products = response; },
+      (response) => { this.products = response; console.log(response)},
       (error) => { console.log(error); }
     ); 
 
