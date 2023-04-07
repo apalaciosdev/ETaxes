@@ -25,13 +25,14 @@ cuando inicias sesion, q te redirija
 quitar errores consola dashboard
 oferta max 99%
 hacer pipe para numeros con decimales (que no se quede en 10.7)
+hacer pagina para confirmar que se ha hecho el pedido
+revisar productSupport
 
 
 --------------- HACIENDO ---------------
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 hacer estadísticas de compras
-descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 
 
 --------------- CORREGIDO ---------------
@@ -44,6 +45,7 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 si no queda stock, mostrarlo al comprar el producto
 hacer logout
 meter libreria de efectos (portfolio)

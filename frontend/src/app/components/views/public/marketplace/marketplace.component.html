@@ -2,15 +2,15 @@
 <div>
   <carrouselComponent></carrouselComponent>
 
-  <p>Filtra por categorias: TODO</p>
-  <h1>Products</h1>
-
+  
   <!-- <button class="addButton" [routerLink]="['/addproduct']">+</button> -->
   <div class="generalDiv">
     <div class="divContentBox">
+      <!-- <p>Filtra por categorias: TODO</p> -->
+      <h2>Lo más reciente</h2>
       <div class="container">
         <div class="row">
-          <div class="col-md-4 animate__animated animate__zoomIn" *ngFor="let product of products">
+          <!-- <div class="col-md-4 animate__animated animate__zoomIn" *ngFor="let product of products">
             <div class="thumb-wrapper">
               <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
               <div class="img-box"> 
@@ -23,6 +23,40 @@
                 <p *ngIf="product.offerPrice > 0" class="item-price" routerLink="/product-details/{{product.uid}}"><a>{{product.offerPrice}}€</a></p>
                 <a (click)="addCarrito(product)" class="btn btn-primary">Add to Cart</a>
               </div>						
+            </div>
+          </div> -->
+          
+          
+          <div class="wrapper col-12 col-md-6 col-lg-4" *ngFor="let product of products">
+            <div class="container">
+              <div class="top" style="background-image: url('{{product.image}}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                <!-- <img src={{(product.image)}} class="imgZoom top" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" > -->
+              </div>
+              <div class="bottom">
+                <div class="info">
+                  <div class="details">
+                    <h1 style="font-size: 30px; width: 200px;">{{this.utilsService.maxShowText(product.title, 10)}}</h1>
+                    <p *ngIf="product.offerPrice === 0" routerLink="/product-details/{{product.uid}}"><a>{{product.price}}€</a></p>
+                    <p *ngIf="product.offerPrice > 0" routerLink="/product-details/{{product.uid}}"><a>{{product.offerPrice}}€</a></p>
+                  </div>
+                  <div class="addCart">
+                    <i (click)="addCarrito(product)" class="fa fa-cart-plus" style="font-size: 40px;" aria-hidden="true"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inside">
+              <div class="icon"><i class="fa fa-info-circle" style="font-size: 30px;" aria-hidden="true"></i></div>
+              <div class="contents">
+                <table>
+                  <tr>
+                    <th><b>{{product.title}}</b></th>
+                  </tr>
+                  <tr>
+                    <td>{{product.description}}</td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>

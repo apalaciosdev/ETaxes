@@ -13,7 +13,7 @@ import { UtilsService } from '../../../../services/utils.service';
   selector: 'marketplaceComponent',
   templateUrl: './marketplace.component.html',
   providers: [], //Utilizamos el servicio aqui
-  styleUrls: ['./marketplace.component.css']
+  styleUrls: ['./marketplace.component.scss']
 })
 
 

@@ -32,7 +32,7 @@ export class UtilsService {
 
   public maxShowText(text:string, index:number){
     if (text.length > index) {
-      return text.slice(0, 15) + '...';
+      return text.slice(0, index) + '...';
     }
     return text;
   }
