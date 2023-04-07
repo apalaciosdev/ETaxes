@@ -8,6 +8,7 @@ import { Product } from '../../../../../assets/models/product';
 import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class CartComponent implements OnInit{
     public location: Location,
     private router: Router,
     private localStorageService: LocalStorageService,
-    private authService: AuthService
+    private authService: AuthService,
+    private notifyToastService : NotificationToastService
   ) {
   
   }
@@ -82,7 +84,12 @@ export class CartComponent implements OnInit{
   updateTotalPrice(){
     this.totalPrice = 0;
     this.products.forEach((product:any) => {
-      this.totalPrice += Number(product.price) * Number(product.units);
+      if(product.offerPrice === 0){
+        this.totalPrice += Number(product.price) * Number(product.units);
+      }
+      else{
+        this.totalPrice += Number(product.offerPrice) * Number(product.units);
+      }
     });
     this.products = this.cartService.getItems()
   }
@@ -98,7 +105,15 @@ export class CartComponent implements OnInit{
           "purchaserMail":  this.localStorageService.getItem('userToken').mail
         }
         this.salesService.postSale(sale).subscribe(
-          (response) => { console.log("Venta subida"); this.vaciarCarrito();  this.router.navigate(['/confirmation'])},
+          (response:any) => {
+            if(response.msg === 'Stock negativo'){
+              this.notifyToastService.showError("No hay más undades disponibles.", "No se ha podido realizar la compra.")
+            }
+            else{
+              this.vaciarCarrito();  
+              this.router.navigate(['/confirmation'])
+            }
+          },
           (error) => { console.log(error); }
         ); 
       });
