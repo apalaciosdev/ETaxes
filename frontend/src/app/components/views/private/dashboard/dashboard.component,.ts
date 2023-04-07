@@ -71,7 +71,7 @@ export class DashboardComponent implements OnInit{
   private initForm() {
     if(this.offer){
       this.offerForm = this.formBuilder.group({
-        offerPercentage: [this.offer.offerPercentage, [Validators.required]],
+        offerPercentage: [this.offer.offerPercentage, [Validators.required, Validators.max(99), Validators.min(1)]],
         offerName: [this.offer.offerName, [Validators.required]],
       });
     }

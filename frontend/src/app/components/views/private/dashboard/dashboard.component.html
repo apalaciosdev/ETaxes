@@ -146,7 +146,7 @@
     </table>
     <form [formGroup]="offerForm" (ngSubmit)="onSubmit(); offerForm.reset();" method="post" style="display: flex; flex-wrap: wrap; align-items: center; margin: 20px">
       <input type="text" style="width: 30%; height: 30px;" id="offerName" name="offerName" formControlName="offerName" [(ngModel)]="this.offer.offerName" placeholder="Nombre">
-      <input type="number" style="width: 30%; height: 30px;" id="offerPercentage" name="offerPercentage" formControlName="offerPercentage" placeholder="Porcentaje" (input)="this.service.onlyNumbers(offerForm, 'offerPercentage')" [(ngModel)]="this.offer.offerPercentage">
+      <input type="number" style="width: 30%; height: 30px;" id="offerPercentage" name="offerPercentage" formControlName="offerPercentage" placeholder="Porcentaje (1-99%)" (input)="this.service.onlyNumbers(offerForm, 'offerPercentage')" [(ngModel)]="this.offer.offerPercentage" max="99" min="1">
       <button type="submit" [disabled]="offerForm.invalid" class="btn btn-primary me-3" style="background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Crear oferta</button>
     </form>
 
