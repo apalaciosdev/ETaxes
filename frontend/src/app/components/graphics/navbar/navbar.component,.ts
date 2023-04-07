@@ -3,6 +3,8 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
+import { UtilsService } from 'src/app/services/utils.service';
+import { Router } from '@angular/router';
 
 
 
@@ -24,7 +26,9 @@ export class NavbarComponent implements OnInit{
     private localStorageService: LocalStorageService,
     private temporalService: TemporalService,
     private cartService: CartService,
-    private authService: AuthService
+    private authService: AuthService,
+    public utilsService: UtilsService,
+    public router: Router,
   ){}
   
 
@@ -37,6 +41,7 @@ export class NavbarComponent implements OnInit{
 
   logout(){
     this.authService.logout()
+    this.utilsService.reloadComponent(this.router)
   }
 
 }

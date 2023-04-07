@@ -47,6 +47,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { DashboardNavbarComponent } from './components/graphics/dashboardNavbar/dashboardNavbar.component,';
 import { PageNotFoundComponent } from './components/views/public/404Page/pageNotFound.component,';
 import { FooterComponent } from './components/graphics/footer/footer.component,';
+import { EditUserComponent } from './components/views/private/editUser/editUser.component';
 
 
 
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     StarRating,
     UploadFilesComponent,
     DashboardComponent,
+    EditUserComponent,
     ProductSupport,
     CarrouselComponent,
     BarChartComponent,

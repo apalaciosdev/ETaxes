@@ -16,6 +16,7 @@ import { CheckOutComponent } from './components/views/public/checkOut/checkOut.c
 import { DashboardComponent } from './components/views/private/dashboard/dashboard.component,';
 import { PageNotFoundComponent } from './components/views/public/404Page/pageNotFound.component,';
 import { ConfirmationPageComponent } from './components/views/private/confirmationPage/confirmationPage.component,';
+import { EditUserComponent } from './components/views/private/editUser/editUser.component';
 
 
 
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'my-products', component: UserProductsComponent, canActivate: [AuthGuard]},
   {path: 'edit-product/:id', component: EditProductComponent, canActivate: [AuthGuard]},
+  {path: 'profile', component: EditUserComponent, canActivate: [AuthGuard]},
   {path: 'create-product', component: CreateProductComponent, canActivate: [AuthGuard]},
   {path: 'confirmation', component: ConfirmationPageComponent, canActivate: [AuthGuard]},
   {path: '**', component: PageNotFoundComponent}
