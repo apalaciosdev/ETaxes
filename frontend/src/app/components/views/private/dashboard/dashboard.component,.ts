@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit{
     private temporalService: TemporalService
   ) { 
     this.offer = {
-      offerPercentage: 0,
+      offerPercentage: "",
       offerName: "",
       sellerMail: "",
       purchaseDate: new Date()
@@ -71,8 +71,8 @@ export class DashboardComponent implements OnInit{
   private initForm() {
     if(this.offer){
       this.offerForm = this.formBuilder.group({
-        offerPercentage: [this.offer.offerPercentage],
-        offerName: [this.offer.offerName],
+        offerPercentage: [this.offer.offerPercentage, [Validators.required]],
+        offerName: [this.offer.offerName, [Validators.required]],
       });
     }
     // this.service.gestionarValidarErrors(this.offerForm);
@@ -105,6 +105,7 @@ export class DashboardComponent implements OnInit{
     
   }
  
+
 
   
 

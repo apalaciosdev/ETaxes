@@ -109,6 +109,15 @@ export class FormsService {
     form.get(control).setValue(valueToUpperCase.charAt(0).toUpperCase() + valueToUpperCase.slice(1));
   }
 
+  public onlyNumbers(form:any, control:any){
+    let value = form.get(control).value;
+
+    let regex = /^\d+$/;
+    if (!regex.test(value)) {
+      form.get(control).setValue("");
+    }
+  }
+
 
 }
 

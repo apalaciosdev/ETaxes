@@ -144,10 +144,10 @@
         </td>
       </tr>
     </table>
-    <form [formGroup]="offerForm" (ngSubmit)="onSubmit(); offerForm.reset();" method="post" style="display: flex; align-items: center;">
-      <input type="text" style="width: 30%; height: 30px;" id="offerName" name="offerName" formControlName="offerPercentage" [(ngModel)]="this.offer.offerName">
-      <input type="number" style="width: 30%; height: 30px;" id="offerPercentage" name="offerPercentage" formControlName="offerPercentage" [(ngModel)]="this.offer.offerPercentage">
-      <input type="submit" value="Crear Oferta">
+    <form [formGroup]="offerForm" (ngSubmit)="onSubmit(); offerForm.reset();" method="post" style="display: flex; flex-wrap: wrap; align-items: center; margin: 20px">
+      <input type="text" style="width: 30%; height: 30px;" id="offerName" name="offerName" formControlName="offerName" [(ngModel)]="this.offer.offerName" placeholder="Nombre">
+      <input type="number" style="width: 30%; height: 30px;" id="offerPercentage" name="offerPercentage" formControlName="offerPercentage" placeholder="Porcentaje" (input)="this.service.onlyNumbers(offerForm, 'offerPercentage')" [(ngModel)]="this.offer.offerPercentage">
+      <button type="submit" [disabled]="offerForm.invalid" class="btn btn-primary me-3" style="background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Crear oferta</button>
     </form>
 
   </section>
