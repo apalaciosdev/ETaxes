@@ -1,4 +1,5 @@
-<section class="h-100 h-custom" style="background-color: #e3ffc986;">
+<img class="wave" src="../../../../../assets/img/wave3.png">
+<section class="h-100 h-custom">
   <div class="container py-5 h-100">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-12">
@@ -26,7 +27,7 @@
                         <b class=""><</b>
                       </button>
 
-                      <p id="product{{product.uid}}">{{product.units}}</p>
+                      <p style="padding-top: 20px;" id="product{{product.uid}}">{{product.units}}</p>
 
                       <!-- <input id="form1" min="0" name="quantity" value="1" type="number"
                         class="form-control form-control-sm" /> -->
@@ -52,13 +53,13 @@
 
                   <div class="pt-5">
                     <h6 class="mb-0"><a (click)="this.location.back()" class="text-body"><i
-                      class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a></h6>
+                      class="fas fa-long-arrow-alt-left me-2"></i>Volver a la tienda</a></h6>
                   </div>
                 </div>
               </div>
               <div class="col-lg-4 bg-grey">
                 <div class="p-5">
-                  <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
+                  <h3 class="fw-bold mb-5 mt-2 pt-1">Resumen</h3>
                   <hr class="my-4">
 
                   <div *ngFor="let product of products" class="d-flex justify-content-between mb-4">
