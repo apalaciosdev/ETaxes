@@ -135,7 +135,7 @@
       <tr *ngFor="let producto of data.stockGraphData" routerLink="/product-details/{{producto.uid}}">
         <td>{{ producto.title }}</td>
         <td>{{ producto.stock }}</td>
-        <td>{{ producto.price }}</td>
+        <td>{{ producto.price | formatNumber}}</td>
         <td>{{ data.totalSalesPerProduct[producto.uid] || 0}}</td>
       </tr>
     </table>

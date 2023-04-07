@@ -20,6 +20,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+//Pipes
+import { FormatNumberPipe } from './pipes/format-number.pipe';
+
 //Componentes
 import { HomeComponent } from './components/views/public/home/home.component,';
 import { NavbarComponent } from './components/graphics/navbar/navbar.component,';
@@ -44,6 +47,7 @@ import { NgChartsModule } from 'ng2-charts';
 import { DashboardNavbarComponent } from './components/graphics/dashboardNavbar/dashboardNavbar.component,';
 import { PageNotFoundComponent } from './components/views/public/404Page/pageNotFound.component,';
 import { FooterComponent } from './components/graphics/footer/footer.component,';
+
 
 
 
@@ -77,7 +81,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BarChartComponent,
     DashboardNavbarComponent,
     PageNotFoundComponent,
-    FooterComponent
+    FooterComponent,
+    FormatNumberPipe
   ],
   imports: [
     BrowserModule,

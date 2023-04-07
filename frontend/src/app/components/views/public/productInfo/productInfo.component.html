@@ -33,11 +33,11 @@
 							<!-- <span *ngIf="product.stock > 0" class="review-no">{{product.stock}} unidades disponibles</span> -->
 							<span *ngIf="product.stock > 0" class="badge badge-warning" style="background-color: #94CE32 !important;">{{product.stock}} unidades disponibles</span>
 							<span *ngIf="product.stock <= 0" class="badge badge-warning" style="background-color: #FFC107 !important;">No hay unidades disponibles</span>
-							&nbsp;<span *ngIf="product.offerPrice > 0" class="badge badge-warning" style="background-color: #94CE32 !important;">{{utilsService.calcularPorcentaje(product.price, product.offerPrice)}}% descuento</span>
+							&nbsp;<span *ngIf="product.offerPrice > 0" class="badge badge-warning" style="background-color: #94CE32 !important;">{{utilsService.calcularPorcentaje(product.price, product.offerPrice) | formatNumber}}% descuento</span>
 						</div>
 						<p class="product-description">{{product.description}}</p>
-						<h4 *ngIf="product.offerPrice === 0" class="price">Precio: <span>{{product.price}}€</span></h4>
-						<h4 *ngIf="product.offerPrice > 0" class="price">Precio: <span>{{product.offerPrice}}€</span></h4>
+						<h4 *ngIf="product.offerPrice === 0" class="price">Precio: <span>{{product.price | formatNumber}}</span></h4>
+						<h4 *ngIf="product.offerPrice > 0" class="price">Precio: <span>{{product.offerPrice | formatNumber}}</span></h4>
 						<!-- <p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<h5 class="sizes">sizes:
 							<span class="size" data-toggle="tooltip" title="small">s</span>

@@ -36,8 +36,8 @@
                 <div class="info">
                   <div class="details" routerLink="/product-details/{{product.uid}}">
                     <h1 style="font-size: 30px; width: 200px;">{{this.utilsService.maxShowText(product.title, 10)}}</h1>
-                    <p *ngIf="product.offerPrice === 0" routerLink="/product-details/{{product.uid}}"><a>{{product.price}}€</a></p>
-                    <p *ngIf="product.offerPrice > 0" routerLink="/product-details/{{product.uid}}"><a>{{product.offerPrice}}€</a></p>
+                    <p *ngIf="product.offerPrice === 0" routerLink="/product-details/{{product.uid}}"><a>{{product.price | formatNumber }}</a></p>
+                    <p *ngIf="product.offerPrice > 0" routerLink="/product-details/{{product.uid}}"><a>{{product.offerPrice | formatNumber }}</a></p>
                   </div>
                   <div class="addCart">
                     <i (click)="addCarrito(product)" class="fa fa-cart-plus" style="font-size: 40px;" aria-hidden="true"></i>
