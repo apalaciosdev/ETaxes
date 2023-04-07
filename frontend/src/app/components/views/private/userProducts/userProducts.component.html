@@ -3,13 +3,34 @@
 
   <main role="main" class="animate__animated animate__fadeIn">
 
-    <h1>Products</h1>
+    <h2 style="margin-left: 25px;">Mis productos</h2>
     <section class="panel important">
   
       <!-- <button class="addButton" [routerLink]="['/addproduct']">+</button> -->
+      <table>
+        <tr>
+          <th>Nombre</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th></th>
+          <!-- <th>Ventas</th> -->
+        </tr>
+        <tr *ngFor="let product of products" routerLink="/product-details/{{product.uid}}">
+          <td>{{ product.title }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.stock }}</td>
+          
+          <!-- <td *ngIf="oferta.active">Activo &nbsp;&nbsp;<i style="font-size: 20px; color: green" class="fa fa-check-circle"></i></td>
+          <td *ngIf="!oferta.active">Inactivo <i style="font-size: 20px; color: red" class="fa fa-times-circle"></i></td> -->
+  
+          <td>
+            <i routerLink="/edit-product/{{ product.uid }}" style="font-size: 20px;" class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp;&nbsp;
+            <i (click)="deleteProduct(product.uid)" style="font-size: 20px;" class="fa fa-trash" aria-hidden="true"></i>
+          </td>
+        </tr>
+      </table>
     
-    
-      <div class="generalDiv">
+      <!-- <div class="generalDiv">
         <div class="divContentBox">
           <div class="container">
             <div class="row">
@@ -32,7 +53,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
     </section>
 
