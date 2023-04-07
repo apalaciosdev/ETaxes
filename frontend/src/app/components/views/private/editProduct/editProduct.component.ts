@@ -90,10 +90,8 @@ export class EditProductComponent implements OnInit{
     // await this.registerRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     await this.putProduct(this.id);
-    this.temporalService.actualizarVariableTemporal(null);
-    setTimeout(() => {
-      // this.router.navigate(['/products']);
-    }, 500);
+    await this.temporalService.actualizarVariableTemporal(null);
+    this.router.navigate([`/product-details/${this.id}`])
   }
   
 
