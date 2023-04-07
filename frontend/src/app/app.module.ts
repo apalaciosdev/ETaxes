@@ -41,7 +41,7 @@ import { CreateProductComponent } from './components/views/private/createProduct
 import { ProductInfoComponent } from './components/views/public/productInfo/productInfo.component,';
 import { CartComponent } from './components/views/public/cart/cart.component,';
 import { CheckOutComponent } from './components/views/public/checkOut/checkOut.component,';
-import { UserProfileComponent } from './components/views/private/userProfile/userProfile.component,';
+import { DashboardComponent } from './components/views/private/dashboard/dashboard.component,';
 import { BarChartComponent } from './components/graphics/barChart/barChart.component,';
 import { NgChartsModule } from 'ng2-charts';
 import { DashboardNavbarComponent } from './components/graphics/dashboardNavbar/dashboardNavbar.component,';
@@ -75,7 +75,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordStrength,
     StarRating,
     UploadFilesComponent,
-    UserProfileComponent,
+    DashboardComponent,
     ProductSupport,
     CarrouselComponent,
     BarChartComponent,

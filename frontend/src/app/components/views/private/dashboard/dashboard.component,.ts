@@ -14,15 +14,15 @@ import { OffersHttpService } from 'src/app/services/httpServices/offers.service'
 
 
 @Component({
-  selector: 'userProfileComponent',
-  templateUrl: './userProfile.component.html',
+  selector: 'dashboardComponent',
+  templateUrl: './dashboard.component.html',
   providers: [], //Utilizamos el servicio aqui
-  styleUrls: ['./userProfile.component.scss']
+  styleUrls: ['./dashboard.component.scss']
 })
 
 
 
-export class UserProfileComponent implements OnInit{
+export class DashboardComponent implements OnInit{
   user: any;
   data: any;
   offer: any;
