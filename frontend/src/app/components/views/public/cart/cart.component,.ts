@@ -98,7 +98,7 @@ export class CartComponent implements OnInit{
           "purchaserMail":  this.localStorageService.getItem('userToken').mail
         }
         this.salesService.postSale(sale).subscribe(
-          (response) => { console.log("Venta subida"); this.vaciarCarrito()},
+          (response) => { console.log("Venta subida"); this.vaciarCarrito();  this.router.navigate(['/confirmation'])},
           (error) => { console.log(error); }
         ); 
       });
