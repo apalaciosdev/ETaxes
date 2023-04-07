@@ -5,6 +5,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { Router } from '@angular/router';
+import { ReloadService } from '../../../services/reloadService.service';
 
 
 
@@ -29,10 +30,17 @@ export class NavbarComponent implements OnInit{
     private authService: AuthService,
     public utilsService: UtilsService,
     public router: Router,
+    public reloadService: ReloadService,
   ){}
   
 
   async ngOnInit() {
+    this.reloadService.reloadComponent.subscribe(res => {
+      if (res) {
+        this.isLogged = true;
+      }
+    });
+
     await this.temporalService.obtenerVariableCarrito().subscribe(async (valor) => {
       this.cantidadProductos = !valor ? this.cartService.initVariableCarrito() : valor;
     });
@@ -41,7 +49,7 @@ export class NavbarComponent implements OnInit{
 
   logout(){
     this.authService.logout()
-    this.utilsService.reloadComponent(this.router)
+    this.isLogged = false;
   }
 
 }

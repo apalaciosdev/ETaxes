@@ -7,6 +7,8 @@ import { Login } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
 import { UtilsService } from '../../../../services/utils.service';
 import { Router } from '@angular/router';
+import { ReloadService } from 'src/app/services/reloadService.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
 
 
 
@@ -34,7 +36,9 @@ export class LoginComponent implements OnInit{
     public readonly utils: UtilsService,
     private userHttpService: UserHttpService,
     private sharedService: SharedService,
-    private localStorageService: LocalStorageService
+    private localStorageService: LocalStorageService,
+    public reloadService: ReloadService,
+    private notifyToastService : NotificationToastService
   ){
     this.login = {
       mail: "",
@@ -61,17 +65,16 @@ export class LoginComponent implements OnInit{
     console.log(this.login)
     await this.loginRequest()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
-    
-    setTimeout(() => {
-      // this.router.navigate(['/products']);
-      // console.log(this.sharedService.userToken)
-    }, 500);
   }
 
   public saveData(res:any){
     this.sharedService.setUserToken(res);
     let user = { mail: res.user.mail, name: res.user.name, token: res.token}
     this.localStorageService.setItem('userToken', user);
+
+
+    this.reloadService.reloadComponent.next(true);
+    
 
     window.history.back(); // Obtener la URL de la última página visitada
     // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
@@ -81,7 +84,7 @@ export class LoginComponent implements OnInit{
   async loginRequest(){
     this.userHttpService.login(this.login).subscribe(
       (response) => { this.saveData(response) },
-      (error) => { console.log(error); }
+      (error) => { console.log(error);  this.notifyToastService.showError("Vuelve a probar.", "Credenciales incorrectas.")}
     ); 
   }
 }
