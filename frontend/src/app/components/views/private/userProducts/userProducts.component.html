@@ -15,10 +15,10 @@
           <th></th>
           <!-- <th>Ventas</th> -->
         </tr>
-        <tr *ngFor="let product of products" routerLink="/product-details/{{product.uid}}">
-          <td>{{ product.title }}</td>
-          <td>{{ product.price | formatNumber}}</td>
-          <td>{{ product.stock }}</td>
+        <tr *ngFor="let product of products">
+          <td routerLink="/product-details/{{product.uid}}">{{ product.title }}</td>
+          <td routerLink="/product-details/{{product.uid}}">{{ product.price | formatNumber}}</td>
+          <td routerLink="/product-details/{{product.uid}}">{{ product.stock }}</td>
           
           <!-- <td *ngIf="oferta.active">Activo &nbsp;&nbsp;<i style="font-size: 20px; color: green" class="fa fa-check-circle"></i></td>
           <td *ngIf="!oferta.active">Inactivo <i style="font-size: 20px; color: red" class="fa fa-times-circle"></i></td> -->

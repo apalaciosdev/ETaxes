@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
                       <button class="btn px-2"
-                        (click)="this.resUnits(product.uid, product.price)">
+                        (click)="this.resUnits(product.uid, product.offerPrice > 0 ? product.offerPrice : product.price)">
                         <b class=""><</b>
                       </button>
 
@@ -33,7 +33,7 @@
                         class="form-control form-control-sm" /> -->
 
                       <button class="btn px-2"
-                        (click)="this.sumUnits(product.uid, product.price)">
+                        (click)="this.sumUnits(product.uid, product.offerPrice > 0 ? product.offerPrice : product.price)">
                         <b>></b>
                       </button>
                     </div>

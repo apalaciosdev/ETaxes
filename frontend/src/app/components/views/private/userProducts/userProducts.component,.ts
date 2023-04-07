@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -23,6 +24,7 @@ export class UserProductsComponent implements OnInit{
   
   constructor(
     private productsHttpService: ProductsHttpService,
+    private router: Router,
     private sharedService: SharedService,
     private localStorageService: LocalStorageService,
     public utilsService: UtilsService,
@@ -63,7 +65,7 @@ export class UserProductsComponent implements OnInit{
   
   async deleteProduct(productId: string){
     this.productsHttpService.deleteProduct(productId).subscribe(
-      (response) => { console.log("Product dropped"); },
+      (response) => { console.log("Product dropped"); this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 
     console.log(productId)
