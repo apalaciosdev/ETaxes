@@ -35,6 +35,28 @@ const infoSalesGet = async(req, res = response) => {
 
 
 
+  const compras = await Sale.find({sellerMail: mail})
+  // Utilizamos reduce() para agrupar la información por meses
+// Utilizamos reduce() para agrupar la información por meses
+const comprasPorMes = compras.reduce((acumulador, compra) => {
+  // Obtenemos el mes de la fecha_compra
+  const month = compra.purchaseDate.toLocaleString('es-ES', { month: 'long' });
+  
+  // Si el month no existe en el array acumulador, lo creamos
+  if (!acumulador[month]) {
+    acumulador[month] = { month: month, total: 0 };
+  }
+  
+  // Sumamos el precio de la compra al total del month correspondiente
+  acumulador[month].total += compra.price;
+  
+  // Retornamos el acumulador
+  return acumulador;
+}, {});
+
+// Convertimos el objeto en un array
+const comprasPorMesArray = Object.values(comprasPorMes);
+
 
 
   //BEST SELLING
@@ -68,7 +90,9 @@ const infoSalesGet = async(req, res = response) => {
     "bestSeller": await getProductData(await maxUnits.productId),
     "stockGraphData": productsArray,
     "totalSalesPerProduct": await getTotalSalesProducts(salesArray),
-    "offers": offers
+    "offers": offers,
+    "sales": await Sale.find({sellerMail: mail}),
+    "salesGraphic": comprasPorMesArray
   });
 }
 

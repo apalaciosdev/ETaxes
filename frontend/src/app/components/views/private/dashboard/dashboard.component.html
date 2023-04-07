@@ -9,6 +9,24 @@
       <li>Vestibulum auctor dapibus neque.</li>
     </ul>
   </section>
+ 
+  <section class="panel ">
+    <h2>Tus Productos</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Stock</th>
+        <th>Precio</th>
+        <th>Ventas</th>
+      </tr>
+      <tr *ngFor="let producto of data.stockGraphData" routerLink="/product-details/{{producto.uid}}">
+        <td>{{ producto.title }}</td>
+        <td>{{ producto.stock }}</td>
+        <td>{{ producto.price | formatNumber}}</td>
+        <td>{{ data.totalSalesPerProduct[producto.uid] || 0}}</td>
+      </tr>
+    </table>
+  </section>
   
   <section class="panel">
     <h2>Resumen</h2>
@@ -19,19 +37,26 @@
     </ul>
   </section>
 
-  <section class="panel">
+  
+
+  <!-- <section class="panel">
     <h2>Chart</h2>
     <ul>
       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
       <li>Aliquam tincidunt mauris eu risus.</li>
       <li>Vestibulum auctor dapibus neque.</li>
     </ul>
-  </section>
+  </section> -->
 
 
   <section class="panel important">
     <h2>Stock</h2>
     <barChartComponent [data]="this.data.stockGraphData"></barChartComponent>
+  </section>
+
+  <section class="panel important">
+    <h2>Ventas</h2>
+    <barChartSalesComponent [data]="this.data.salesGraphic"></barChartSalesComponent>
   </section>
   <!-- <section class="panel important">
     <h2>Write a post</h2>
@@ -76,6 +101,26 @@
       </div>
     </form>
   </section> -->
+  <section class="panel ">
+    <h2>Tus Ventas</h2>
+    <table>
+      <tr>
+        <th>Comprador</th>
+        <th>Unidades</th>
+        <th>Precio/Unidad</th>
+        <th>Total</th>
+      </tr>
+      <tr *ngFor="let producto of data.sales">
+        <td>{{ producto.purchaserMail }}</td>
+        <td>{{ producto.units }}</td>
+        <td>{{ producto.price | formatNumber}}</td>
+        <td>{{ producto.totalPrice | formatNumber}}</td>
+      </tr>
+    </table>
+  </section>
+
+
+
   <section class="panel">
     <h2>Ofertas</h2>
     <table>
@@ -121,24 +166,11 @@
   </section> -->
 
 
+ 
 
 
-  <section class="panel ">
-    <h2>Tus Productos</h2>
-    <table>
-      <tr>
-        <th>Nombre</th>
-        <th>Stock</th>
-        <th>Precio</th>
-        <th>Ventas</th>
-      </tr>
-      <tr *ngFor="let producto of data.stockGraphData" routerLink="/product-details/{{producto.uid}}">
-        <td>{{ producto.title }}</td>
-        <td>{{ producto.stock }}</td>
-        <td>{{ producto.price | formatNumber}}</td>
-        <td>{{ data.totalSalesPerProduct[producto.uid] || 0}}</td>
-      </tr>
-    </table>
-  </section>
+  
+
+
 
 </main>

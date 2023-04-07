@@ -48,6 +48,7 @@ import { DashboardNavbarComponent } from './components/graphics/dashboardNavbar/
 import { PageNotFoundComponent } from './components/views/public/404Page/pageNotFound.component,';
 import { FooterComponent } from './components/graphics/footer/footer.component,';
 import { EditUserComponent } from './components/views/private/editUser/editUser.component';
+import { BarChartSalesComponent } from './components/graphics/barChartSales/barChartSales.component,';
 
 
 
@@ -78,6 +79,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     UploadFilesComponent,
     DashboardComponent,
     EditUserComponent,
+    BarChartSalesComponent,
     ProductSupport,
     CarrouselComponent,
     BarChartComponent,
