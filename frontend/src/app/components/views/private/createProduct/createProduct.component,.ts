@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
@@ -37,7 +38,8 @@ export class CreateProductComponent implements OnInit{
     public readonly service: FormsService,
     private route: ActivatedRoute,
     private router: Router,
-    private temporalService: TemporalService
+    private temporalService: TemporalService,
+    private notifyToastService : NotificationToastService
   ) { 
     this.product = {
       title: "",
@@ -74,7 +76,7 @@ export class CreateProductComponent implements OnInit{
         category: [this.product.category, [Validators.required]],
         stock: [this.product.stock, [Validators.required]],
         stars: [this.product.stars, [Validators.required]],
-        image: [this.product.image, [Validators.required]],
+        image: [this.product.image, []],
         user: [this.product.user, [Validators.required]]
       });
     }
@@ -106,15 +108,12 @@ export class CreateProductComponent implements OnInit{
       (error) => { console.log(error); }
     ); 
   }
-
-
-  
   
   async postProduct(){
     console.log("dale")
     this.temporalService.actualizarVariableTemporal(null);
     this.productsHttpService.postProduct(this.product).subscribe(
-      (response) => { console.log("Product saved"); },
+      (response) => { console.log("Product saved"); this.notifyToastService.showError("al crear el producto", "Ha ocurrido un error")},
       (error) => { console.log(error); }
     ); 
       

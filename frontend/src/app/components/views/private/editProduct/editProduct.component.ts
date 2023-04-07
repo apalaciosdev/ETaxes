@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
@@ -37,7 +38,8 @@ export class EditProductComponent implements OnInit{
     public readonly service: FormsService,
     private route: ActivatedRoute,
     private router: Router,
-    private temporalService: TemporalService
+    private temporalService: TemporalService,
+    private notifyToastService : NotificationToastService
   ) { 
     this.product = {
       title: "",
@@ -76,10 +78,10 @@ export class EditProductComponent implements OnInit{
         price: [this.product.price, [Validators.required]],
         description: [this.product.description, [Validators.required]],
         category: [this.product.category, [Validators.required]],
-        stock: [this.product.stock, [Validators.required]],
+        stock: [this.product.stock, []],
         stars: [this.product.stars, [Validators.required]],
-        image: [this.product.image, [Validators.required]],
-        user: [this.product.user, [Validators.required]]
+        image: [this.product.image, []],
+        user: [this.product.user, []]
       });
     }
     this.service.gestionarValidarErrors(this.editProductForm);
@@ -126,10 +128,9 @@ export class EditProductComponent implements OnInit{
   }
   
   async putProduct(uid: string){
-    console.log("dale")
     this.productsHttpService.putProduct(this.product, uid).subscribe(
-      (response) => { console.log("Product edited"); },
-      (error) => { console.log(error); }
+      (response) => { console.log("Product edited");  this.notifyToastService.showSuccess("y guardado", "Producto editado")},
+      (error) => { console.log(error); this.notifyToastService.showError("al editar el producto", "Ha ocurrido un error")}
     ); 
       
   }

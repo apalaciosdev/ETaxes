@@ -12,9 +12,9 @@ export class NotificationToastService {
 
     this.toastr.success(message, title, { progressBar: true, progressAnimation: 'increasing', timeOut: 3000, positionClass: "toast-bottom-right",});
   }
-
+  
   showError(message:string, title:string) {
-    this.toastr.error(message, title);
+    this.toastr.error(message, title, { progressBar: true, progressAnimation: 'increasing', timeOut: 3000, positionClass: "toast-bottom-right",});
   }
 
   showInfo(message:string, title:string) {

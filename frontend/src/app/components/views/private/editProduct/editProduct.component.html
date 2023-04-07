@@ -2,7 +2,7 @@
 
 <main role="main">
 
-  <h1>Editar Producto</h1>
+  <h2 style="margin-left: 20px;">Editar Producto</h2>
   <section class="panel important">
     <section class="container my-5">
     
@@ -43,7 +43,7 @@
               <input formControlName="image" [(ngModel)]="this.product.image" type="text" id="image" name="image" class="form-control form-control-lg" required="">
             </div> -->
           </div>  
-          <button type="submit" class="btn btn-primary me-3" style="background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Guardar cambios</button>
+          <button [disabled]="editProductForm.invalid" type="submit" class="btn btn-primary me-3" style="background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Guardar cambios</button>
           <!-- <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button> -->
         </form>
 
