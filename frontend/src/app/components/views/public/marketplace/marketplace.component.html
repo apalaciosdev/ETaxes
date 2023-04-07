@@ -27,26 +27,27 @@
           </div> -->
           
           
-          <div class="wrapper col-12 col-md-6 col-lg-4" *ngFor="let product of products">
+          <div class="wrapper col-12 col-md-6 col-lg-4" *ngFor="let product of products"  routerLink="/product-details/{{product.uid}}">
             <div class="container">
-              <div routerLink="/product-details/{{product.uid}}" class="top imgZoom" style="background-image: url('{{product.image}}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
+              <div class="top imgZoom" style="background-image: url('{{product.image}}'); background-repeat: no-repeat; background-size: cover; background-position: center;">
                 <!-- <img src={{(product.image)}} class="imgZoom top" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" > -->
               </div>
               <div class="bottom">
                 <div class="info">
-                  <div class="details" routerLink="/product-details/{{product.uid}}">
+                  <div class="details">
                     <h1 style="font-size: 30px; width: 200px;">{{this.utilsService.maxShowText(product.title, 10)}}</h1>
-                    <p *ngIf="product.offerPrice === 0" routerLink="/product-details/{{product.uid}}"><a>{{product.price | formatNumber }}</a></p>
-                    <p *ngIf="product.offerPrice > 0" routerLink="/product-details/{{product.uid}}"><a>{{product.offerPrice | formatNumber }}</a></p>
+                    <p *ngIf="product.offerPrice === 0"><a>{{product.price | formatNumber }}</a></p>
+                    <p *ngIf="product.offerPrice > 0" ><a>{{product.offerPrice | formatNumber }}</a></p>
                   </div>
                   <div class="addCart">
-                    <i  *ngIf="product.stock > 0" (click)="addCarrito(product)" class="fa fa-cart-plus" style="font-size: 40px;" aria-hidden="true"></i>
+                    <!-- <i  *ngIf="product.stock > 0" (click)="addCarrito(product)" class="fa fa-cart-plus" style="font-size: 40px;" aria-hidden="true"></i> -->
+                    <span *ngIf="product.stock > 0" class="badge badge-warning" style="background-color: #94CE32 !important; margin-top: 10px; margin-left: -20px">{{product.stock}} unidades</span>
                     <span *ngIf="product.stock <= 0" class="badge badge-warning" style="background-color: #FFC107 !important; margin-top: 10px;">Sin stock</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="inside" routerLink="/product-details/{{product.uid}}">
+            <div class="inside">
               <div class="icon"><i class="fa fa-info-circle" style="font-size: 30px;" aria-hidden="true"></i></div>
               <div class="contents">
                 <table>

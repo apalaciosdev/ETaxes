@@ -21,11 +21,8 @@ pagina de ayuda (/product-support)
 al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
 cuando pagues, en vez de reedirigir a "/" q redirija a una pagina de gracias por comprar con una ilustracion guapa
 cuando te registras q te redirija y que ya estes logueado
-cuando inicias sesion, q te redirija
 quitar errores consola dashboard
 oferta max 99%
-hacer pipe para numeros con decimales (que no se quede en 10.7)
-hacer pagina para confirmar que se ha hecho el pedido
 revisar productSupport
 
 
@@ -36,6 +33,7 @@ hacer estadísticas de compras
 
 
 --------------- CORREGIDO ---------------
+cuando inicias sesion, q te redirija
 al subir cantidad en el carrito, solo cuenta 1 unidad
 corregir stars component
 fixear en carrito, al cambiar units q sean mayores a 1. Si es 0 entonces eliminar
@@ -45,6 +43,8 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+hacer pipe para numeros con decimales (que no se quede en 10.7)
+hacer pagina para confirmar que se ha hecho el pedido
 descuento a productos (meter un atributo mas en DB q sea descuento) y si esta vacio el campo printar precio, sino printar descuento
 si no queda stock, mostrarlo al comprar el producto
 hacer logout

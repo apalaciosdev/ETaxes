@@ -8,6 +8,8 @@ import { TemporalService } from 'src/app/services/temporal.service';
 import { SharedService } from 'src/app/shared.service';
 import { Product } from 'src/assets/models/product';
 import { UtilsService } from '../../../../services/utils.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
+import { CartService } from 'src/app/services/cart.service';
 
 
 
@@ -37,7 +39,9 @@ export class ProductInfoComponent implements OnInit{
     public readonly service: FormsService,
     private route: ActivatedRoute,
     private router: Router,
-    private temporalService: TemporalService
+    private temporalService: TemporalService,
+    private cartService: CartService,
+    private notifyToastService : NotificationToastService
 
   ) {
     this.product; 
@@ -59,6 +63,11 @@ export class ProductInfoComponent implements OnInit{
       (response:any) => { this.product = response },
       (error) => { console.log(error) }
     ); 
+  }
+
+  addCarrito(product:string){
+    this.cartService.addToCart(product);
+    this.notifyToastService.showSuccess("al carrito", "Producto añadido")
   }
 
   
