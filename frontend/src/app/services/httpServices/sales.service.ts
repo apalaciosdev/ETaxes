@@ -19,16 +19,31 @@ export class SalesHttpService {
     return this.http.get(this.url);
   }
   
-  postSale(sale: any){
-    return this.http.post(`${this.url}`, sale);
+  postSale(sale: any, token:any){
+    return this.http.post(`${this.url}`, sale, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
-  salesData(mail: string){
-    return this.http.post(`${this.url}/salesData`, {"mail": mail});
+  salesData(mail: string, token:any){
+    return this.http.post(`${this.url}/salesData`, {"mail": mail}, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
-  countProducts(mail: string){
-    return this.http.post(`${this.url}/countProducts`, {"mail": mail});
+  countProducts(mail: string, token:any){
+    return this.http.post(`${this.url}/countProducts`, {"mail": mail}, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
   // deleteProduct(uid: string){

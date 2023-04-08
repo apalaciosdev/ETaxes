@@ -10,9 +10,20 @@ const { productExistsById, isRoleValid, userExistsById } = require('../helpers/d
 const router = Router()
 
 router.get('/', salesGet)
-router.post('/salesData', infoSalesGet)
-router.post('/countProducts', getProductsCount)
 
-router.post('/', salesPost)
+router.post('/salesData', [
+  validateJWT,
+], infoSalesGet)
+
+
+
+
+router.post('/countProducts', [
+  validateJWT
+], getProductsCount)
+
+router.post('/', [
+  validateJWT
+], salesPost)
 
 module.exports = router

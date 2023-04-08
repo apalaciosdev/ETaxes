@@ -24,7 +24,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class CartComponent implements OnInit{
   products:any;
   totalPrice:number = 0;
-  
+  user:any;
+
   constructor(
     public utilsService: UtilsService,
     public salesService: SalesHttpService,
@@ -36,7 +37,7 @@ export class CartComponent implements OnInit{
     private notifyToastService : NotificationToastService,
     private spinnerService: NgxSpinnerService
   ) {
-  
+    this.user = this.localStorageService.getItem('userToken');
   }
 
   async ngOnInit() {
@@ -106,7 +107,7 @@ export class CartComponent implements OnInit{
           "purchaseDate": new Date() ,
           "purchaserMail":  this.localStorageService.getItem('userToken').mail
         }
-        this.salesService.postSale(sale).subscribe(
+        this.salesService.postSale(sale, this.user.token).subscribe(
           async (response:any) => {
             if(response.msg === 'Stock negativo'){
               this.notifyToastService.showError("No hay más undades disponibles.", "No se ha podido realizar la compra.")
