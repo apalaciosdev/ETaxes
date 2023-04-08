@@ -23,6 +23,7 @@
 		"valueNoExist": "El valor introduït no existeix a la llista",
 		"introducedValueNoExist": "El requisit no existeix",
 		"errorInexistentTA": "El requisit no existeix ",
-		"number": "El camp ha de ser numèric"
+		"number": "El camp ha de ser numèric",
+		"max": "Cantidad máxima sobrepasada"
 	}
 }

@@ -47,7 +47,7 @@
         </div>
         <div class="col-sm-6 mb-4">
           <label for="telephone" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-telephone-fill me-2"></i>Teléfono</label>
-          <input type="tel" formControlName="telephone" id="telephone" name="telephone" [(ngModel)]="this.register.telephone" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}" pattern="[0-9\d\-*+#,;]*" class="form-control form-control-lg"/>
+          <input type="tel" formControlName="telephone" id="telephone" name="telephone" (input)="this.service.onlyNumbers(registerForm, 'telephone')" [(ngModel)]="this.register.telephone" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}" pattern="[0-9\d\-*+#,;]*" class="form-control form-control-lg"/>
           <!-- <input formControlName="telephone" [(ngModel)]="this.register.telephone" type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20"> -->
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
@@ -77,7 +77,7 @@
 
         <div class="col-sm-6 mb-4">
           <label for="zipCode" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>CP</label>
-          <input formControlName="zipCode" [(ngModel)]="this.register.zipCode" maxLength="5" type="number" id="zipCode" name="zipCode" class="form-control form-control-lg" required="">
+          <input formControlName="zipCode" [(ngModel)]="this.register.zipCode" maxLength="5" (input)="this.service.onlyNumbers(registerForm, 'zipCode')" type="number" id="zipCode" name="zipCode" class="form-control form-control-lg" required="">
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
@@ -113,7 +113,7 @@
 
         <div class="col-sm-6 mb-4">
           <label for="billingZipCode" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>CP</label>
-          <input formControlName="billingZipCode" [(ngModel)]="this.register.billingZipCode" maxlength="5" type="number" id="billingZipCode" name="billingZipCode" class="form-control form-control-lg" required>
+          <input formControlName="billingZipCode" [(ngModel)]="this.register.billingZipCode" (input)="this.service.onlyNumbers(registerForm, 'billingZipCode')" maxlength="5" type="number" id="billingZipCode" name="billingZipCode" class="form-control form-control-lg" required>
           <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
@@ -131,8 +131,8 @@
        
       </div>  
      
-      <button type="submit" class="btn btn-primary btn-lg me-3"><i class="fa-solid bi bi-send-fill me-2"></i>Send</button>
-      <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button>
+      <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary me-3" style="margin-top:30px; background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Registrarse</button>
+    
     </form>
   </div>
 </section>

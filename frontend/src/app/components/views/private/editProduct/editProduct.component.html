@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm-6 mb-4">
               <label for="price" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Precio</label>
-              <input formControlName="price" [(ngModel)]="this.product.price" type="number" id="price" name="price" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+              <input formControlName="price" [(ngModel)]="this.product.price" type="number" id="price" name="price" class="form-control form-control-lg" (input)="this.service.onlyNumbers(editProductForm, 'price')" required="" placeholder="" maxlength="60">
               <div class="invalid-feedback">Obligatiorio</div>
             </div>
             <div class="col-sm-6 mb-4">
@@ -26,7 +26,7 @@
             </div>
             <div class="col-sm-6 mb-4">
               <label for="stock" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Stock</label>
-              <input formControlName="stock" [(ngModel)]="this.product.stock" type="number" id="stock" name="stock" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
+              <input formControlName="stock" [(ngModel)]="this.product.stock" type="number" id="stock" name="stock" (input)="this.service.onlyNumbers(editProductForm, 'stock')" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
             </div>
             <div class="">
               <label for="description" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Descripción</label>
