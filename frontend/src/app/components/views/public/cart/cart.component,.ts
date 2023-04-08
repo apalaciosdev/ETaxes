@@ -9,6 +9,7 @@ import { SalesHttpService } from '../../../../services/httpServices/sales.servic
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -32,7 +33,8 @@ export class CartComponent implements OnInit{
     private router: Router,
     private localStorageService: LocalStorageService,
     private authService: AuthService,
-    private notifyToastService : NotificationToastService
+    private notifyToastService : NotificationToastService,
+    private spinnerService: NgxSpinnerService
   ) {
   
   }
@@ -105,11 +107,12 @@ export class CartComponent implements OnInit{
           "purchaserMail":  this.localStorageService.getItem('userToken').mail
         }
         this.salesService.postSale(sale).subscribe(
-          (response:any) => {
+          async (response:any) => {
             if(response.msg === 'Stock negativo'){
               this.notifyToastService.showError("No hay más undades disponibles.", "No se ha podido realizar la compra.")
             }
             else{
+              await this.showSpinner()
               this.vaciarCarrito();  
               this.router.navigate(['/confirmation'])
             }
@@ -121,6 +124,14 @@ export class CartComponent implements OnInit{
     else{
       this.router.navigate(['/login']);
     }
+  }
+
+  public async showSpinner() {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 2000); // 2 seconds
   }
 
   vaciarCarrito(){
