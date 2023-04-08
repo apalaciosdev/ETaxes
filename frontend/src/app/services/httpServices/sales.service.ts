@@ -27,6 +27,10 @@ export class SalesHttpService {
     return this.http.post(`${this.url}/salesData`, {"mail": mail});
   }
   
+  countProducts(mail: string){
+    return this.http.post(`${this.url}/countProducts`, {"mail": mail});
+  }
+  
   // deleteProduct(uid: string){
   //   return this.http.delete(`http://localhost:2022/api/products/${uid}`, {
   //     headers: new HttpHeaders({

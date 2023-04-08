@@ -52,13 +52,31 @@ export class DashboardComponent implements OnInit{
 
   async ngOnInit() {
     this.user = this.localStorageService.getItem('userToken');
-    this.getSalesData(this.user.mail)
+
+    this.countProducts(this.user.mail)
+
     this.initForm()
   }
 
   async getSalesData(mail:any){
     this.salesHttpService.salesData(mail).subscribe(
       (response) => { this.data = response; },
+      (error) => { console.log(error); }
+    ); 
+
+    setTimeout(() => {
+      console.log(this.data)
+    }, 500);
+  }
+
+  async countProducts(mail:any){
+    this.salesHttpService.countProducts(mail).subscribe(
+      (response:any) => {
+        console.log(typeof(response))
+        if(response > 0){
+          this.getSalesData(this.user.mail)
+        }
+      },
       (error) => { console.log(error); }
     ); 
 

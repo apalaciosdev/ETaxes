@@ -147,6 +147,18 @@ const getSeller = async (id) => {
   return null;
 };
 
+
+const getProductsCount = async (req, res = response) => {
+  const { mail } = req.body
+  try {
+    const numeroDeProductos = await Product.countDocuments({ user: { $eq: mail } });
+    res.status(200).json( numeroDeProductos );
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error al contar productos' });
+  }
+};
+
+
 const salesPost = async(req, res = response) => {
   const sale = req.body
   sale.sellerMail = await getSeller(sale.productId);
@@ -219,5 +231,6 @@ const salesPost = async(req, res = response) => {
 module.exports = {
   salesGet,
   salesPost,
-  infoSalesGet
+  infoSalesGet,
+  getProductsCount
 }

@@ -1,5 +1,17 @@
 <dashboardNavbarComponent></dashboardNavbarComponent>
 <img class="wave" src="../../../../../assets/img/wave3.png">
+
+
+<main role="main" *ngIf="!data" class="animate__animated animate__fadeIn">
+  <section class="panel important">
+    <h2>Bienvenido {{this.user.name}}</h2>
+    <ul>
+      <li>Para desbloquar este panel de gestión debes subir al menos un producto.</li>
+      <li>Ve al apartado "Añadir Producto" y empieza hoy mismo.</li>
+    </ul>
+  </section>
+</main>
+
 <main role="main" *ngIf="data" class="animate__animated animate__fadeIn">
   <section class="panel important">
     <h2>Bienvenido {{this.user.name}}</h2>
