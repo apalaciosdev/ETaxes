@@ -5,6 +5,7 @@ import { SupportSearch } from 'src/assets/models/product';
 import { FormsService } from '../../../../services/forms.service';
 import { UtilsService } from '../../../../services/utils.service';
 import { AuthService } from '../../../../services/auth.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -31,7 +32,7 @@ export class ProductSupport implements OnInit{
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
     public authService: AuthService,
-    private userHttpService: UserHttpService
+    private spinnerService: NgxSpinnerService
   ){
     this.supportSearch = {
       nameAndSurnames: "",
@@ -45,6 +46,14 @@ export class ProductSupport implements OnInit{
     this.isLogged = this.authService.isLogged()
     this.initForm()
     
+  }
+
+  public showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 5000); // 5 seconds
   }
 
   private initForm() {
@@ -61,13 +70,7 @@ export class ProductSupport implements OnInit{
 
   
   async onSubmit(){
-    console.log(this.supportSearch)
-    await this.registerRequest()
-    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
-    
-    setTimeout(() => {
-      // this.router.navigate(['/products']);
-    }, 500);
+    this.showSpinner()
   }
   
   async registerRequest(){

@@ -49,6 +49,8 @@ import { PageNotFoundComponent } from './components/views/public/404Page/pageNot
 import { FooterComponent } from './components/graphics/footer/footer.component,';
 import { EditUserComponent } from './components/views/private/editUser/editUser.component';
 import { BarChartSalesComponent } from './components/graphics/barChartSales/barChartSales.component,';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SpinnerComponent } from './components/graphics/spinner/spinner.component,';
 
 
 
@@ -86,11 +88,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardNavbarComponent,
     PageNotFoundComponent,
     FooterComponent,
+    SpinnerComponent,
     FormatNumberPipe
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     AppRoutingModule,
     NgbModule,
     FormsModule,

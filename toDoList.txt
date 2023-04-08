@@ -23,6 +23,7 @@ revisar productSupport
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 hacer estadísticas de compras
+hacer spinner
 
 
 --------------- CORREGIDO ---------------
