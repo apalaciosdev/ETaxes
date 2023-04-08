@@ -26,6 +26,15 @@ const usersGet = async(req, res = response) => {
   })
 }
 
+const getUserInfo = async(req, res = response) => {
+  const { mail, password } = req.body
+  const user = await User.find({mail})
+
+  res.json(
+    user
+  )
+} 
+
 
 const usersPost = async(req, res = response) => {
 
@@ -48,16 +57,11 @@ const usersPost = async(req, res = response) => {
 const usersPut = async(req, res = response) => {
 
   //const id = req.params.id    //ex: http://localhost:2022/api/users/10   ->  id = 10
-  const { id } = req.params
+
   const { _id, password, google,...rest } = req.body //exclude password, google and mail & modify the ...rest data
 
-  if(password){
-    // Encrypt password
-    const salt = bcrypt.genSaltSync()
-    rest.password = bcrypt.hashSync(password, salt)
-  }
 
-  const userDB = await User.findByIdAndUpdate( id, rest) //update the data (rest) that have the same id
+  const userDB = await User.findByIdAndUpdate( req.body.uid, rest) //update the data (rest) that have the same id
 
   res.json({
     userDB
@@ -94,4 +98,5 @@ module.exports = {
   usersPut,
   usersPatch,
   usersDelete,
+  getUserInfo
 }

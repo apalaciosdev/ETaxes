@@ -34,6 +34,14 @@ export class UserHttpService {
     return this.http.post(`${this.url}/login`, login)
   }
 
+  getUserData(mail: any){
+    return this.http.post(`http://localhost:2022/api/users/getUserInfo`, {"mail": mail})
+  }
+
+  editUser(user: any){
+    return this.http.put(`http://localhost:2022/api/users`, user)
+  }
+
   
   // async reloadComponent(router: Router) {
   //   let currentUrl = router.url;

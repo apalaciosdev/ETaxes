@@ -4,93 +4,57 @@
 
   <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
     <div class="col-md-4">
-      <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Regístrate</span></h1>
-      <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">We will be in touch in 3 days!</p>
-      <ul class="list-unstyled pb-2 pb-lg-4">
-        <li class="mb-3 mb-lg-4">
-          <span class="d-block fs-sm fc-6">Working Time</span>
-          <p class="pb-1 mb-2 fs-115r">Mon ~ Fri 9:00 ~ 18:00<br>Sat 9:00 ~ 12:00</p>
-        </li>
-        <li class="mb-3 mb-lg-4">
-          <span class="d-block fs-sm fc-6">Phone</span>
-          <a href="tel:0282263730" class="fc-2 fs-115r px-0">01-2345-6789</a>
-        </li>
-        <li class="mb-3 mb-lg-4">
-          <span class="d-block fs-sm fc-6">Location</span>
-          <div class="text-nav fs-115r fw-medium mb-1">Kuantan, Pahang, Malaysia</div>
-          <a href="#" class="fs-sm fc-link"><u>Google Map</u></a>
-        </li>
-      </ul>
+      <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Tus datos</span></h1>
+      <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">Edita tus datos personales aquí.</p>
     </div>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(); registerForm.reset();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
       <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
       <div class="row">
         <div class="col-sm-6 mb-4">
           <label for="name" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
           <input formControlName="name" [(ngModel)]="this.register.name" (input)="firstUpperCase(registerForm,'name')" type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
-          <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="surname1" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>1º Apellido</label>
           <input formControlName="surname1" [(ngModel)]="this.register.surname1" (input)="firstUpperCase(registerForm,'surname1')"type="text" id="surname1" name="surname1" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
-          <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="surname2" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>2º Apellido</label>
           <input formControlName="surname2" [(ngModel)]="this.register.surname2" (input)="firstUpperCase(registerForm,'surname2')" type="text" id="surname2" name="surname2" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
-          <div class="invalid-feedback">Obligatiorio</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="years" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Fecha nacimiento</label>
-          <input formControlName="years" [(ngModel)]="this.register.years" (ngModelChange)="checkYears($event)" type="date" id="years" name="password2" class="form-control form-control-lg" required=""maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
+          <input formControlName="years" [(ngModel)]="this.register.years" (ngModelChange)="checkYears($event)" type="date" id="years" name="years" class="form-control form-control-lg" required=""maxlength="100">
         </div>
         <div class="col-sm-6 mb-4">
           <label for="telephone" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-telephone-fill me-2"></i>Teléfono</label>
           <input type="tel" formControlName="telephone" id="telephone" name="telephone" [(ngModel)]="this.register.telephone" ng2TelInput [ng2TelInputOptions]="{initialCountry: 'es'}" pattern="[0-9\d\-*+#,;]*" class="form-control form-control-lg"/>
           <!-- <input formControlName="telephone" [(ngModel)]="this.register.telephone" type="tel" id="phone" name="Phone" class="form-control form-control-lg" required="" data-format="custom" data-delimiter="-" data-blocks="2 3 4" data-numeral="9" placeholder="Your Phone Number" pattern="[0-9\d\-*+#,;]*" minlength="10" maxlength="20"> -->
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
         <div class="col-sm-6 mb-4">
           <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Email</label>
           <input formControlName="mail" [(ngModel)]="this.register.mail" type="mail" id="mail" name="mail" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
-        </div>
-        <div class="col-sm-6 mb-4">
-          <label for="password" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Contraseña</label>
-          <input formControlName="password" [(ngModel)]="this.register.password" type="password" id="password" name="password" class="form-control form-control-lg" required="" maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
-          <passwordStrength [passwordToCheck]="this.register.password" (passwordStrength)="passwordValid($event)"></passwordStrength>
-        </div>
-        <div class="col-sm-6 mb-4">
-          <label for="email" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Confirmar Contraseña</label>
-          <input formControlName="password2" [(ngModel)]="this.register.password2" (ngModelChange)="checkPasswords($event)" type="password" id="password2" name="password2" class="form-control form-control-lg" required=""maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
         <h4>Dirección de envio</h4>
         <div class="col-sm-6 mb-4">
           <label for="address" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Dirección</label>
           <input formControlName="address" [(ngModel)]="this.register.address" type="text" id="address" name="address" class="form-control form-control-lg" required="" maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
         <div class="col-sm-6 mb-4">
           <label for="zipCode" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>CP</label>
           <input formControlName="zipCode" [(ngModel)]="this.register.zipCode" maxLength="5" type="number" id="zipCode" name="zipCode" class="form-control form-control-lg" required="">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
         <div class="col-sm-6 mb-4">
           <label for="region" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Provincia</label>
           <input formControlName="region" [(ngModel)]="this.register.region" type="text" id="region" name="region" class="form-control form-control-lg" required="" maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
      
         <div class="col-sm-6 mb-4">
           <label for="country" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>País</label>
           <input formControlName="country" [(ngModel)]="this.register.country" type="text" id="country" name="country" class="form-control form-control-lg" required="" maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
         
         
@@ -108,25 +72,21 @@
         <div class="col-sm-6 mb-4">
           <label for="billingAddress" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Dirección</label>
           <input formControlName="billingAddress" [(ngModel)]="this.register.billingAddress" type="text" id="billingAddress" name="billingAddress" class="form-control form-control-lg" required maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
         <div class="col-sm-6 mb-4">
           <label for="billingZipCode" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>CP</label>
           <input formControlName="billingZipCode" [(ngModel)]="this.register.billingZipCode" maxlength="5" type="number" id="billingZipCode" name="billingZipCode" class="form-control form-control-lg" required>
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
 
         <div class="col-sm-6 mb-4">
           <label for="billingRegion" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Provincia</label>
           <input formControlName="billingRegion" [(ngModel)]="this.register.billingRegion" type="text" id="billingRegion" name="billingRegion" class="form-control form-control-lg" required maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
      
         <div class="col-sm-6 mb-4">
           <label for="billingCountry" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>País</label>
           <input formControlName="billingCountry" [(ngModel)]="this.register.billingCountry" type="text" id="billingCountry" name="billingCountry" class="form-control form-control-lg" required maxlength="100">
-          <div class="invalid-feedback">Required / Error Format!</div>
         </div>
        
       </div>  

@@ -5,7 +5,7 @@ const { check } = require('express-validator')
 const { validateFields, validateJWT, haveRole, isAdminRole } = require('../middlewares/index')
 
 const { isRoleValid, mailExists, userExistsById } = require('../helpers/db-validators')
-const { usersGet, usersPost, usersPut, usersPatch, usersDelete } = require('../controllers/user')
+const { usersGet, usersPost, usersPut, usersPatch, usersDelete, getUserInfo } = require('../controllers/user')
 const router = Router()
 
 
@@ -14,22 +14,25 @@ router.get('/', [
   isAdminRole, //check if role of the user is ADMIN_ROLE //send token
 ],usersGet)
 
+router.post('/getUserInfo', [
+],getUserInfo)
+
 router.post('/', [
-  check('name', 'Name is required').not().isEmpty(),
-  check('password', 'Password must have more than 6 characters').isLength({min: 6}),
-  check('mail', 'Mail is not valid').isEmail(),
-  check('mail').custom(mailExists),
-  // check('role', 'Role not valid').isIn(['ADMIN_ROLE', 'USER_ROLE']),
-  check('role').custom(isRoleValid),
-  validateFields
+  // check('name', 'Name is required').not().isEmpty(),
+  // check('password', 'Password must have more than 6 characters').isLength({min: 6}),
+  // check('mail', 'Mail is not valid').isEmail(),
+  // check('mail').custom(mailExists),
+  // // check('role', 'Role not valid').isIn(['ADMIN_ROLE', 'USER_ROLE']),
+  // check('role').custom(isRoleValid),
+  // validateFields
 ], usersPost)
 
 
-router.put('/:id',[
-  check('id', 'This is not a valid Id').isMongoId(),
-  check('id').custom(userExistsById),
-  check('role').custom(isRoleValid),
-  validateFields
+router.put('/',[
+  // check('id', 'This is not a valid Id').isMongoId(),
+  // check('id').custom(userExistsById),
+  // check('role').custom(isRoleValid),
+  // validateFields
 ],usersPut)
 
 router.patch('/', usersPatch)

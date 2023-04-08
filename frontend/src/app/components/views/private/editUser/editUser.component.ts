@@ -5,6 +5,8 @@ import { User } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
 import { UtilsService } from '../../../../services/utils.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
 
 
 
@@ -21,9 +23,10 @@ import { Router } from '@angular/router';
 
 export class EditUserComponent implements OnInit{
   public user: User;
+  public userMail: string;
 
   public registerForm!: FormGroup;
-  public register: User;
+  public register: any;
   public passwordIsValid :boolean = false;
   public sameBillingVal :boolean = false;
 
@@ -32,32 +35,28 @@ export class EditUserComponent implements OnInit{
     public readonly router: Router,
     public readonly service: FormsService,
     public readonly utils: UtilsService,
-    private userHttpService: UserHttpService
+    private userHttpService: UserHttpService,
+    private localStorageService: LocalStorageService,
+    private notifyToastService : NotificationToastService
   ){
-    this.register = {
-      name: "",
-      mail: "",
-      password: "",
-      password2: "",
-      surname1: "",
-      surname2: "",
-      telephone: "",
-      gender: "",
-      years: new Date(),
-      address: "",
-      zipCode: "",
-      region: "",
-      country: "",
-      billingAddress: "",
-      billingZipCode: "",
-      billingRegion: "",
-      billingCountry: ""
-    }; 
+    this.register = {}; 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    await this.getUserData(this.localStorageService.getItem('userToken').mail)
     this.initForm()
-    
+  }
+
+  async getUserData(mail:string){
+    await this.userHttpService.getUserData(mail).subscribe(
+      (response:any) => { 
+        this.register = response[0]; 
+        const fechaParaInput = new Date(response[0].years).toISOString().substring(0, 10);
+        this.register.years = fechaParaInput
+        console.log('aa',this.register)
+      },
+      (error) => { console.log(error); }
+    ); 
   }
 
   private initForm() {
@@ -75,7 +74,7 @@ export class EditUserComponent implements OnInit{
         zipCode: [this.register.zipCode, [Validators.required, Validators.pattern("[0-9]{5}")]],
         region: [this.register.region, [Validators.required]],
         country: [this.register.country, [Validators.required]],
-        years: [this.register.country, [Validators.required]],
+        years: [this.register.years, [Validators.required]],
         billingAddress: [this.register.billingAddress, [Validators.required]],
         billingZipCode: [this.register.billingZipCode, [Validators.required, Validators.pattern("[0-9]{5}")]],
         billingRegion: [this.register.billingRegion, [Validators.required]],
@@ -147,20 +146,21 @@ export class EditUserComponent implements OnInit{
 
   async onSubmit(){
     console.log(this.register)
-    await this.registerRequest()
+    await this.editUser()
     // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     
 
   }
   
-  async registerRequest(){
-    this.userHttpService.register(this.register).subscribe(
+  async editUser(){
+    this.userHttpService.editUser(this.register).subscribe(
       (response) => { 
         console.log(response); 
         
         window.history.back(); // Obtener la URL de la última página visitada
         // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
         this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
+        this.notifyToastService.showSuccess("y guardados con éxito.", "Datos editados")
       },
       (error) => { console.log(error); }
     ); 
