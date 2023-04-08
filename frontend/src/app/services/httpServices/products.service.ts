@@ -43,6 +43,15 @@ export class ProductsHttpService {
     return this.http.delete(`${this.url}/${productId}`);
   }
 
+  countProducts(mail: string, token:any){
+    return this.http.post(`${this.url}/countProducts`, {"mail": mail}, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
+  }
+
 
   // deleteProduct(uid: string){
   //   return this.http.delete(`http://localhost:2022/api/products/${uid}`, {

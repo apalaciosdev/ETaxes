@@ -70,10 +70,12 @@ export class DashboardComponent implements OnInit{
   }
 
   async countProducts(mail:any, token:any){
-    this.salesHttpService.countProducts(mail, token).subscribe(
+    this.productsHttpService.countProducts(mail, token).subscribe(
       (response:any) => {
-        console.log(typeof(response))
+        console.log(response, 'vvv')
+        console.log('?', response > 0)
         if(response > 0){
+          console.log("te lo compro")
           this.getSalesData(this.user.mail, this.user.token)
         }
       },
@@ -107,7 +109,7 @@ export class DashboardComponent implements OnInit{
 
   async activeOffer(offerId:string){
     console.log("activar", offerId)
-    this.offersHttpService.activateOffer(offerId).subscribe(
+    this.offersHttpService.activateOffer(offerId, this.user.mail).subscribe(
       (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 

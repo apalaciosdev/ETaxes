@@ -11,6 +11,8 @@ const salesGet = async(req, res = response) => {
 
 const infoSalesGet = async(req, res = response) => {
   const { mail } = req.body
+  console.log("----------------------" , mail)
+
   let salesArray = [];
 
 
@@ -82,12 +84,10 @@ const comprasPorMesArray = Object.values(comprasPorMes);
   const offers = await Offer.find();
 
   
-
-
   res.json({
     "salesCount": salesCount,
     "countUserProducts": countUserProducts,
-    "bestSeller": await getProductData(await maxUnits.productId),
+    "bestSeller": salesArray.length === 0 ? null : await getProductData(maxUnits.productId),
     "stockGraphData": productsArray,
     "totalSalesPerProduct": await getTotalSalesProducts(salesArray),
     "offers": offers,

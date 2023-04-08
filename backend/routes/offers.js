@@ -12,7 +12,7 @@ const router = Router()
 router.get('/', offersGet)
 router.post('/', offerPost)
 router.delete('/:id', deleteOffer)
-router.get('/activate/:id', activateOffer)
+router.post('/activate/:id', activateOffer)
 // router.post('/salesData', infoSalesGet)
 
 // router.post('/', salesPost)

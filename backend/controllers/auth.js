@@ -4,12 +4,11 @@ const User = require('../models/user')
 const { generateJWT } = require('../helpers/generateJWT')
 
 
-const login = async(req, res = response ) => {
 
+const login = async(req, res = response ) => {
   const { mail, password} = req.body
 
   try {
-
     // Verify if mail exists
     const user = await User.findOne({ mail })
     if(!user){
@@ -49,8 +48,8 @@ const login = async(req, res = response ) => {
   }
 }
 
-const register = async(req, res = response) => {
 
+const register = async(req, res = response) => {
   const { mail, password } = req.body
   const user = new User(req.body)
 

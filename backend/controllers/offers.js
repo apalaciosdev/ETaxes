@@ -1,13 +1,20 @@
 const mongoose = require('mongoose');
-const Sale = require("../models/sales")
 const Product = require("../models/product")
 const Offer = require("../models/offers")
 
+
+/**
+ * Devuelve todas las ofertas creadas por todos los usuarios
+ */
 const offersGet = async (req, res = response) => {
   const offers = await Offer.find()
   res.json(offers)
 }
 
+
+/**
+ * Sube una nueva oferta y actualiza el campo offerPrice de cada producto
+ */
 const offerPost = async (req, res = response) => {
   const offer = req.body
 
@@ -21,12 +28,9 @@ const offerPost = async (req, res = response) => {
   // Actualizar el precio de oferta para cada producto
   const products = await Product.find({})
   products.forEach(async (product) => {
-    const offerPrice =
-      product.price - (product.price * offer.offerPercentage) / 100
+    const offerPrice = product.price - (product.price * offer.offerPercentage) / 100
     await Product.updateOne({ _id: product._id }, { offerPrice })
   })
-
-  // await Product.updateMany({}, { offerPrice: price - (price * offer.offerPercentage / 100)});
 
   res.json({
     msg: "Offer saved",
@@ -34,6 +38,10 @@ const offerPost = async (req, res = response) => {
   })
 }
 
+
+/**
+ * Elimina una oferta por id
+ */
 const deleteOffer = async (req, res = response) => {
   const { id } = req.params
   const offer = await Offer.findByIdAndDelete(id)
@@ -55,10 +63,14 @@ const deleteOffer = async (req, res = response) => {
 }
 
 
+/**
+ * Cuando se crea una oferta, 
+ */
 const activateOffer = async (req, res = response) => {
   const { id } = req.params
+  const { mail } = req.body
 
-  await Offer.updateMany({}, { active: false })
+  await Offer.updateMany({ sellerMail: mail }, { active: false })
   
   // Find sale by ID
   const offerActivated = await Offer.findById(id);
@@ -71,8 +83,10 @@ const activateOffer = async (req, res = response) => {
   // Actualizar el precio de oferta para cada producto
   const products = await Product.find({})
   products.forEach(async (product) => {
-    const offerPrice = product.price - (product.price * offerActivated.offerPercentage) / 100
-    await Product.updateOne({ _id: product._id }, { offerPrice })
+    if(product.user===mail){
+      const offerPrice = product.price - (product.price * offerActivated.offerPercentage) / 100
+      await Product.updateOne({ _id: product._id }, { offerPrice })
+    }
   })
 
   res.json({

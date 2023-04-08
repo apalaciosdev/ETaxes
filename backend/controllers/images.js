@@ -1,19 +1,16 @@
 const fs = require('fs');
 const {google} = require('googleapis');
-
 const GOOGLE_API_FOLDER_ID = '1RPYClj1Ntuz3Fsn9_JTTzv2jz89uAcJs';
 
 
-
-
+/**
+ * Verifica que se ha recibido el archivo correctamente, lo guarda localmente, usa la función uploadFile() para subirlo y lo borra del local.
+ */
 async function saveFile(req, res){
   const file = req.file;
-  console.log(file); // Verifica que se ha recibido el archivo correctamente
 
-  // Aquí puedes guardar el archivo en la misma carpeta donde se encuentra el controlador
-  // Para ello, puedes utilizar el módulo `fs` de Node.js:
-  const fs = require('fs');
   const filePath = `${__dirname}/${file.originalname}`;
+
   fs.rename(file.path, filePath, async (error) => {
     if (error) {
       console.error(error);
@@ -31,6 +28,11 @@ async function saveFile(req, res){
     }
   });
 }
+
+
+/**
+ * Se encarga de subir la imágen a un repositorio de Drive utilizando la API de Google
+ */
 async function uploadFile(fileName, filePath){
   try {
     const auth = new google.auth.GoogleAuth({
@@ -56,7 +58,7 @@ async function uploadFile(fileName, filePath){
     const response = await driveService.files.create({
       resource: fileMetaData,
       media: media,
-      fields: 'id, webContentLink' // agregamos el campo webContentLink para obtener el enlace de la imagen
+      fields: 'id, webContentLink'
     })
 
     fs.unlink(filePath, (error) => {
@@ -79,7 +81,3 @@ module.exports = {
   uploadFile,
   saveFile
 }
-
-// uploadFile().then(data => {
-//   console.log(data)
-// })

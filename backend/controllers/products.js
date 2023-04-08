@@ -125,6 +125,16 @@ const createOffer = async(req, res = response) => {
   })
 }
 
+const getProductsCount = async (req, res = response) => {
+  const { mail } = req.body
+  try {
+    const numeroDeProductos = await Product.countDocuments({ user: { $eq: mail } });
+    res.status(200).json( numeroDeProductos );
+  } catch (error) {
+    res.status(500).json({ mensaje: 'Error al contar productos' });
+  }
+};
+
 module.exports = {
   productsGet,
   productGet,
@@ -134,5 +144,6 @@ module.exports = {
   productExists,
   userProducts,
   checkUserHaveProduct,
-  createOffer
+  createOffer,
+  getProductsCount
 }
