@@ -5,6 +5,9 @@ import { User } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
 import { UtilsService } from '../../../../services/utils.service';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/services/localStorage.service';
+import { ReloadService } from 'src/app/services/reloadService.service';
+import { NotificationToastService } from 'src/app/services/notificationToast.service';
 
 
 
@@ -32,7 +35,10 @@ export class RegisterComponent implements OnInit{
     public readonly router: Router,
     public readonly service: FormsService,
     public readonly utils: UtilsService,
-    private userHttpService: UserHttpService
+    private userHttpService: UserHttpService,
+    private localStorageService: LocalStorageService,
+    private reloadService: ReloadService,
+    private notifyToastService : NotificationToastService
   ){
     this.register = {
       name: "",
@@ -70,7 +76,7 @@ export class RegisterComponent implements OnInit{
         surname1: [this.register.surname1, [Validators.required]],
         surname2: [this.register.surname2, [Validators.required]],
         telephone: [this.register.telephone, [Validators.required]],
-        gender: [this.register.gender, [Validators.required]],
+        gender: [this.register.gender, []],
         address: [this.register.address, [Validators.required]],
         zipCode: [this.register.zipCode, [Validators.required, Validators.pattern("[0-9]{5}")]],
         region: [this.register.region, [Validators.required]],
@@ -146,23 +152,24 @@ export class RegisterComponent implements OnInit{
   }
 
   async onSubmit(){
-    console.log(this.register)
     await this.registerRequest()
-    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
-    
-
   }
   
   async registerRequest(){
     this.userHttpService.register(this.register).subscribe(
-      (response) => { 
-        console.log(response); 
-        
+      (response:any) => { 
+        let user = { mail: response.mail, name: response.name, token: response.token}
+        this.localStorageService.setItem('userToken', user);
+        this.reloadService.reloadComponent.next(true);
         window.history.back(); // Obtener la URL de la última página visitada
         // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
         this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
       },
-      (error) => { console.log(error); }
+      (error) => { 
+        if(error.error.msg === "Mail is already exists"){
+          this.notifyToastService.showError("Introduce otro.", "El mail introducido ya existe.")
+        }
+      }
     ); 
   }
 }

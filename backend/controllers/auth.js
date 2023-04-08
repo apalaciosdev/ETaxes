@@ -68,9 +68,13 @@ const register = async(req, res = response) => {
 
   // Save in DB
   await user.save()
+  
+  // Generate JWT
+  const token = await generateJWT(user.id)
 
   res.json({
-    user
+    user,
+    token
   })
 }
 
