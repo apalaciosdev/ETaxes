@@ -81,7 +81,7 @@ const comprasPorMesArray = Object.values(comprasPorMes);
   
 
 
-  const offers = await Offer.find();
+  const offers = await Offer.find({sellerMail: mail});
 
   
   res.json({

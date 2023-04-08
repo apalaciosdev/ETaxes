@@ -28,8 +28,10 @@ const offerPost = async (req, res = response) => {
   // Actualizar el precio de oferta para cada producto
   const products = await Product.find({})
   products.forEach(async (product) => {
-    const offerPrice = product.price - (product.price * offer.offerPercentage) / 100
-    await Product.updateOne({ _id: product._id }, { offerPrice })
+    if(product.user===mail){
+      const offerPrice = product.price - (product.price * offer.offerPercentage) / 100
+      await Product.updateOne({ _id: product._id }, { offerPrice })
+    }
   })
 
   res.json({
@@ -51,8 +53,10 @@ const deleteOffer = async (req, res = response) => {
     // Actualizar el precio de oferta para cada producto
     const products = await Product.find({})
     products.forEach(async (product) => {
-      const offerPrice = 0
-      await Product.updateOne({ _id: product._id }, { offerPrice })
+      if(product.user===mail){
+        const offerPrice = 0
+        await Product.updateOne({ _id: product._id }, { offerPrice }) 
+      }
     })
   }
 
