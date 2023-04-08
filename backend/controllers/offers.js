@@ -18,7 +18,7 @@ const offersGet = async (req, res = response) => {
 const offerPost = async (req, res = response) => {
   const offer = req.body
 
-  await Offer.updateMany({}, { active: false })
+  await Offer.updateMany({sellerMail: offer.sellerMail}, { active: false })
 
   // Save in DB
   const newOffer = new Offer(offer)
@@ -28,7 +28,7 @@ const offerPost = async (req, res = response) => {
   // Actualizar el precio de oferta para cada producto
   const products = await Product.find({})
   products.forEach(async (product) => {
-    if(product.user===mail){
+    if(product.user=== offer.sellerMail){
       const offerPrice = product.price - (product.price * offer.offerPercentage) / 100
       await Product.updateOne({ _id: product._id }, { offerPrice })
     }

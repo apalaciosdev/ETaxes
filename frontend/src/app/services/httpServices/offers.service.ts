@@ -15,42 +15,43 @@ export class OffersHttpService {
   constructor(private http: HttpClient) { }
 
   
-  getOffers() {
-    return this.http.get(this.url);
+  getOffers(token:any) {
+    return this.http.get(this.url, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
-  postOffer(offer: any){
-    return this.http.post(`${this.url}`, offer);
+  postOffer(offer: any, token:any){
+    return this.http.post(`${this.url}`, offer, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
 
-  deleteOffer(offerId: any){
-    return this.http.delete(`${this.url}/${offerId}`);
+  deleteOffer(offerId: any, token:string){
+    return this.http.delete(`${this.url}/${offerId}`, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
 
-  activateOffer(offerId: any, mail:string){
-    return this.http.post(`${this.url}/activate/${offerId}`, {"mail": mail});
+  activateOffer(offerId: any, mail:string, token: any){
+    return this.http.post(`${this.url}/activate/${offerId}`, {"mail": mail}, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
   salesData(mail: string){
     return this.http.post(`${this.url}/salesData`, {"mail": mail});
   }
-  
-  // deleteProduct(uid: string){
-  //   return this.http.delete(`http://localhost:2022/api/products/${uid}`, {
-  //     headers: new HttpHeaders({
-  //       'Authorization': 'my-auth-token',
-  //       'x-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjZhNDIyYzYxZTRiMDZjN2JmZDMzMDciLCJpYXQiOjE2NTIxNzg1MjgsImV4cCI6MTY1MjE5MjkyOH0.BulLtKsBrNwwNt67W35k0DdGfYK6LhZA7wuO0ZAXKH4'
-  //     })
-  //   });
-  // }
-
-
-  
-  // async reloadComponent(router: Router) {
-  //   let currentUrl = router.url;
-  //   router.routeReuseStrategy.shouldReuseRoute = () => false;
-  //   router.onSameUrlNavigation = 'reload';
-  //   router.navigate([currentUrl]);
-  // }
-
 }

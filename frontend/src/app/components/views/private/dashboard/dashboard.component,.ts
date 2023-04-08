@@ -101,7 +101,7 @@ export class DashboardComponent implements OnInit{
   async onSubmit(){
     this.offer.sellerMail = this.user.mail;
     console.log(this.offer)
-    this.offersHttpService.postOffer(this.offer).subscribe(
+    this.offersHttpService.postOffer(this.offer, this.user.token).subscribe(
       (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 
@@ -109,7 +109,7 @@ export class DashboardComponent implements OnInit{
 
   async activeOffer(offerId:string){
     console.log("activar", offerId)
-    this.offersHttpService.activateOffer(offerId, this.user.mail).subscribe(
+    this.offersHttpService.activateOffer(offerId, this.user.mail, this.user.token).subscribe(
       (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 
@@ -118,7 +118,7 @@ export class DashboardComponent implements OnInit{
   
   async deleteOffer(offerId:string){
     console.log("eliminar", offerId)
-    this.offersHttpService.deleteOffer(offerId).subscribe(
+    this.offersHttpService.deleteOffer(offerId, this.user.token).subscribe(
       (response) => { console.log(response); this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 

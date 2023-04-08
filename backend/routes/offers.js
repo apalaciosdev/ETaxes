@@ -9,10 +9,21 @@ const { offersGet, offerPost, deleteOffer, activateOffer } = require('../control
 const { productExistsById, isRoleValid, userExistsById } = require('../helpers/db-validators')
 
 
-router.get('/', offersGet)
-router.post('/', offerPost)
-router.delete('/:id', deleteOffer)
-router.post('/activate/:id', activateOffer)
+router.get('/', [
+  validateJWT
+], offersGet)
+
+router.post('/', [
+  validateJWT
+],offerPost)
+
+router.delete('/:id', [
+  validateJWT
+], deleteOffer)
+
+router.post('/activate/:id', [
+  validateJWT
+], activateOffer)
 
 
 module.exports = router
