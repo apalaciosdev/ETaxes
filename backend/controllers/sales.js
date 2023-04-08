@@ -20,10 +20,6 @@ const infoSalesGet = async(req, res = response) => {
   const productsArray = await Product.find({ user: mail })
   
   
-  // const productsArray = products.map(product => ({
-  //   ...product.toObject(),
-  //   sales: product.productId
-  // }));
 
 
   const salesCount = await Sale.countDocuments({ sellerMail: mail });

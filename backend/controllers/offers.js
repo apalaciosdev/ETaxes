@@ -68,7 +68,7 @@ const deleteOffer = async (req, res = response) => {
 
 
 /**
- * Cuando se crea una oferta, 
+ * Este activa la oferta creada o seleccionada y desactiva las demás. Después actualiza el campo offerPrice de cada producto del usuario 
  */
 const activateOffer = async (req, res = response) => {
   const { id } = req.params
