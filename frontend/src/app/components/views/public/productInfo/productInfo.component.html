@@ -50,7 +50,7 @@
 							<span class="color green"></span>
 							<span class="color blue"></span>
 						</h5> -->
-						<div class="action">
+						<div class="action" *ngIf="product.stock > 0">
 							<!-- <button class="add-to-cart btn btn-default" type="button">add to cart</button> -->
 							<a class="btn btn-primary" (click)="addCarrito(product)">Añadir al carrito</a>
 							<!-- <button class="like btn btn-default" type="button"><span class="fa fa-heart"></span></button> -->
