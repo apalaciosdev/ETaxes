@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 
 
 
@@ -11,10 +12,16 @@ import { Component } from '@angular/core';
 
 
 
-export class CarrouselComponent {
-  title = 'Article by Jeetendra';
-  posts : any;
+export class CarrouselComponent implements OnInit {
+  @Input() public products: any;
   
+  constructor(
+    public utilsService: UtilsService
+  ){}
+
+  ngOnInit(): void {
+    console.log(this.products)
+  }
   
 
 }
