@@ -23,24 +23,44 @@ export class ProductsHttpService {
     return this.http.get(`${this.url}/product/${id}`);
   }
   
-  getUserProducts(user:any) {
-    return this.http.post(`${this.url}/userProducts`, {"user": user});
+  getUserProducts(user:any, token: any) {
+    return this.http.post(`${this.url}/userProducts`, {"user": user}, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
-  postProduct(product: Product){
-    return this.http.post(`${this.url}`, product);
+  postProduct(product: Product, token:any){
+    return this.http.post(`${this.url}`, product, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
-  putProduct(product: Product, id:any){
-    return this.http.put(`${this.url}/${id}`, product);
+  putProduct(product: Product, id:any, token:any){
+    return this.http.put(`${this.url}/${id}`, product, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
   
   checkUserHaveProduct(user:any, productId:any){
     return this.http.post(`${this.url}/checkUserHaveProduct`, {"user": user, "productId": productId});
   }
   
-  deleteProduct(productId:any){
-    return this.http.delete(`${this.url}/${productId}`);
+  deleteProduct(productId:any, token:any){
+    return this.http.delete(`${this.url}/${productId}`, {
+      headers: new HttpHeaders({
+        'Authorization': 'my-auth-token',
+        'x-token': token
+      })
+    });
   }
 
   countProducts(mail: string, token:any){
@@ -51,24 +71,5 @@ export class ProductsHttpService {
       })
     });
   }
-
-
-  // deleteProduct(uid: string){
-  //   return this.http.delete(`http://localhost:2022/api/products/${uid}`, {
-  //     headers: new HttpHeaders({
-  //       'Authorization': 'my-auth-token',
-  //       'x-token': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MjZhNDIyYzYxZTRiMDZjN2JmZDMzMDciLCJpYXQiOjE2NTIxNzg1MjgsImV4cCI6MTY1MjE5MjkyOH0.BulLtKsBrNwwNt67W35k0DdGfYK6LhZA7wuO0ZAXKH4'
-  //     })
-  //   });
-  // }
-
-
-  
-  // async reloadComponent(router: Router) {
-  //   let currentUrl = router.url;
-  //   router.routeReuseStrategy.shouldReuseRoute = () => false;
-  //   router.onSameUrlNavigation = 'reload';
-  //   router.navigate([currentUrl]);
-  // }
 
 }

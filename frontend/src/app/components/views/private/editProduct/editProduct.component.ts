@@ -128,7 +128,7 @@ export class EditProductComponent implements OnInit{
   }
   
   async putProduct(uid: string){
-    this.productsHttpService.putProduct(this.product, uid).subscribe(
+    this.productsHttpService.putProduct(this.product, uid, this.userToken.token).subscribe(
       (response) => { console.log("Product edited");  this.notifyToastService.showSuccess("y guardado", "Producto editado")},
       (error) => { console.log(error); this.notifyToastService.showError("al editar el producto", "Ha ocurrido un error")}
     ); 

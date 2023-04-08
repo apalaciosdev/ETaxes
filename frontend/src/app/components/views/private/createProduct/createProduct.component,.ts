@@ -110,11 +110,8 @@ export class CreateProductComponent implements OnInit{
   }
   
   async postProduct(){
-    console.log("dale")
-    // this.temporalService.actualizarVariableTemporal(null);
-    console.log('aaaa', this.product)
-    this.productsHttpService.postProduct(this.product).subscribe(
-      (response) => { console.log("Product saved"); },
+    this.productsHttpService.postProduct(this.product, this.localStorageService.getItem('userToken').token).subscribe(
+      (response:any) => { console.log("Product saved");  this.router.navigate([`/dashboard`])},
       (error) => { console.log(error); this.notifyToastService.showError("al crear el producto", "Ha ocurrido un error") }
     ); 
       

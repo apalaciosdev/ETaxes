@@ -40,7 +40,7 @@ export class UserProductsComponent implements OnInit{
 
 
   async getProducts(user:any){
-    this.productsHttpService.getUserProducts(user).subscribe(
+    this.productsHttpService.getUserProducts(user, this.userToken.token).subscribe(
       (response) => { this.products = response },
       (error) => { console.log(error); }
     ); 
@@ -64,7 +64,7 @@ export class UserProductsComponent implements OnInit{
   // }
   
   async deleteProduct(productId: string){
-    this.productsHttpService.deleteProduct(productId).subscribe(
+    this.productsHttpService.deleteProduct(productId, this.userToken.token).subscribe(
       (response) => { console.log("Product dropped"); this.utilsService.reloadComponent(this.router)},
       (error) => { console.log(error); }
     ); 

@@ -11,7 +11,9 @@ const { productExistsById, isRoleValid, userExistsById } = require('../helpers/d
 
 router.get('/', productsGet)
 
-router.post('/userProducts', userProducts)
+router.post('/userProducts', [
+  validateJWT
+], userProducts)
 
 router.post('/checkUserHaveProduct', checkUserHaveProduct, [
   check('id', 'This is not a valid ID').isMongoId()
@@ -28,7 +30,7 @@ router.get('/product/:id', [
 ], productGet)
 
 router.post('/', [
-  // validateJWT,
+  validateJWT,
   // isSalesRole, //check if role of the user is ADMIN_ROLE or SALES_ROLE //send token
   check('title', 'Title of the product is required').not().isEmpty(),
   check('price', 'Price is required').not().isEmpty(),
@@ -44,7 +46,7 @@ router.post('/:id', [
 
 
 router.put('/:id',[
-  // validateJWT,
+  validateJWT,
   // isSalesRole, //check if role of the user is ADMIN_ROLE //send token
   // check('id', 'This is not a valid Id').isMongoId(),
   // validateFields
@@ -52,7 +54,7 @@ router.put('/:id',[
 
 
 router.delete('/:id', [
-  // validateJWT,
+  validateJWT,
   // isSalesRole,
   // //haveRole('ADMIN_ROLE', 'SALES_ROLE'), //required one of these roles
   check('id', 'This is not a valid ID').isMongoId(),
