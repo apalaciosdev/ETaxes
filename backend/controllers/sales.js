@@ -34,8 +34,8 @@ const infoSalesGet = async(req, res = response) => {
 
   const compras = await Sale.find({sellerMail: mail})
   // Utilizamos reduce() para agrupar la información por meses
-// Utilizamos reduce() para agrupar la información por meses
-const comprasPorMes = compras.reduce((acumulador, compra) => {
+  // Utilizamos reduce() para agrupar la información por meses
+  const comprasPorMes = compras.reduce((acumulador, compra) => {
   // Obtenemos el mes de la fecha_compra
   const month = compra.purchaseDate.toLocaleString('es-ES', { month: 'long' });
   
@@ -45,7 +45,7 @@ const comprasPorMes = compras.reduce((acumulador, compra) => {
   }
   
   // Sumamos el precio de la compra al total del month correspondiente
-  acumulador[month].total += compra.price;
+  acumulador[month].total += compra.price * compra.units;
   
   // Retornamos el acumulador
   return acumulador;
