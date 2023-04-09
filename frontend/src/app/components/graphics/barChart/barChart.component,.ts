@@ -22,9 +22,9 @@ export class BarChartComponent implements OnInit{
   createChart(){
   
     this.chart = new Chart("MyChart", {
-      type: 'bar', //this denotes tha type of chart
+      type: 'bar',
 
-      data: {// values on X-Axis
+      data: {
         labels: this.data.map((producto: { title: any; }) => producto.title), 
 	       datasets: [
           {

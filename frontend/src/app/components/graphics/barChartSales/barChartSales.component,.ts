@@ -22,17 +22,11 @@ export class BarChartSalesComponent implements OnInit{
   createChart(){
   
     this.chart = new Chart("MyChart2", {
-      type: 'bar', //this denotes tha type of chart
+      type: 'bar',
 
       data: {// values on X-Axis
         labels: this.data.map((producto: { month: any; }) => producto.month), 
 	       datasets: [
-          // {
-          //   label: "Sales",
-          //   data: ['467','576', '572', '79', '92',
-					// 			 '574', '573', '576'],
-          //   backgroundColor: 'blue'
-          // },
           {
             label: "Ingresos",
             data: this.data.map((producto: { total: any; }) => producto.total),
@@ -59,10 +53,6 @@ export class BarChartSalesComponent implements OnInit{
           }
         }
       }
-      
     });
   }
-
-  
-
 }

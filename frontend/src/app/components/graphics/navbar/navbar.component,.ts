@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { CartService } from 'src/app/services/cart.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -22,9 +21,7 @@ export class NavbarComponent implements OnInit{
   cantidadProductos:Number = this.cartService.initVariableCarrito();
   isLogged:Boolean = false;
   
-  
   constructor(
-    private localStorageService: LocalStorageService,
     private temporalService: TemporalService,
     private cartService: CartService,
     private authService: AuthService,
@@ -35,6 +32,8 @@ export class NavbarComponent implements OnInit{
   
 
   async ngOnInit() {
+    //Cada vez que se haga login o logout, tenemos un "observador" que capta este evento y automáticamente modifica el navbar.
+    //Esto se hace para que un usuario no autenticado no tenga acceso al navbar de un usuario que sí está autenticado
     this.reloadService.reloadComponent.subscribe(res => {
       if (res) {
         this.isLogged = true;

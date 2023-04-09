@@ -1,10 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { User } from 'src/assets/models/user';
-
-
-
-
 
 @Component({
   selector: 'passwordStrength',
@@ -92,7 +86,7 @@ export class PasswordStrength implements OnInit{
   }
 
 
-  private getColor(s:Number) {
+  private getColor(s:number) {
     let idx = 0;
     if (s <= 10) {
         idx = 0;
@@ -112,10 +106,6 @@ export class PasswordStrength implements OnInit{
   }
   
   private setBarColors(count: number, col: string) {
-    // for (let n = 0; n < count; n++) {
-    //   // eval("this.bar" + n) = col;
-    //   // this.b['ar' + n] = col;
-    // }
     if(count === 0){
       this.bar0 = "";
       this.bar1 = "";
@@ -148,17 +138,8 @@ export class PasswordStrength implements OnInit{
     }
   }
   
-  
 
-
-  ngOnInit() {
-  
-    
+  ngOnInit() { 
   }
-
-
-
-
-  
 
 }
