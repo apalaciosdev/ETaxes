@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UtilsService } from '../../../../services/utils.service';
 import { CartService } from 'src/app/services/cart.service';
 import { Location } from '@angular/common';
-import { Product } from '../../../../../assets/models/product';
 import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { AuthService } from 'src/app/services/auth.service';

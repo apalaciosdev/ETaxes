@@ -43,7 +43,7 @@ export class CheckOutComponent implements OnInit{
   
   }
   setCardNumber(event:any, fieldName:any){
-    //TODO: controlar que sean solo numeros
+  
   }
 
   removeProductCart(productId:string){

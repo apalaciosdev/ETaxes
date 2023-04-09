@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserHttpService } from 'src/app/services/httpServices/user.service';
 import { User } from 'src/assets/models/user';
 import { FormsService } from '../../../../services/forms.service';
@@ -8,10 +8,6 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { ReloadService } from 'src/app/services/reloadService.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
-
-
-
-
 
 
 @Component({
@@ -24,7 +20,6 @@ import { NotificationToastService } from 'src/app/services/notificationToast.ser
 
 export class RegisterComponent implements OnInit{
   public user: User;
-
   public registerForm!: FormGroup;
   public register: User;
   public passwordIsValid :boolean = false;
@@ -160,9 +155,8 @@ export class RegisterComponent implements OnInit{
         let user = { mail: response.mail, name: response.name, token: response.token}
         this.localStorageService.setItem('userToken', user);
         this.reloadService.reloadComponent.next(true);
-        window.history.back(); // Obtener la URL de la última página visitada
-        // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
-        this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
+        window.history.back(); // Obtiene la URL de la última página visitada
+        this.router.navigateByUrl(window.location.pathname); // Navega a la última página visitada
       },
       (error) => { 
         if(error.error.msg === "Mail is already exists"){

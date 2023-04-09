@@ -1,15 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UserHttpService } from 'src/app/services/httpServices/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SupportSearch } from 'src/assets/models/product';
 import { FormsService } from '../../../../services/forms.service';
-import { UtilsService } from '../../../../services/utils.service';
 import { AuthService } from '../../../../services/auth.service';
 import { NgxSpinnerService } from 'ngx-spinner';
-
-
-
-
 
 
 @Component({
@@ -68,7 +62,6 @@ export class ProductSupport implements OnInit{
     this.service.gestionarValidarErrors(this.supportSearchForm);
   }
 
-  
   async onSubmit(){
     this.showSpinner()
   }

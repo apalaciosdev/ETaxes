@@ -1,16 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
-import { TemporalService } from 'src/app/services/temporal.service';
-import { SharedService } from 'src/app/shared.service';
-import { Product } from 'src/assets/models/product';
 import { UtilsService } from '../../../../services/utils.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
 import { CartService } from 'src/app/services/cart.service';
-
 
 
 @Component({
@@ -21,28 +17,22 @@ import { CartService } from 'src/app/services/cart.service';
 })
 
 
-
 export class ProductInfoComponent implements OnInit{
-
+  public product: any;
   products: any;
   userToken: any;
   id: any;
-  public product: any;
 
   
   constructor(
     private productsHttpService: ProductsHttpService,
-    private sharedService: SharedService,
     private localStorageService: LocalStorageService,
     public utilsService: UtilsService,
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
     private route: ActivatedRoute,
-    private router: Router,
-    private temporalService: TemporalService,
     private cartService: CartService,
     private notifyToastService : NotificationToastService
-
   ) {
     this.product; 
   }
@@ -57,7 +47,6 @@ export class ProductInfoComponent implements OnInit{
 
   }
   
-
   async getProduct(id:any){
     this.productsHttpService.getProduct(id).subscribe(
       (response:any) => { this.product = response },
@@ -69,5 +58,4 @@ export class ProductInfoComponent implements OnInit{
     this.cartService.addToCart(product);
     this.notifyToastService.showSuccess("al carrito", "Producto añadido")
   }
-
 }

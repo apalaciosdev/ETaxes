@@ -29,9 +29,6 @@
 
                       <p id="product{{product.uid}}">{{product.units}}</p>
 
-                      <!-- <input id="form1" min="0" name="quantity" value="1" type="number"
-                        class="form-control form-control-sm" /> -->
-
                       <button class="btn px-2"
                         (click)="this.sumUnits(product.uid, product.offerPrice > 0 ? product.offerPrice : product.price)">
                         <b>></b>
@@ -41,17 +38,12 @@
                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                       <h6 *ngIf="product.offerPrice == 0" class="mb-0">{{product.price.toFixed(2) | formatNumber}}</h6>
                       <h6 *ngIf="product.offerPrice > 0" class="mb-0">{{product.offerPrice.toFixed(2) | formatNumber}}</h6>
-                      <!-- <h6 id="productPriceUnit{{product.uid}}" class="mb-0">{{product.price * product.units}}</h6> -->
                     </div>
                     <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                       <a style="cursor: pointer;" (click)="removeProductCart(product.uid)" class="text-muted"><b class="">X</b></a>
                     </div>
                     <hr class="my-4">
                   </div>
-
-
-        
-
 
                   <div class="pt-5">
                     <h6 class="mb-0"><a (click)="this.location.back()" class="text-body"><i
@@ -69,19 +61,7 @@
                     <h5 *ngIf="product.offerPrice == 0"><span id="productPriceUnit{{product.uid}}" class="mb-0">{{(product.price * product.units) | formatNumber}}</span></h5>
                     <h5 *ngIf="product.offerPrice > 0"><span id="productPriceUnit{{product.uid}}" class="mb-0">{{(product.offerPrice * product.units) | formatNumber}}</span></h5>
                   </div>
-
-                  <!-- <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                  <div class="mb-4 pb-2">
-                    <select class="select">
-                      <option value="1">Standard-Delivery- €5.00</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                      <option value="4">Four</option>
-                    </select>
-                  </div> -->
-
-
+                  
                   <hr class="my-4">
 
                   <div class="d-flex justify-content-between mb-5">

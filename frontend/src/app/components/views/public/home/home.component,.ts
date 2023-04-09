@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 
-
-
 @Component({
   selector: 'homeComponent',
   templateUrl: './home.component.html',
@@ -9,12 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 
-
-
 export class HomeComponent {
-  title = 'Article by Jeetendra';
-  posts : any;
-  
-  
-
 }
