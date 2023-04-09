@@ -7,7 +7,7 @@
       <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Tus datos</span></h1>
       <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">Edita tus datos personales aquí.</p>
     </div>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+    <form [formGroup]="registerForm" *ngIf="register" (ngSubmit)="onSubmit();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
       <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
       <div class="row">
         <div class="col-sm-6 mb-4">

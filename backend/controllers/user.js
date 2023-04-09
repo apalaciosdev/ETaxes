@@ -28,7 +28,7 @@ const usersGet = async(req, res = response) => {
  */
 const getUserInfo = async(req, res = response) => {
   const { mail, password } = req.body
-  const user = await User.find({mail})
+  const user = await User.find({"mail": mail})
 
   res.json(
     user

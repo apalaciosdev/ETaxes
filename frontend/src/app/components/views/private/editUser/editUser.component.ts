@@ -24,6 +24,7 @@ import { NotificationToastService } from 'src/app/services/notificationToast.ser
 export class EditUserComponent implements OnInit{
   public user: User;
   public userMail: string;
+  public userToken: any;
 
   public registerForm!: FormGroup;
   public register: any;
@@ -43,13 +44,15 @@ export class EditUserComponent implements OnInit{
   }
 
   async ngOnInit() {
-    await this.getUserData(this.localStorageService.getItem('userToken').mail)
+    this.userToken = await this.localStorageService.getItem('userToken')
+    await this.getUserData(this.userToken.mail)
     this.initForm()
   }
 
   async getUserData(mail:string){
     await this.userHttpService.getUserData(mail).subscribe(
       (response:any) => { 
+        console.log(response)
         this.register = response[0]; 
         const fechaParaInput = new Date(response[0].years).toISOString().substring(0, 10);
         this.register.years = fechaParaInput

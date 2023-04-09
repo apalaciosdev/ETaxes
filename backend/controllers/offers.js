@@ -53,7 +53,7 @@ const deleteOffer = async (req, res = response) => {
     // Actualizar el precio de oferta para cada producto
     const products = await Product.find({})
     products.forEach(async (product) => {
-      if(product.user===mail){
+      if(product.user===offer.sellerMail){
         const offerPrice = 0
         await Product.updateOne({ _id: product._id }, { offerPrice }) 
       }
