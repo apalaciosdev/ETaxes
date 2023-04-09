@@ -6,8 +6,6 @@ import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
 import { NotificationToastService } from '../../../../services/notificationToast.service';
 
-
-
 @Component({
   selector: 'userProductsComponent',
   templateUrl: './userProducts.component.html',
@@ -15,12 +13,8 @@ import { NotificationToastService } from '../../../../services/notificationToast
   styleUrls: ['./userProducts.component.scss', '../../../../../assets/css/userProfile.component.scss']
 })
 
-
-
 export class UserProductsComponent implements OnInit{
-
   products: any;
-
   userToken: any;
   
   constructor(
@@ -37,8 +31,6 @@ export class UserProductsComponent implements OnInit{
     this.getProducts(this.userToken.mail);
   }
   
-
-
   async getProducts(user:any){
     this.productsHttpService.getUserProducts(user, this.userToken.token).subscribe(
       (response) => { this.products = response },

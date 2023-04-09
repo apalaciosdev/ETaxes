@@ -5,7 +5,6 @@
   <section class="panel important">
     <section class="container my-5">
       <form *ngIf="editProductForm" [formGroup]="editProductForm" (ngSubmit)="onSubmit(); editProductForm.reset();" class="" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
-        <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
         <div class="row">
           <div class="col-sm-6 mb-4">
             <label for="title" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
@@ -40,11 +39,6 @@
         </div>  
         <button [disabled]="editProductForm.invalid" type="submit" class="btn btn-primary me-3" style="margin-top:30px; background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Guardar producto</button>
       </form>
-     
-      <!-- <div class="col-sm-6 mb-4" style="margin-top: 50px;">
-        <uploadFilesComponent></uploadFilesComponent>
-        <img style="width: 100%;" src={{this.product.image}} onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
-      </div> -->
     </section>
   </section>
 </main>

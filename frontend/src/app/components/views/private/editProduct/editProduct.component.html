@@ -5,49 +5,37 @@
   <h2 style="margin-left: 20px;">Editar Producto</h2>
   <section class="panel important">
     <section class="container my-5">
-    
-   
-    
-        <form *ngIf="editProductForm" [formGroup]="editProductForm" (ngSubmit)="onSubmit(); editProductForm.reset();" class="" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
-          <!-- <input type="text" id="name" name="Name" class="form-control form-control-lg" required="" placeholder="" maxlength="60" [(ngModel)]="user.title" (ngModelChange)="test($event)"> -->
-          <div class="row">
-            <div class="col-sm-6 mb-4">
-              <label for="title" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
-              <input formControlName="title" [(ngModel)]="this.product.title" type="text" id="title" name="title" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
-            </div>
-            <div class="col-sm-6 mb-4">
-              <label for="price" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Precio</label>
-              <input formControlName="price" [(ngModel)]="this.product.price" type="number" id="price" name="price" class="form-control form-control-lg" (input)="this.service.onlyNumbers(editProductForm, 'price')" required="" placeholder="" maxlength="60">
-              <div class="invalid-feedback">Obligatiorio</div>
-            </div>
-            <div class="col-sm-6 mb-4">
-              <label for="category" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Categoria</label>
-              <input formControlName="category" [(ngModel)]="this.product.category" type="text" id="category" name="category" class="form-control form-control-lg" required=""maxlength="100">
-            </div>
-            <div class="col-sm-6 mb-4">
-              <label for="stock" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Stock</label>
-              <input formControlName="stock" [(ngModel)]="this.product.stock" type="number" id="stock" name="stock" (input)="this.service.onlyNumbers(editProductForm, 'stock')" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
-            </div>
-            <div class="">
-              <label for="description" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Descripción</label>
-              <textarea formControlName="description" [(ngModel)]="this.product.description" type="text" id="description" name="description" class="form-control form-control-lg" required="" placeholder=""></textarea>
-            </div>
+      <form *ngIf="editProductForm" [formGroup]="editProductForm" (ngSubmit)="onSubmit(); editProductForm.reset();" class="" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
+        <div class="row">
+          <div class="col-sm-6 mb-4">
+            <label for="title" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
+            <input formControlName="title" [(ngModel)]="this.product.title" type="text" id="title" name="title" class="form-control form-control-lg" required="" placeholder="" maxlength="60">
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="price" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Precio</label>
+            <input formControlName="price" [(ngModel)]="this.product.price" type="number" id="price" name="price" class="form-control form-control-lg" (input)="this.service.onlyNumbers(editProductForm, 'price')" required="" placeholder="" maxlength="60">
+            <div class="invalid-feedback">Obligatiorio</div>
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="category" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Categoria</label>
+            <input formControlName="category" [(ngModel)]="this.product.category" type="text" id="category" name="category" class="form-control form-control-lg" required=""maxlength="100">
+          </div>
+          <div class="col-sm-6 mb-4">
+            <label for="stock" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Stock</label>
+            <input formControlName="stock" [(ngModel)]="this.product.stock" type="number" id="stock" name="stock" (input)="this.service.onlyNumbers(editProductForm, 'stock')" class="form-control form-control-lg" required="" placeholder="Your Email Address!" maxlength="100">
+          </div>
+          <div class="">
+            <label for="description" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Descripción</label>
+            <textarea formControlName="description" [(ngModel)]="this.product.description" type="text" id="description" name="description" class="form-control form-control-lg" required="" placeholder=""></textarea>
+          </div>
 
-            <div class="col-sm-6 mb-4" style="margin-top: 50px;">
-              <uploadFilesComponent></uploadFilesComponent>
-              <img style="width: 100%;" src={{this.product.image}} onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
-        
-            </div>
-            <!-- <div class="col-sm-6 mb-4">
-              <label for="image" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-envelope-at-fill me-2"></i>Image</label>
-              <input formControlName="image" [(ngModel)]="this.product.image" type="text" id="image" name="image" class="form-control form-control-lg" required="">
-            </div> -->
-          </div>  
-          <button [disabled]="editProductForm.invalid" type="submit" class="btn btn-primary me-3" style="background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Guardar cambios</button>
-          <!-- <button type="reset" class="btn btn-primary-soft btn-lg"><i class="fa-solid bi bi-arrow-clockwise me-2"></i>Reset</button> -->
-        </form>
-
+          <div class="col-sm-6 mb-4" style="margin-top: 50px;">
+            <uploadFilesComponent></uploadFilesComponent>
+            <img style="width: 100%;" src={{this.product.image}} onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
+          </div>
+        </div>  
+        <button [disabled]="editProductForm.invalid" type="submit" class="btn btn-primary me-3" style="background-color: #69B190; border: none"><i class="fa-solid bi bi-send-fill me-2"></i>Guardar cambios</button>
+      </form>
     </section>
-  
   </section>
 </main>

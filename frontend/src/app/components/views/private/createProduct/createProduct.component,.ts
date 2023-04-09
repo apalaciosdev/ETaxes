@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { SharedService } from 'src/app/shared.service';
 import { Product } from 'src/assets/models/product';
 
 
@@ -22,21 +21,19 @@ import { Product } from 'src/assets/models/product';
 
 
 export class CreateProductComponent implements OnInit{
-  id: string;
-  imgTemporal: any;
   public editProductForm!: FormGroup;
   public product: Product;
   public productImg: String;
+  id: string;
+  imgTemporal: any;
   userToken: any;
 
   constructor(
     private productsHttpService: ProductsHttpService,
-    private sharedService: SharedService,
     private localStorageService: LocalStorageService,
     public utilsService: UtilsService,
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
-    private route: ActivatedRoute,
     private router: Router,
     private temporalService: TemporalService,
     private notifyToastService : NotificationToastService
@@ -53,17 +50,13 @@ export class CreateProductComponent implements OnInit{
     }; 
   }
 
-
   async ngOnInit() {
     this.product.user = this.localStorageService.getItem('userToken').mail;
 
     await this.temporalService.obtenerVariableTemporal().subscribe(async valor => {
-      // await this.getProduct(this.id);
       this.product.image = valor
-      // this.temporalService.actualizarVariableTemporal(null);
     });
-    // await this.getProduct(this.id);
-    // await this.checkUserHaveProduct(this.userToken.mail, this.id)
+
     this.initForm();
   }
 
@@ -87,10 +80,7 @@ export class CreateProductComponent implements OnInit{
     await this.postProduct();
     this.temporalService.actualizarVariableTemporal(null);
   }
-  
 
-
-  // TODO: crear funcion que compruebe que el producto es del usuario, sinó redirigir a sus productos
   async checkUserHaveProduct(user:string, productId:any){
     this.productsHttpService.checkUserHaveProduct(user, productId).subscribe(
       (response:any) => { 
@@ -106,9 +96,6 @@ export class CreateProductComponent implements OnInit{
     this.productsHttpService.postProduct(this.product, this.localStorageService.getItem('userToken').token).subscribe(
       (response:any) => {this.router.navigate([`/dashboard`])},
       (error) => {this.notifyToastService.showError("al crear el producto", "Ha ocurrido un error") }
-    ); 
-      
+    );   
   }
-  
-
 }

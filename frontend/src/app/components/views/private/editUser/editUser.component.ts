@@ -9,10 +9,6 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
 
 
-
-
-
-
 @Component({
   selector: 'editUserComponent',
   templateUrl: './editUser.component.html',
@@ -152,7 +148,6 @@ export class EditUserComponent implements OnInit{
     this.userHttpService.editUser(this.register).subscribe(
       (response) => { 
         window.history.back(); // Obtener la URL de la última página visitada
-        // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
         this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
         this.notifyToastService.showSuccess("y guardados con éxito.", "Datos editados")
       },

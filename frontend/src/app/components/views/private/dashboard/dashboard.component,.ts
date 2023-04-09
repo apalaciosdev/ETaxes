@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { FormsService } from 'src/app/services/forms.service';
 import { ProductsHttpService } from 'src/app/services/httpServices/products.service';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
-import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { SharedService } from 'src/app/shared.service';
-import { Product } from 'src/assets/models/product';
 import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 import { OffersHttpService } from 'src/app/services/httpServices/offers.service';
 import { NotificationToastService } from '../../../../services/notificationToast.service';
@@ -22,7 +19,6 @@ import { NotificationToastService } from '../../../../services/notificationToast
 })
 
 
-
 export class DashboardComponent implements OnInit{
   user: any;
   data: any;
@@ -31,16 +27,13 @@ export class DashboardComponent implements OnInit{
 
   constructor(
     private productsHttpService: ProductsHttpService,
-    private sharedService: SharedService,
     private localStorageService: LocalStorageService,
     public utilsService: UtilsService,
     public readonly formBuilder: FormBuilder,
     public readonly service: FormsService,
-    private route: ActivatedRoute,
     private router: Router,
     private salesHttpService: SalesHttpService,
     private offersHttpService: OffersHttpService,
-    private temporalService: TemporalService,
     private notifyToastService: NotificationToastService
   ) { 
     this.offer = {
@@ -51,12 +44,9 @@ export class DashboardComponent implements OnInit{
     }; 
   }
 
-
   async ngOnInit() {
     this.user = this.localStorageService.getItem('userToken');
-
     this.countProducts(this.user.mail, this.user.token)
-
     this.initForm()
   }
 
@@ -77,7 +67,6 @@ export class DashboardComponent implements OnInit{
       (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
-
   
   private initForm() {
     if(this.offer){
@@ -86,7 +75,6 @@ export class DashboardComponent implements OnInit{
         offerName: [this.offer.offerName, [Validators.required]],
       });
     }
-    // this.service.gestionarValidarErrors(this.offerForm);
   }
 
   async onSubmit(){
@@ -110,16 +98,5 @@ export class DashboardComponent implements OnInit{
       (response) => { this.utilsService.reloadComponent(this.router) },
       (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
-    
   }
- 
-
-
-  
-
-
-
-  
-  
-
 }

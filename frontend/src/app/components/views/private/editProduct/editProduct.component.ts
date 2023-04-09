@@ -7,9 +7,7 @@ import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
 import { TemporalService } from 'src/app/services/temporal.service';
 import { UtilsService } from 'src/app/services/utils.service';
-import { SharedService } from 'src/app/shared.service';
 import { Product } from 'src/assets/models/product';
-
 
 
 @Component({
@@ -18,7 +16,6 @@ import { Product } from 'src/assets/models/product';
   providers: [], //Utilizamos el servicio aqui
   styleUrls: ['../../../../../assets/css/userProfile.component.scss']
 })
-
 
 
 export class EditProductComponent implements OnInit{
@@ -31,7 +28,6 @@ export class EditProductComponent implements OnInit{
 
   constructor(
     private productsHttpService: ProductsHttpService,
-    private sharedService: SharedService,
     private localStorageService: LocalStorageService,
     public utilsService: UtilsService,
     public readonly formBuilder: FormBuilder,
@@ -64,7 +60,6 @@ export class EditProductComponent implements OnInit{
         await this.getProduct(this.id);
         this.imgTemporal = valor;
       }
-      // this.temporalService.actualizarVariableTemporal(null);
     });
     await this.getProduct(this.id);
     await this.checkUserHaveProduct(this.userToken.mail, this.id)
@@ -92,8 +87,6 @@ export class EditProductComponent implements OnInit{
     await this.temporalService.actualizarVariableTemporal(null);
     this.router.navigate([`/product-details/${this.id}`])
   }
-  
-
 
   async checkUserHaveProduct(user:string, productId:any){
     this.productsHttpService.checkUserHaveProduct(user, productId).subscribe(
@@ -105,9 +98,6 @@ export class EditProductComponent implements OnInit{
       (error) => {this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
-
-
-  
 
   async getProduct(id:any){
     this.productsHttpService.getProduct(id).subscribe(

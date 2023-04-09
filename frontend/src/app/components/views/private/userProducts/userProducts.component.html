@@ -2,75 +2,25 @@
   <dashboardNavbarComponent></dashboardNavbarComponent>
 
   <main role="main" class="animate__animated animate__fadeIn">
-
     <h2 style="margin-left: 25px;">Mis productos</h2>
     <section class="panel important">
-  
-      <!-- <button class="addButton" [routerLink]="['/addproduct']">+</button> -->
       <table>
         <tr>
           <th>Nombre</th>
           <th>Precio</th>
           <th>Stock</th>
           <th></th>
-          <!-- <th>Ventas</th> -->
         </tr>
         <tr *ngFor="let product of products">
           <td routerLink="/product-details/{{product.uid}}">{{ product.title }}</td>
           <td routerLink="/product-details/{{product.uid}}">{{ product.price | formatNumber}}</td>
           <td routerLink="/product-details/{{product.uid}}">{{ product.stock }}</td>
-          
-          <!-- <td *ngIf="oferta.active">Activo &nbsp;&nbsp;<i style="font-size: 20px; color: green" class="fa fa-check-circle"></i></td>
-          <td *ngIf="!oferta.active">Inactivo <i style="font-size: 20px; color: red" class="fa fa-times-circle"></i></td> -->
-  
           <td>
             <i routerLink="/edit-product/{{ product.uid }}" style="font-size: 20px;" class="fa fa-pencil-square" aria-hidden="true"></i>&nbsp;&nbsp;
             <i (click)="deleteProduct(product.uid)" style="font-size: 20px;" class="fa fa-trash" aria-hidden="true"></i>
           </td>
         </tr>
       </table>
-    
-      <!-- <div class="generalDiv">
-        <div class="divContentBox">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-4" *ngFor="let product of products">
-                <div class="thumb-wrapper">
-                  <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
-                  <div class="img-box">
-                    <img src={{(product.image)}} class="img-fluid imgZoom" onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1EGB1gi7VWxWTnBVqk09nTmlrIfuTJiSF'" >
-                  </div>
-                  <div class="thumb-content">
-                    <h4>{{product.title}}</h4>
-                    <starRatingComponent [stars]="product.stars"></starRatingComponent>
-                    <p class="item-price"><a>{{product.price}}€</a></p>
-                    <a href="#" class="btn btn-primary">+ Carrito</a>
-                    <a routerLink="/edit-product/{{ product.uid }}" class="btn btn-primary">Editar</a>
-                    <a (click)="deleteProduct(product.uid)" class="btn btn-primary">Eliminar</a>
-                  </div>						
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
-
     </section>
-
-    
-
- 
-
   </main>
-
-
-<!-- 
-  <li *ngFor="let post of posts">
-    <a href="{{post.path}}">
-      <p style="font-size: 20px;text-align: center;">{{post.price}}</p>
-      <p style="font-size: 20px;text-align: center;">{{post.description}}</p>
-      <p style="font-size: 20px;text-align: center;">{{post.category}}</p>
-      <p style="font-size: 20px;text-align: center;">{{post.image}}</p>
-    </a>
-  </li> -->
 </div>
