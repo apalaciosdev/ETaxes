@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { ReloadService } from 'src/app/services/reloadService.service';
 import { NotificationToastService } from 'src/app/services/notificationToast.service';
+import { SharedService } from 'src/app/shared.service';
 
 
 @Component({
@@ -33,7 +34,8 @@ export class RegisterComponent implements OnInit{
     private userHttpService: UserHttpService,
     private localStorageService: LocalStorageService,
     private reloadService: ReloadService,
-    private notifyToastService : NotificationToastService
+    private notifyToastService : NotificationToastService,
+    private sharedService : SharedService
   ){
     this.register = {
       name: "",
@@ -151,12 +153,8 @@ export class RegisterComponent implements OnInit{
   
   async registerRequest(){
     this.userHttpService.register(this.register).subscribe(
-      (response:any) => { 
-        let user = { mail: response.mail, name: response.name, token: response.token}
-        this.localStorageService.setItem('userToken', user);
-        this.reloadService.reloadComponent.next(true);
-        window.history.back(); // Obtiene la URL de la última página visitada
-        this.router.navigateByUrl(window.location.pathname); // Navega a la última página visitada
+      async (response:any) => { 
+        this.saveData(response)
       },
       (error) => { 
         if(error.error.msg === "Mail is already exists"){
@@ -164,5 +162,18 @@ export class RegisterComponent implements OnInit{
         }
       }
     ); 
+  }
+
+  public saveData(res:any){
+    this.sharedService.setUserToken(res);
+    let user = { mail: res.user.mail, name: res.user.name, token: res.token}
+    this.localStorageService.setItem('userToken', user);
+
+
+    this.reloadService.reloadComponent.next(true);
+    
+
+    window.history.back(); // Obtiene la URL de la última página visitada
+    this.router.navigateByUrl(window.location.pathname); 
   }
 }

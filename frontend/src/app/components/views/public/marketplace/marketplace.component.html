@@ -14,7 +14,7 @@
               <div class="bottom">
                 <div class="info">
                   <div class="details">
-                    <h1 style="font-size: 30px; width: 200px;">{{this.utilsService.maxShowText(product.title, 10)}}</h1>
+                    <h1 style="font-size: 30px; width: 200px;">{{this.utilsService.maxShowText(product.title, 8)}}</h1>
                     <p *ngIf="product.offerPrice === 0"><a>{{product.price | formatNumber }}</a></p>
                     <p *ngIf="product.offerPrice > 0" ><a>{{product.offerPrice | formatNumber }}</a></p>
                   </div>

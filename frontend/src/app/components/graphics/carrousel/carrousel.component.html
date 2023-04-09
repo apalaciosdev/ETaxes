@@ -21,7 +21,7 @@
 									<img src="{{product.image}}" class="img-fluid" alt="">									
 								</div>
 								<div class="thumb-content">
-									<h4>{{product.title}}</h4>									
+									<h4>{{this.utilsService.maxShowText(product.title, 8)}}</h4>									
 									<div class="star-rating">
 										<starRatingComponent [stars]="this.product.stars"></starRatingComponent>
 									</div>

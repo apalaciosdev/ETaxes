@@ -65,7 +65,7 @@ al icono del carrito, añadir un circulo rojo donde se vea el numero de producto
 
 
 
-
+NAVBAR ICONO HAMBURGUESA EN BLANCO
 
 
 
@@ -81,3 +81,23 @@ mejoras de cara a FUTURO
 
 que el admin pueda ver a informacion de envio y todo del comprador
 añadir pasarela de pago
+
+
+
+explicar funcionalidades de validacion de formulario
+
+
+
+
+
+
+
+
+tatiana@gmail.com - Tatiana1988
+aaron@gmail.com - Aaron2003
+rick@gmail.com - Rick1969
+eric@gmail.com - Eric1997
+
+
+aaronpalaciosolea@gmail.com - Gm3@SECRETOS
+
