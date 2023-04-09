@@ -5,8 +5,11 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class TemporalService {
-  variableTemporal: any;
+  //Carrito
+  variableCarrito: Number = 0;
+  public variableCarritoSubject = new BehaviorSubject<any>(null);
   private variableTemporalSubject = new BehaviorSubject<any>(null);
+  variableTemporal: any;
 
   actualizarVariableTemporal(valor: any) {
     this.variableTemporal = valor;
@@ -17,11 +20,6 @@ export class TemporalService {
     return this.variableTemporalSubject.asObservable();
   }
 
-
-
-  //Carrito
-  variableCarrito: Number = 0;
-  public variableCarritoSubject = new BehaviorSubject<any>(null);
 
   actualizarVariableCarrito(valor: any) {
     this.variableCarrito = valor;

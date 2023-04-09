@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from  '@angular/common/http';
 import { Injectable } from  '@angular/core';
-import { Router } from '@angular/router';
 import { Product } from '../../../assets/models/product';
 
 
@@ -9,7 +8,6 @@ import { Product } from '../../../assets/models/product';
 })
 
 export class ProductsHttpService {
-
   private url = 'http://localhost:2022/api/products';
   
   constructor(private http: HttpClient) { }
