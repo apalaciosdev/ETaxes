@@ -6,10 +6,10 @@ const Product = require('../models/product')
  */
 const productsGet = async(req, res = response) => {
 
-  const { limit/* = 15*/, from = 0 } = req.query  // http://localhost:2022/api/users??limit=10&from=3
+  const { limit/* = 15*/, from = 0 } = req.query 
 
   const [ total, products ] = await Promise.all([
-    Product.countDocuments({state: true}), //total users
+    Product.countDocuments({state: true}),
     Product.find({state: true}) 
     .skip(Number(from))
     .limit(Number(limit)) 
