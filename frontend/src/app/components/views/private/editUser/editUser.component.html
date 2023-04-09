@@ -1,13 +1,14 @@
-<img class="wave" src="../assets/img/wave2.png">
+<img class="wave" src="../assets/img/wave.png">
 
+<dashboardNavbarComponent></dashboardNavbarComponent>
 <section class="container my-5">
 
   <div class="row pt-4 mt-lg-3 pb-5 mb-lg-4 mb-xl-5" id="form-elements">
     <div class="col-md-4">
+    </div>
+    <form [formGroup]="registerForm" *ngIf="registerForm" (ngSubmit)="onSubmit();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
       <h1 class="mb-md-4 h1 fc-3 fw-bold"><span class="fc-1">Tus datos</span></h1>
       <p class="fs-11 pt-1 pb-4 mb-1 mb-lg-3 fc-6">Edita tus datos personales aquí.</p>
-    </div>
-    <form [formGroup]="registerForm" *ngIf="register" (ngSubmit)="onSubmit();" class="col-xl-7 col-md-8 offset-xl-1 needs-validation" novalidate="" name="$ctrl.form" id="gform" method="post" action="">
       <div class="row">
         <div class="col-sm-6 mb-4">
           <label for="name" class="form-label fs-base fc-3 fw-bold"><i class="fa-solid bi bi-person-fill me-2"></i>Nombre</label>
