@@ -72,11 +72,4 @@ export class ProductSupport implements OnInit{
   async onSubmit(){
     this.showSpinner()
   }
-  
-  async registerRequest(){
-    // this.userHttpService.register(this.supportSearch).subscribe(
-    //   (response) => { console.log(response); },
-    //   (error) => { console.log(error); }
-    // ); 
-  }
 }

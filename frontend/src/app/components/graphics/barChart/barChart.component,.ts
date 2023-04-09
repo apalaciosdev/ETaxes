@@ -16,7 +16,6 @@ export class BarChartComponent implements OnInit{
   public chart: any;
 
   ngOnInit(){
-    console.log(this.data)
     this.createChart();
   }
 
@@ -28,12 +27,6 @@ export class BarChartComponent implements OnInit{
       data: {// values on X-Axis
         labels: this.data.map((producto: { title: any; }) => producto.title), 
 	       datasets: [
-          // {
-          //   label: "Sales",
-          //   data: ['467','576', '572', '79', '92',
-					// 			 '574', '573', '576'],
-          //   backgroundColor: 'blue'
-          // },
           {
             label: "Stock",
             data: this.data.map((producto: { stock: any; }) => producto.stock),

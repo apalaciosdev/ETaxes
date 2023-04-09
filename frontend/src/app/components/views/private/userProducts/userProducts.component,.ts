@@ -4,6 +4,7 @@ import { ProductsHttpService } from 'src/app/services/httpServices/products.serv
 import { LocalStorageService } from 'src/app/services/localStorage.service';
 import { UtilsService } from 'src/app/services/utils.service';
 import { SharedService } from 'src/app/shared.service';
+import { NotificationToastService } from '../../../../services/notificationToast.service';
 
 
 
@@ -28,13 +29,12 @@ export class UserProductsComponent implements OnInit{
     private sharedService: SharedService,
     private localStorageService: LocalStorageService,
     public utilsService: UtilsService,
+    public notifyToastService: NotificationToastService,
   ) { }
 
   ngOnInit() {
     this.userToken = this.localStorageService.getItem('userToken');;
     this.getProducts(this.userToken.mail);
-    // this.sharedService.userToken$.subscribe(userToken => {
-      // });
   }
   
 
@@ -42,32 +42,14 @@ export class UserProductsComponent implements OnInit{
   async getProducts(user:any){
     this.productsHttpService.getUserProducts(user, this.userToken.token).subscribe(
       (response) => { this.products = response },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
-
-    // setTimeout(() => {
-    //   console.log(this.products)
-    // }, 500);
   }
-  
-  // async deleteProduct(uid: string){
-  //   console.log("dale")
-  //   this.httpService.deleteProduct(uid).subscribe(
-  //     (response) => { console.log("Product dropped"); },
-  //     (error) => { console.log(error); }
-  //   ); 
-  
-  //   await this.getProducts()
-  //   this.httpService.reloadComponent(this.router)
-  
-  //   // this.ngOnInit();
-  // }
   
   async deleteProduct(productId: string){
     this.productsHttpService.deleteProduct(productId, this.userToken.token).subscribe(
-      (response) => { console.log("Product dropped"); this.utilsService.reloadComponent(this.router)},
-      (error) => { console.log(error); }
+      (response) => { this.utilsService.reloadComponent(this.router)},
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
-    console.log(productId)
   }
 }

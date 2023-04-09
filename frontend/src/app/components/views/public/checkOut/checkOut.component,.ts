@@ -89,24 +89,4 @@ export class CheckOutComponent implements OnInit{
     });
   }
 
-  pagar(){
-    // let total = 0
-   
-
-  }
-
-  // async deleteProduct(uid: string){
-  //   console.log("dale")
-  //   this.httpService.deleteProduct(uid).subscribe(
-  //     (response) => { console.log("Product dropped"); },
-  //     (error) => { console.log(error); }
-  //   ); 
-      
-  //   await this.getProducts()
-  //   this.httpService.reloadComponent(this.router)
-    
-  //   // this.ngOnInit();
-  // }
-  
-
 }

@@ -84,14 +84,8 @@ export class CreateProductComponent implements OnInit{
   }
 
   async onSubmit(){
-    // console.log(this.register)
-    // await this.registerRequest()
-    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     await this.postProduct();
     this.temporalService.actualizarVariableTemporal(null);
-    setTimeout(() => {
-      // this.router.navigate(['/products']);
-    }, 500);
   }
   
 
@@ -101,18 +95,17 @@ export class CreateProductComponent implements OnInit{
     this.productsHttpService.checkUserHaveProduct(user, productId).subscribe(
       (response:any) => { 
           if(response.exists == false){
-            console.log(response)
             this.router.navigate(['/my-products']);
           }
        },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
   
   async postProduct(){
     this.productsHttpService.postProduct(this.product, this.localStorageService.getItem('userToken').token).subscribe(
-      (response:any) => { console.log("Product saved");  this.router.navigate([`/dashboard`])},
-      (error) => { console.log(error); this.notifyToastService.showError("al crear el producto", "Ha ocurrido un error") }
+      (response:any) => {this.router.navigate([`/dashboard`])},
+      (error) => {this.notifyToastService.showError("al crear el producto", "Ha ocurrido un error") }
     ); 
       
   }

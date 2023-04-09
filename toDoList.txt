@@ -11,22 +11,19 @@ crear categorias y ordenar los productos por estas
 opacidad en las imágenes
 checkear q los numeros de la targeta de check-out sean numeros y no letras
 acabar checkout
-pagina de ayuda (/product-support)
 
 --------------- POR HACER (IMPORTANTE) ---------------
-cuando te registras q te redirija y que ya estes logueado
 quitar errores consola dashboard
-revisar productSupport
 
 
 --------------- HACIENDO ---------------
 hacer navbar funcional
 hacer pagina de detalles del producto -> https://codepen.io/IsaleBryan/pen/YzWvqYX
 hacer estadísticas de compras
-hacer spinner
 
 
 --------------- CORREGIDO ---------------
+cuando te registras q te redirija y que ya estes logueado
 cuando inicias sesion, q te redirija
 al subir cantidad en el carrito, solo cuenta 1 unidad
 corregir stars component
@@ -37,6 +34,9 @@ al restar stock de un producto en back, si el producto va a llegar a 0 stock par
 
 
 --------------- DONE ---------------
+pagina de ayuda (/product-support)
+revisar productSupport
+hacer spinner
 al restar stock de un producto en front, si el producto va a llegar a 0 stock parar
 hacer pagina para editar la info del usuario
 cuando pagues, en vez de reedirigir a "/" q redirija a una pagina de gracias por comprar con una ilustracion guapa
@@ -60,3 +60,24 @@ hacer tabla de ventas para hacer las estadisticas
 en el carrito, si le das a la imagen o titulo del producto, te tiene que redirigir a product-detail
 añadir productos al carrito de compra
 al icono del carrito, añadir un circulo rojo donde se vea el numero de productos q tiene
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+mejoras de cara a FUTURO
+
+que el admin pueda ver a informacion de envio y todo del comprador
+añadir pasarela de pago

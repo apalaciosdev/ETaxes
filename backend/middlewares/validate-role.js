@@ -41,12 +41,7 @@ const isSalesRole = (req, res = response, next) => {
 
 
 const haveRole = ( ...roles ) => {
-
   return (req, res = response, next) => {
-
-    //console.log(roles)
-    //console.log(req.user.role)
-
     if(!req.user){
       return res.status(500).json({
         msg: 'You want to verify the role without first validating token'

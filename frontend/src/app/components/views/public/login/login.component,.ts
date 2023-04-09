@@ -62,9 +62,7 @@ export class LoginComponent implements OnInit{
   }
 
   async onSubmit(){
-    console.log(this.login)
     await this.loginRequest()
-    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
   }
 
   public saveData(res:any){
@@ -84,7 +82,7 @@ export class LoginComponent implements OnInit{
   async loginRequest(){
     this.userHttpService.login(this.login).subscribe(
       (response) => { this.saveData(response) },
-      (error) => { console.log(error);  this.notifyToastService.showError("Vuelve a probar.", "Credenciales incorrectas.")}
+      (error) => {this.notifyToastService.showError("Vuelve a probar.", "Credenciales incorrectas.")}
     ); 
   }
 }

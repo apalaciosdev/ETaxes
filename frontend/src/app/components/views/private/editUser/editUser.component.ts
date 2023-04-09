@@ -52,13 +52,11 @@ export class EditUserComponent implements OnInit{
   async getUserData(mail:string){
     await this.userHttpService.getUserData(mail).subscribe(
       (response:any) => { 
-        console.log(response)
         this.register = response[0]; 
         const fechaParaInput = new Date(response[0].years).toISOString().substring(0, 10);
         this.register.years = fechaParaInput
-        console.log('aa',this.register)
       },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
 
@@ -89,7 +87,6 @@ export class EditUserComponent implements OnInit{
 
   passwordValid(event:any) {
     this.passwordIsValid = event;
-    console.log("pass: " + event)
   }
   
   
@@ -148,24 +145,18 @@ export class EditUserComponent implements OnInit{
   }
 
   async onSubmit(){
-    console.log(this.register)
     await this.editUser()
-    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
-    
-
   }
   
   async editUser(){
     this.userHttpService.editUser(this.register).subscribe(
       (response) => { 
-        console.log(response); 
-        
         window.history.back(); // Obtener la URL de la última página visitada
         // Opcionalmente puedes agregar una validación para asegurarte de que hay una página anterior en el historial
         this.router.navigateByUrl(window.location.pathname); // Navegar a la última página visitada
         this.notifyToastService.showSuccess("y guardados con éxito.", "Datos editados")
       },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
 }

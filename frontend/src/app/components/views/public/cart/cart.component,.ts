@@ -118,7 +118,7 @@ export class CartComponent implements OnInit{
               this.router.navigate(['/confirmation'])
             }
           },
-          (error) => { console.log(error); }
+          (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
         ); 
       });
     }
@@ -139,15 +139,4 @@ export class CartComponent implements OnInit{
     this.cartService.deleteCart();
     this.router.navigate(['/']);
   }
-
-  // async deleteProduct(uid: string){
-  //   console.log("dale")
-      
-  //   await this.getProducts()
-  //   this.httpService.reloadComponent(this.router)
-    
-  //   // this.ngOnInit();
-  // }
-  
-
 }

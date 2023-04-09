@@ -88,9 +88,6 @@ export class EditProductComponent implements OnInit{
   }
 
   async onSubmit(){
-    // console.log(this.register)
-    // await this.registerRequest()
-    // this.user = new User("", 0, "", "", "") //vaciamos los inputs
     await this.putProduct(this.id);
     await this.temporalService.actualizarVariableTemporal(null);
     this.router.navigate([`/product-details/${this.id}`])
@@ -98,16 +95,14 @@ export class EditProductComponent implements OnInit{
   
 
 
-  // TODO: crear funcion que compruebe que el producto es del usuario, sinó redirigir a sus productos
   async checkUserHaveProduct(user:string, productId:any){
     this.productsHttpService.checkUserHaveProduct(user, productId).subscribe(
       (response:any) => { 
-          if(response.exists == false){
-            console.log(response)
-            this.router.navigate(['/my-products']);
-          }
-       },
-      (error) => { console.log(error); }
+        if(response.exists == false){
+          this.router.navigate(['/my-products']);
+        }
+      },
+      (error) => {this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
 
@@ -123,14 +118,14 @@ export class EditProductComponent implements OnInit{
           this.product.image = this.imgTemporal;
         }
       },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
   
   async putProduct(uid: string){
     this.productsHttpService.putProduct(this.product, uid, this.userToken.token).subscribe(
-      (response) => { console.log("Product edited");  this.notifyToastService.showSuccess("y guardado", "Producto editado")},
-      (error) => { console.log(error); this.notifyToastService.showError("al editar el producto", "Ha ocurrido un error")}
+      (response) => { this.notifyToastService.showSuccess("y guardado", "Producto editado") },
+      (error) => { this.notifyToastService.showError("al editar el producto", "Ha ocurrido un error") }
     ); 
       
   }

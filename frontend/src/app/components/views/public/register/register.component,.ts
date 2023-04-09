@@ -93,7 +93,6 @@ export class RegisterComponent implements OnInit{
 
   passwordValid(event:any) {
     this.passwordIsValid = event;
-    console.log("pass: " + event)
   }
   
   

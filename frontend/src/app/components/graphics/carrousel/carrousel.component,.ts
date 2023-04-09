@@ -20,7 +20,6 @@ export class CarrouselComponent implements OnInit {
   ){}
 
   ngOnInit(): void {
-    console.log(this.products)
   }
   
 

@@ -59,7 +59,6 @@ export class UploadFilesComponent implements OnInit{
             }
           },
           (err: any) => {
-            console.log(err);
             this.progress = 0;
   
             if (err.error && err.error.message) {

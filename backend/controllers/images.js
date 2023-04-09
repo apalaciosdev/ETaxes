@@ -64,8 +64,6 @@ async function uploadFile(fileName, filePath){
     fs.unlink(filePath, (error) => {
       if (error) {
         console.error(error);
-      } else {
-        console.log(`Archivo eliminado: ${filePath}`);
       }
     });
 

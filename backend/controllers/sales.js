@@ -11,7 +11,6 @@ const salesGet = async(req, res = response) => {
 
 const infoSalesGet = async(req, res = response) => {
   const { mail } = req.body
-  console.log("----------------------" , mail)
 
   let salesArray = [];
 
@@ -119,8 +118,6 @@ const getTotalSalesProducts = async (salesArray, productId) => {
 
 
 const updateSaleStock = async (id, stock) => {
-
-  console.log(id)
   // Find sale by ID
   const sale = await Product.findById(id);
 
@@ -128,8 +125,6 @@ const updateSaleStock = async (id, stock) => {
     // Update stock and save changes
     sale.stock -= stock;
     await sale.save();
-
-    console.log("UPDATED!!!!")
   }
 };
 

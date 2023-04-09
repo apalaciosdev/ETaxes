@@ -10,6 +10,5 @@ export class SharedService {
 
   setUserToken(userToken: any) {
     this.userTokenSubject.next(userToken);
-    console.log('New User Token:', userToken);
   }
 }

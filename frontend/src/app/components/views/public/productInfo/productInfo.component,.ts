@@ -61,7 +61,7 @@ export class ProductInfoComponent implements OnInit{
   async getProduct(id:any){
     this.productsHttpService.getProduct(id).subscribe(
       (response:any) => { this.product = response },
-      (error) => { console.log(error) }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
 
@@ -69,20 +69,5 @@ export class ProductInfoComponent implements OnInit{
     this.cartService.addToCart(product);
     this.notifyToastService.showSuccess("al carrito", "Producto añadido")
   }
-
-  
-  // async deleteProduct(uid: string){
-  //   console.log("dale")
-  //   this.httpService.deleteProduct(uid).subscribe(
-  //     (response) => { console.log("Product dropped"); },
-  //     (error) => { console.log(error); }
-  //   ); 
-      
-  //   await this.getProducts()
-  //   this.httpService.reloadComponent(this.router)
-    
-  //   // this.ngOnInit();
-  // }
-  
 
 }

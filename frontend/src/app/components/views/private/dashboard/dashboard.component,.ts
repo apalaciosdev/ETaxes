@@ -10,6 +10,7 @@ import { SharedService } from 'src/app/shared.service';
 import { Product } from 'src/assets/models/product';
 import { SalesHttpService } from '../../../../services/httpServices/sales.service';
 import { OffersHttpService } from 'src/app/services/httpServices/offers.service';
+import { NotificationToastService } from '../../../../services/notificationToast.service';
 
 
 
@@ -39,7 +40,8 @@ export class DashboardComponent implements OnInit{
     private router: Router,
     private salesHttpService: SalesHttpService,
     private offersHttpService: OffersHttpService,
-    private temporalService: TemporalService
+    private temporalService: TemporalService,
+    private notifyToastService: NotificationToastService
   ) { 
     this.offer = {
       offerPercentage: "",
@@ -61,30 +63,19 @@ export class DashboardComponent implements OnInit{
   async getSalesData(mail:any, token:any){
     this.salesHttpService.salesData(mail, token).subscribe(
       (response) => { this.data = response; },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
-
-    setTimeout(() => {
-      console.log(this.data)
-    }, 500);
   }
 
   async countProducts(mail:any, token:any){
     this.productsHttpService.countProducts(mail, token).subscribe(
       (response:any) => {
-        console.log(response, 'vvv')
-        console.log('?', response > 0)
         if(response > 0){
-          console.log("te lo compro")
           this.getSalesData(this.user.mail, this.user.token)
         }
       },
-      (error) => { console.log(error); }
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
-
-    setTimeout(() => {
-      console.log(this.data)
-    }, 500);
   }
 
   
@@ -100,27 +91,24 @@ export class DashboardComponent implements OnInit{
 
   async onSubmit(){
     this.offer.sellerMail = this.user.mail;
-    console.log(this.offer)
     this.offersHttpService.postOffer(this.offer, this.user.token).subscribe(
-      (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
-      (error) => { console.log(error); }
+      (response) => { this.utilsService.reloadComponent(this.router) },
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
   }
 
   async activeOffer(offerId:string){
-    console.log("activar", offerId)
     this.offersHttpService.activateOffer(offerId, this.user.mail, this.user.token).subscribe(
-      (response) => { console.log(response);  this.utilsService.reloadComponent(this.router)},
-      (error) => { console.log(error); }
+      (response) => { this.utilsService.reloadComponent(this.router) },
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
 
   }
   
   async deleteOffer(offerId:string){
-    console.log("eliminar", offerId)
     this.offersHttpService.deleteOffer(offerId, this.user.token).subscribe(
-      (response) => { console.log(response); this.utilsService.reloadComponent(this.router)},
-      (error) => { console.log(error); }
+      (response) => { this.utilsService.reloadComponent(this.router) },
+      (error) => { this.notifyToastService.showError("Prueba de nuevo más tarde.", "Ha ocurrido un error en nuestros servidores.") }
     ); 
     
   }
