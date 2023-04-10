@@ -94,7 +94,7 @@ export class CreateProductComponent implements OnInit{
   
   async postProduct(){
     this.productsHttpService.postProduct(this.product, this.localStorageService.getItem('userToken').token).subscribe(
-      (response:any) => {this.router.navigate([`/dashboard`])},
+      (response:any) => {this.router.navigate([`/dashboard`]); this.notifyToastService.showSuccess("Ya puedes verlo y modificarlo.", "Se ha creado el producto.")},
       (error) => {this.notifyToastService.showError("al crear el producto", "Ha ocurrido un error") }
     );   
   }

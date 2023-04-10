@@ -97,7 +97,7 @@ const productsPut = async(req, res = response) => {
   const productDB = await Product.findByIdAndUpdate(id, rest) //update the data (...rest) that have the same id
 
   res.json({
-    msg: "get put - controller",
+    msg: "Product has been modified",
     productDB
   })
 }
