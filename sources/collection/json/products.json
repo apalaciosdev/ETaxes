@@ -1,0 +1,301 @@
+[{
+  "_id": {
+    "$oid": "6432dea6588c4f7baa2e3c80"
+  },
+  "title": "Tumbonas de piscina jardín o playa",
+  "price": 75,
+  "offerPrice": 0,
+  "description": "Estamos liquidando lotes de tumbonas y hamacas reclinables de marca BALIU en excelente estado. Provienen de hoteles y concesiones playeras y han sido rehabilitadas para asegurar su calidad. Las tumbonas o hamacas vienen con  loneta y gomas nuevas y están disponibles en varios colores para que pueda elegir su color  favorito.",
+  "category": "Hogar",
+  "stock": 48,
+  "stars": 4,
+  "image": "https://drive.google.com/uc?id=1hQNYzL9MOIU24aD6ucFRHBEn1S568MDm",
+  "state": true,
+  "user": "aaron@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e090588c4f7baa2e3cb6"
+  },
+  "title": "Silla para terraza",
+  "price": 50,
+  "offerPrice": 0,
+  "description": "Nueva sin armar ni usar",
+  "category": "Hogar",
+  "stock": 23,
+  "stars": 4,
+  "image": "https://drive.google.com/uc?id=1pMcf6vZvlM7xbvEalyPLWtK3kQFi4htR",
+  "state": true,
+  "user": "aaron@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e15f588c4f7baa2e3cd3"
+  },
+  "title": "Ktm - exc 300",
+  "price": 3900,
+  "offerPrice": 0,
+  "description": "Año 2008, 350 horas de uso, motor suspensiones todo al día. Arranque eléctrico nuevo, Escape fmf, moose trasero y cubrecarter aluminio. En los últimos 5 años apenas se le han hecho 30-40 horas por lesión. \n Itv hasta junio 2024.",
+  "category": "Motos",
+  "stock": 0,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1eV8CuthnYGc0gtBf_ncYYkYp4wslJ6sX",
+  "state": true,
+  "user": "aaron@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e211588c4f7baa2e3ce2"
+  },
+  "title": "libros de ajedrez",
+  "price": 20,
+  "offerPrice": 0,
+  "description": "Libros de ajedrez para estimular la mente.\nExcelentes libros para apasionados al ajedrez.\nUn gustazo de libro.\nEspectacular el libro.\nQue maravilla de libro.\nLibro.",
+  "category": "Libros",
+  "stock": 4,
+  "stars": 3,
+  "image": "https://drive.google.com/uc?id=18jPKi5VIriz3PMT-tKR-bW4DCNA_c3TT",
+  "state": true,
+  "user": "aaron@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e591588c4f7baa2e3d5d"
+  },
+  "title": "Pen Drive",
+  "price": 15,
+  "offerPrice": 0,
+  "description": "Lector para todos los tamaños de tarjetas de memoria.\nPrácticamente nuevo",
+  "category": "Informática",
+  "stock": 34,
+  "stars": 2,
+  "image": "https://drive.google.com/uc?id=1apn64G_CuVOGhL8sHQpaYyHT0Wh5p7vJ",
+  "state": true,
+  "user": "rick@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e620588c4f7baa2e3d6a"
+  },
+  "title": "Lector de Huella digital Nitgen Digital",
+  "price": 146,
+  "offerPrice": 0,
+  "description": "Lector de Huella digital Nitgen Digital Hamster II.Producto nuevo. El precio incluye impuestos y gastos envio. Para consultar caracteristicas del producto, mas marcas y modelos visite nuestra tienda on line: www. mobitelco . com. Si no lo encuentra en nuestra web, ponganse en contacto con nosotros y le daremos el mejor precio",
+  "category": "Informática",
+  "stock": 58,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1mxZZGVZz5SnPN_gMIS4wFXkhDH26sX_T",
+  "state": true,
+  "user": "rick@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e689588c4f7baa2e3d75"
+  },
+  "title": "Portátiles Seminuevos",
+  "price": 150,
+  "offerPrice": 0,
+  "description": "OFERTA FINAL ...\nLIQUIDAMOS ORDENADORES PORTÁTILES DE OCASION SEMINUEVOS.\nEN EXCELENTE ESTADO.\nSOLO DURANTE LOS DIAS:  8 Y 9 DE ABRIL.\n\nVARIAS MARCAS:  DELL. COMPAQ. ETC.\n\nOFERTA. ...  PORTATIL MARCA DELL\nINTEL CORE .  MUY NUEVO.\nPANTALLA TFT 15 PULGADAS.\n4 GIGAS DE RAM Y 320 GIGAS HD.\nREGRABADORA DVD.\nCONEXIONES: USB / RED/ WIFI/ HDMI\nWEBCAM Y AUDIO INTEGRADO.\nWINDOWS 10 Y OFFICE ORIGINALES.\nTECLADO ESPAÑOL\nBATERIA NUEVA.\nCARGADOR ORIGINAL DE BATERIAS.\n\nPRECIO DEFINITIVO :    150 EUROS.\nGARANTIA 15 MESES.",
+  "category": "Informática",
+  "stock": 18,
+  "stars": 1,
+  "image": "https://drive.google.com/uc?id=13usONLYt5XLXNETi-C0hFwZRQTdmr-Zk",
+  "state": true,
+  "user": "rick@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e75f588c4f7baa2e3d89"
+  },
+  "title": "FIFA 18",
+  "price": 10,
+  "offerPrice": 0,
+  "description": "Vendo el FIFA 18 nuevo sin abrir. En la foto aparecen 5 pero los vendo por separado. 10€ cada uno. Los 5 por 40",
+  "category": "Videojuegos",
+  "stock": 5,
+  "stars": 4,
+  "image": "https://drive.google.com/uc?id=1FusW6DJZm3Yvtn9c8itEumNNXo84dsqZ",
+  "state": true,
+  "user": "rick@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e9d5588c4f7baa2e3dc5"
+  },
+  "title": "Lego Hello Kitty",
+  "price": 30,
+  "offerPrice": 23.7,
+  "description": "Vendo juegos de Lego de Hello Kitty - centro comercial. Sin abrir.",
+  "category": "Juguetes",
+  "stock": 2,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1Zpzk-3Yuug3ASpIPxmoIR-HA6o0KpPn0",
+  "state": true,
+  "user": "eric@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432ea2c588c4f7baa2e3dd0"
+  },
+  "title": "Muñecos equipacion barça 20cm año 1996",
+  "price": 15,
+  "offerPrice": 11.85,
+  "description": "Vendo muñeco del F.C. Barcelona (MEJOR EQUIPO DEL MUNDO) de 20cm del año 1996, en bastante buen estado para los años que tiene, tal cual se ve en las fotos ( solo pequeño descosido del cuello). Ideal coleccionistas.",
+  "category": "Juguetes",
+  "stock": 21,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1OmG3A_w1aVyfFGSM4IuzzR3XIupCG923",
+  "state": true,
+  "user": "eric@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432ea80588c4f7baa2e3ddb"
+  },
+  "title": "THE BATMAN POP 1187",
+  "price": 15,
+  "offerPrice": 11.85,
+  "description": "Muñeco Funko The batman Pop 1187 en su caja original ",
+  "category": "Juguetes",
+  "stock": 8,
+  "stars": 4,
+  "image": "https://drive.google.com/uc?id=1eMMbOsldjNxf-KsGcr7RgkCBHvrjIxEZ",
+  "state": true,
+  "user": "eric@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432eac0588c4f7baa2e3de6"
+  },
+  "title": "FUNKO POP JOHN WICK 387",
+  "price": 20,
+  "offerPrice": 15.8,
+  "description": "Muñeco Funko John Wick Chapter 2    387 \nen su caja original sin abrir",
+  "category": "Juguetes",
+  "stock": 20,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1b3Zvsiv8Vzm6uc95gJd2obmeqFhUOyDt",
+  "state": true,
+  "user": "eric@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432f0ca588c4f7baa2e3f38"
+  },
+  "title": "Fifa 20 Ps4",
+  "price": 6,
+  "offerPrice": 0,
+  "description": "Fifa 20 Ps4 Digital Descarga y activación directa desde la Store, solo debe vincular un Id de descarga que se le proporciona al momento de la instalación para ejecutar la licencia y descarga..!",
+  "category": "Videojuegos",
+  "stock": 20,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1rOnoXZyql7QK9nUg0F72110lDRp9w1E0",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432f26e588c4f7baa2e3fcd"
+  },
+  "title": "Plancha de cabello",
+  "price": 31,
+  "offerPrice": 0,
+  "description": "Llévate una increíble plancha de cabello con placas de seramica no maltra tu cabello ,además da un alisado y un moldeado perfecto atú cabello llévatela por 31€ envío gratis pagos contrareembolso 💙",
+  "category": "Belleza",
+  "stock": 5,
+  "stars": 1,
+  "image": "https://drive.google.com/uc?id=1TRMDyzDqSm5YS3-1_yks8EM6FbXUqfbQ",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432f2bc588c4f7baa2e3fd8"
+  },
+  "title": "PULSERA DE TURQUESAS AZULES",
+  "price": 5,
+  "offerPrice": 0,
+  "description": "Pulsera de turquesas azules.\n\nLas medidas se muestran en las imágenes.\n\nEstá en buen estado, las imágenes forman parte de la descripción.",
+  "category": "Belleza",
+  "stock": 10,
+  "stars": 4,
+  "image": "https://drive.google.com/uc?id=1qQDVLOr7RjalwRhTV3Bixcbf10oW8Y9K",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432f30f588c4f7baa2e3fe5"
+  },
+  "title": "Bolsos grandes varias marcas",
+  "price": 50,
+  "offerPrice": 0,
+  "description": "Bolsos grandes varias marcas\n\nLEER BIEN EL ANUNCIO SON BAJO PEDIDO\n\nPRECIOS 50€ envío incluido y con número de seguimiento del artículo\n\nPAGO POR ADELANTADO PUEDEN SER EN PERSONA,PAYPAL,VERSE O BIZUM.\n\nSE HACE ENVÍOS A TODA ESPAÑA",
+  "category": "Moda",
+  "stock": 4,
+  "stars": 1,
+  "image": "https://drive.google.com/uc?id=1W1DKH0l9h5HC3EJlWh89LBO9fK5tV1R3",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433ad0abf54b7288ff80c45"
+  },
+  "title": "Bolsos the tote bag nuevos",
+  "price": 60,
+  "offerPrice": 0,
+  "description": "Modelo de bolsos genuinos tote bag  nuevas, disponible en los colores de la fotografía, envíos por\nCorreos con número de seguimiento, total seriedad contamos con 14 años de ventas y somos empresa, los pedidos podéis hacerlo directamente a mi número de WhatsApp, cuento con referencias y miles de seguidores en instagram, donde podéis ver otros artículos de tu interés hago descuentos en envío combinado. acepto pagos bizum ingreso o transferencia bancaria, No contrarembolso enviar un productor no es gratis y mucha gente no lo pasa a recoger.",
+  "category": "Moda",
+  "stock": 20,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1X4i_Sn-jaC6TbHxplUIqQb2FiH30DEKv",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433ad71bf54b7288ff80c50"
+  },
+  "title": "Rolex en acero y oro",
+  "price": 2800,
+  "offerPrice": 0,
+  "description": "ROLEX OYSTER PERPETUAL DATEJUST, Lady-Datejust - ref. 69173, genuino,comprado en noviembre de 1987 y con poquísimo uso: acero y oro, brazalete Jubilee, cristal zafiro, fechador, cierre plegable, etcétera, todo sellado, original - auténtico y verificable en concesionario ",
+  "category": "Moda",
+  "stock": 1,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1QJZOxAr6gWwVGWp2PiWn8It1FmVbuGjr",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433ae0cbf54b7288ff80c5b"
+  },
+  "title": "Cuencos de Barro",
+  "price": 2,
+  "offerPrice": 0,
+  "description": "Cazuelas, cuencos de barro. Varios tamaños y modelos. A partir de 2€.",
+  "category": "Hogar",
+  "stock": 15,
+  "stars": 3,
+  "image": "https://drive.google.com/uc?id=1Z1y_5gQehA7zL1xpEFlJdxkAAPzjopGy",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433aea1bf54b7288ff80c71"
+  },
+  "title": "Sofá cama IKEA",
+  "price": 170,
+  "offerPrice": 0,
+  "description": "Sofá cama en muy buen estado, casi nuevo, poco uso, es el sofá cama más vendido de ikea, de 3 plazas, color gris",
+  "category": "Muebles",
+  "stock": 3,
+  "stars": 5,
+  "image": "https://drive.google.com/uc?id=1BrkO_vcFTXGhSUl6KiqflrYjGVb8sXEF",
+  "state": true,
+  "user": "tatiana@gmail.com",
+  "__v": 0
+}]

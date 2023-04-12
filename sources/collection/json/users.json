@@ -1,0 +1,128 @@
+[{
+  "_id": {
+    "$oid": "6432e384588c4f7baa2e3d20"
+  },
+  "name": "Aaron",
+  "mail": "aaron@gmail.com",
+  "password": "$2a$10$/DF/0jp4km3XN01uARPaBuNXpyLBB1/qCcljMPLmRt/gJUtFnZaJK",
+  "role": "USER_ROLE",
+  "surname1": "Palacios",
+  "surname2": "Olea",
+  "telephone": "677015689",
+  "years": {
+    "$date": "2003-02-10T00:00:00.000Z"
+  },
+  "address": "Carrer Bilbao n7",
+  "zipCode": "43717",
+  "region": "Tarragona",
+  "country": "España",
+  "billingAddress": "Carrer Bilbao n7",
+  "billingZipCode": "43717",
+  "billingRegion": "Tarragona",
+  "billingCountry": "España",
+  "state": true,
+  "google": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e472588c4f7baa2e3d39"
+  },
+  "name": "Rick",
+  "mail": "rick@gmail.com",
+  "password": "$2a$10$nM9mAEek1mesyO/bWF2ZFesrhPYZC1UmOb8JMsaeuZghKePyaiDiy",
+  "role": "USER_ROLE",
+  "surname1": "Sanchez",
+  "surname2": "Smith",
+  "telephone": "687884562",
+  "years": {
+    "$date": {
+      "$numberLong": "-17712000000"
+    }
+  },
+  "address": " Dimensión C-137",
+  "zipCode": "89575",
+  "region": "California",
+  "country": "United States",
+  "billingAddress": " Dimensión C-137",
+  "billingZipCode": "89575",
+  "billingRegion": "California",
+  "billingCountry": "United States",
+  "state": true,
+  "google": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432e8e7588c4f7baa2e3da7"
+  },
+  "name": "Eric",
+  "mail": "eric@gmail.com",
+  "password": "$2a$10$RmSWPHGgNdzfu2gDx/omkOiw5f3ZgiA5hgP6ADqdjYW33FKF9aR.y",
+  "role": "USER_ROLE",
+  "surname1": "Garcia",
+  "surname2": "Smith",
+  "telephone": "698568952",
+  "years": {
+    "$date": "1997-10-05T00:00:00.000Z"
+  },
+  "address": "Calle Badalona n8",
+  "zipCode": "48595",
+  "region": "Barcelona",
+  "country": "España",
+  "billingAddress": "Calle Badalona n8",
+  "billingZipCode": "48595",
+  "billingRegion": "Barcelona",
+  "billingCountry": "España",
+  "state": true,
+  "google": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6432ed6e588c4f7baa2e3ee7"
+  },
+  "name": "Tatiana",
+  "mail": "tatiana@gmail.com",
+  "password": "$2a$10$b/8rxFnf9L941BCgNXmB/eX5OVQavr/JgDkdqTgNfs5Y8HjQa2lHG",
+  "role": "USER_ROLE",
+  "surname1": "Gitana",
+  "surname2": "Cayetana",
+  "telephone": "356887952",
+  "years": {
+    "$date": "1988-02-09T00:00:00.000Z"
+  },
+  "address": "Calle Cobre n88",
+  "zipCode": "48653",
+  "region": "Terrassa",
+  "country": "España",
+  "billingAddress": "Calle Cobre n88",
+  "billingZipCode": "48653",
+  "billingRegion": "Terrassa",
+  "billingCountry": "España",
+  "state": true,
+  "google": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433cc9a2ce05deb632daf59"
+  },
+  "name": "Iker",
+  "mail": "iker@gmail.com",
+  "password": "$2a$10$y0WGdYbzBgHuD4.uE5oRHOezNkYYYC2TTEbzVbqSeGqg4UwAjAZgm",
+  "role": "USER_ROLE",
+  "surname1": "Hernandez",
+  "surname2": "Sanchez",
+  "telephone": "687565689",
+  "years": {
+    "$date": "2003-04-15T00:00:00.000Z"
+  },
+  "address": "Calle Badalona n8",
+  "zipCode": "45453",
+  "region": "Barcelona",
+  "country": "España",
+  "billingAddress": "Calle Badalona n8",
+  "billingZipCode": "45453",
+  "billingRegion": "Barcelona",
+  "billingCountry": "España",
+  "state": true,
+  "google": false,
+  "__v": 0
+}]

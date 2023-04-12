@@ -1,0 +1,25 @@
+[{
+  "_id": {
+    "$oid": "6432ed0c588c4f7baa2e3ecc"
+  },
+  "offerPercentage": 33,
+  "offerName": "NANO PODIO bby",
+  "purchaseDate": {
+    "$date": "2023-04-09T16:51:09.113Z"
+  },
+  "sellerMail": "eric@gmail.com",
+  "active": false,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6433cd712ce05deb632daf69"
+  },
+  "offerPercentage": 21,
+  "offerName": "Sin IVA",
+  "purchaseDate": {
+    "$date": "2023-04-10T08:46:17.472Z"
+  },
+  "sellerMail": "eric@gmail.com",
+  "active": true,
+  "__v": 0
+}]
